@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:patient_journey_management/constants/colors.dart';
 import 'package:patient_journey_management/view/my_bookings/appointmentpage.dart';
@@ -29,7 +28,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return Scaffold(
       body: pages[_currentindex],
       bottomNavigationBar: Container(
-        height: 70.h,
+        height: 70,
         color:AppColors.white, // Bottom Navigation Bar Background
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -47,8 +46,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                     // Circle background behind the selected icon
                     if (_currentindex == i)
                       Container(
-                        width: 50.w,
-                        height: 50.h,
+                        width: 50,
+                        height: 50,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: AppColors
@@ -61,7 +60,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                       children: [
                         SvgPicture.asset(
                           getIconPath(i),
-                          height: 20.h,
+                          height: 20,
                           color: _currentindex == i
                               ? AppColors.blue
                               : AppColors.grey1,

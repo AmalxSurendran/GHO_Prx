@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/headings.dart';
 import 'package:patient_journey_management/view/book_an_appointment/select_hospital.dart';
@@ -17,7 +16,7 @@ class AppointmentType extends StatelessWidget {
             icon: Icon(
               Icons.arrow_back_ios_rounded,
               color: AppColors.textcolor,
-              size: 20.sp,
+              size: 20,
             ),
             onPressed: () {
               Navigator.pop(context); // Navigates back to the previous screen
@@ -27,7 +26,7 @@ class AppointmentType extends StatelessWidget {
             'Appointment Type',
             style: TextStyle(
                 color: AppColors.textcolor,
-                fontSize: 16.sp,
+                fontSize: 16,
                 fontWeight: FontWeight.w500),
           )),
       body: Center(
@@ -36,8 +35,8 @@ class AppointmentType extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               heading('Choose Appointment Type'),
-               SizedBox(
-                height: 10.h,
+               const SizedBox(
+                height: 10,
               ),
               GestureDetector(
                 onTap: () {
@@ -54,16 +53,16 @@ class AppointmentType extends StatelessWidget {
                   path: 'assets/icons/hospitalicon.svg',
                 ),
               ),
-               SizedBox(
-                height: 10.h,
+               const SizedBox(
+                height: 10,
               ),
               ContainerCustom(
                   heading: 'Clinic',
                   text: 'Your health is our priority—let’s check in!',
                   path: 'assets/icons/clinicicon.svg',
                   color:AppColors.yellowshade),
-               SizedBox(
-                height: 10.h,
+               const SizedBox(
+                height: 10,
               ),
               ContainerCustom(
                   heading: 'Specialist',
@@ -94,10 +93,10 @@ class ContainerCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150.h,
-      width: 326.w,
+      height: 150,
+      width: 326,
       decoration: BoxDecoration(
-          borderRadius:  BorderRadius.all(Radius.circular(10.r)),
+          borderRadius:  const BorderRadius.all(Radius.circular(10)),
           image: const DecorationImage(
               image: AssetImage(
                   'assets/appointmentpageimages/containerbackground.jpeg'),
@@ -105,39 +104,39 @@ class ContainerCustom extends StatelessWidget {
               fit: BoxFit.cover),
           color: color),
       child: Padding(
-        padding:  EdgeInsets.only(left: 20.w, top: 20.h),
+        padding:  const EdgeInsets.only(left: 20, top: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CircleAvatar(
-              radius: 25.r,
+              radius: 25,
               backgroundColor: AppColors.white,
               child: Center(
                   child: SvgPicture.asset(
                 path,
-                height: 24.h,
-                width: 24.w,
+                height: 24,
+                width: 24,
               )),
             ),
-             SizedBox(
-              height: 5.h,
+             const SizedBox(
+              height: 5,
             ),
             Text(
               heading,
               style:  TextStyle(
                   color: AppColors.textcolor,
-                  fontSize: 18.sp,
+                  fontSize: 18,
                   fontWeight: FontWeight.w400),
             ),
-             SizedBox(
-              height: 5.h,
+             const SizedBox(
+              height: 5,
             ),
             Text(
               text,
               style:  TextStyle(
                   color: AppColors.textcolor,
-                  fontSize: 14.sp,
+                  fontSize: 14,
                   fontWeight: FontWeight.w300),
             )
           ],

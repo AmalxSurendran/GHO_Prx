@@ -468,7 +468,6 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
@@ -580,15 +579,15 @@ class RegisterPage extends StatelessWidget {
               right: 25,
               bottom: size.height / 15,
               child: Container(
-                width: 343.w,
-                height: 672.h,
+                width: 343,
+                height: 672,
                 decoration: BoxDecoration(
                   color: AppColors.white.withOpacity(0.6),
-                  borderRadius: BorderRadius.circular(4.r),
+                  borderRadius: BorderRadius.circular(4),
                   boxShadow: [
                     BoxShadow(
                       color: AppColors.shadow,
-                      blurRadius: 12.r,
+                      blurRadius: 12,
                       offset: const Offset(0, 0),
                     ),
                   ],
@@ -607,10 +606,10 @@ class RegisterPage extends StatelessWidget {
                           style: TextStyle(
                               color: AppColors.headline,
                               fontWeight: FontWeight.w700,
-                              fontSize: 32.sp),
+                              fontSize: 32),
                         ),
-                        SizedBox(
-                          height: 10.h,
+                        const SizedBox(
+                          height: 10,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -652,7 +651,7 @@ class RegisterPage extends StatelessWidget {
                             return null;
                           },
                         ),
-                        SizedBox(height: 20.h),
+                        const SizedBox(height: 20),
                         CommonWidgets().textFormField(
                           labeltext: 'Enter your last name',
                           txtController: firstnamecontroller,
@@ -664,35 +663,32 @@ class RegisterPage extends StatelessWidget {
                             return null;
                           },
                         ),
-                        SizedBox(height: 20.h),
+                        const SizedBox(height: 20),
                         phonenumberTxtfield(),
-                        SizedBox(
-                          height: 20.h,
+                        const SizedBox(
+                          height: 20,
                         ),
                         CommonWidgets().textFormField(
                           labeltext: 'Enter your email',
                           txtController: emailcontroller,
                           validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'This field is Required';
-                            } // Email validation regex
-                            String emailPattern =
-                                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
-                            RegExp regex = RegExp(emailPattern);
-                            if (!regex.hasMatch(value)) {
-                              return 'Enter a valid email address';
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            } else if (!RegExp(
+                                    r"^[a-zA-Z0-9.a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}")
+                                .hasMatch(value)) {
+                              return 'Please enter a valid email';
                             }
-
                             return null;
                           },
                         ),
-                        SizedBox(
-                          height: 20.h,
+                        const SizedBox(
+                          height: 20,
                         ),
                         Obx(
                           () => Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
+                              borderRadius: BorderRadius.circular(10),
                               
                             ),
                             child: TextFormField(
@@ -732,39 +728,39 @@ class RegisterPage extends StatelessWidget {
                                     color: AppColors.grey,
                                   ),
                                 ),
-                                border: OutlineInputBorder(),
+                                border: const OutlineInputBorder(),
                                 labelText: 'Enter password',
                                 labelStyle: TextStyle(color: AppColors.labelcolor,fontWeight: FontWeight.w500,fontSize: 14),
                                 enabledBorder: OutlineInputBorder(
                                     borderSide:
                                         BorderSide(color: AppColors.white),
-                                    borderRadius: BorderRadius.circular(10.r)),
-                                errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                errorBorder: const OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10.r)),
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
-                                focusedErrorBorder: OutlineInputBorder(
+                                focusedErrorBorder: const OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10.r)),
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.r),
+                                    borderRadius: BorderRadius.circular(10),
                                     borderSide:
                                         BorderSide(color: AppColors.blue)),
-                                contentPadding: EdgeInsets.all(12.w),
+                                contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 20.h,
+                        const SizedBox(
+                          height: 20,
                         ),
                         Obx(
                           () => Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             child: TextFormField(
                               controller: confirmcontroller,
@@ -801,28 +797,28 @@ class RegisterPage extends StatelessWidget {
                                 enabledBorder: OutlineInputBorder(
                                     borderSide:
                                         BorderSide(color: AppColors.white),
-                                    borderRadius: BorderRadius.circular(10.r)),
-                                errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                errorBorder: const OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10.r)),
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
-                                focusedErrorBorder: OutlineInputBorder(
+                                focusedErrorBorder: const OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10.r)),
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.r),
+                                    borderRadius: BorderRadius.circular(10),
                                     borderSide:
                                         BorderSide(color: AppColors.blue)),
-                                contentPadding: EdgeInsets.all(12.w),
+                                contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 20.h,
+                        const SizedBox(
+                          height: 20,
                         ),
                         Row(
                           children: [
@@ -839,7 +835,7 @@ class RegisterPage extends StatelessWidget {
                                   width: 2,
                                 ),
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(4.r),
+                                  borderRadius: BorderRadius.circular(4),
                                 ),
                               ),
                             ),
@@ -847,14 +843,14 @@ class RegisterPage extends StatelessWidget {
                               "I agree to the ",
                               style: TextStyle(
                                   color: AppColors.grey,
-                                  fontSize: 10.sp,
+                                  fontSize: 10,
                                   fontWeight: FontWeight.w500),
                             ),
                             Text(
                               "Terms of Service ",
                               style: TextStyle(
                                   color: AppColors.blue,
-                                  fontSize: 10.sp,
+                                  fontSize: 10,
                                   fontWeight: FontWeight.w500),
                             ),
                             Text(
@@ -862,14 +858,14 @@ class RegisterPage extends StatelessWidget {
                               style: TextStyle(
                                   color: AppColors.grey,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 10.sp),
+                                  fontSize: 10),
                             ),
                             Text(
                               "Privacy Policy",
                               style: TextStyle(
                                   color: AppColors.blue,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 10.sp),
+                                  fontSize: 10),
                             ),
                           ],
                         ),
@@ -895,8 +891,8 @@ class RegisterPage extends StatelessWidget {
                         //   },
                         // ),
 
-                        SizedBox(
-                          height: 10.h,
+                        const SizedBox(
+                          height: 10,
                         ),
                         // register button
                         Obx(
@@ -944,7 +940,7 @@ class RegisterPage extends StatelessWidget {
                                       ),
                                     )),
                         ),
-                        SizedBox(height: 20,)
+                        const SizedBox(height: 20,)
                       ],
                     ),
                   ),
@@ -972,25 +968,25 @@ class RegisterPage extends StatelessWidget {
         floatingLabelStyle: TextStyle(color: AppColors.blue),
         labelText: 'Phone Number',
         labelStyle: TextStyle(
-            fontSize: 14.sp,
+            fontSize: 14,
             fontWeight: FontWeight.w500,
             color: AppColors.labelcolor),
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: AppColors.white),
-            borderRadius: BorderRadius.circular(10.r)),
-        errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10)),
+        errorBorder: const OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(10.r)),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
-        focusedErrorBorder: OutlineInputBorder(
+        focusedErrorBorder: const OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(10.r)),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r),
+            borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide(color: AppColors.blue)),
-        contentPadding: EdgeInsets.all(12.w),
+        contentPadding: const EdgeInsets.all(12),
       ),
       onChanged: (phone) {
         print(phone.completeNumber);
@@ -1023,25 +1019,25 @@ class CommonWidgets {
           floatingLabelStyle: TextStyle(color: AppColors.blue),
           labelText: labeltext,
           labelStyle: TextStyle(
-              fontSize: 14.sp,
+              fontSize: 14,
               fontWeight: FontWeight.w500,
               color: AppColors.labelcolor),
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: AppColors.white),
-              borderRadius: BorderRadius.circular(10.r)),
-          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10)),
+          errorBorder: const OutlineInputBorder(
             borderSide: BorderSide.none,
-            borderRadius: BorderRadius.all(Radius.circular(10.r)),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
-          focusedErrorBorder: OutlineInputBorder(
+          focusedErrorBorder: const OutlineInputBorder(
             borderSide: BorderSide.none,
-            borderRadius: BorderRadius.all(Radius.circular(10.r)),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.r),
+              borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(color: AppColors.blue)),
-          contentPadding: EdgeInsets.all(12.w),
+          contentPadding: const EdgeInsets.all(12),
         ),
       ),
     );

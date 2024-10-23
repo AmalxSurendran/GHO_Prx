@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/headings.dart';
@@ -18,7 +17,7 @@ class MyConsultations extends StatelessWidget {
             icon: Icon(
               Icons.arrow_back_ios_rounded,
               color: AppColors.textcolor,
-              size: 20.sp,
+              size: 20,
             ),
             onPressed: () {
               Navigator.pop(context); // Navigates back to the previous screen
@@ -28,100 +27,100 @@ class MyConsultations extends StatelessWidget {
             'My Consultations',
             style: TextStyle(
                 color: AppColors.textcolor,
-                fontSize: 16.sp,
+                fontSize: 16,
                 fontWeight: FontWeight.w500),
           )),
       body: Padding(
-        padding: EdgeInsets.all(20.w),
+        padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 20.h,
+              const SizedBox(
+                height: 20,
               ),
               Center(
                 child: Container(
-                  height: 200.h,
-                  width: 326.w,
+                  height: 200,
+                  width: 326,
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
                         color: AppColors.shadow, // Shadow color
                         offset: const Offset(
                             0, 10), // Horizontal and vertical offsets
-                        blurRadius: 15.r, // Blur radius
-                        spreadRadius: -3.r, // Spread radius
+                        blurRadius: 15, // Blur radius
+                        spreadRadius: -3, // Spread radius
                       ),
                     ],
                     color: AppColors.white,
-                    borderRadius: BorderRadius.circular(10.r),
+                    borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                       color: AppColors.bordercolor, // Border color
-                      width: 1.w, // Border width
+                      width: 1, // Border width
                     ),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: 35.h,
+                        height: 35,
                         color: AppColors.bordercolor,
                         child: const Center(
                           child: Text('Token no: 25'),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 10.w, top: 20.h),
+                        padding: const EdgeInsets.only(left: 10, top: 20),
                         child: Text(
                           'Booking ID: XXXXXX',
                           style: TextStyle(
                             color: AppColors.blue,
-                            fontSize: 14.sp,
+                            fontSize: 14,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 10.h,
+                      const SizedBox(
+                        height: 10,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 10.w),
+                        padding: const EdgeInsets.only(left: 10),
                         child: Row(
                           children: [
                             SvgPicture.asset(
                               'assets/icons/clockicon.svg',
                               color: AppColors.grey4,
-                              height: 16.67.h,
-                              width: 16.67.w,
+                              height: 16.67,
+                              width: 16.67,
                             ),
-                            SizedBox(
-                              width: 4.w,
+                            const SizedBox(
+                              width: 4,
                             ),
                             Text(
                               'Sep, Wed 20 . 10:00 am - 10:30 am',
                               style: TextStyle(
                                   color: AppColors.grey2,
-                                  fontSize: 12.sp,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.w400),
                             )
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 20.h,
+                      const SizedBox(
+                        height: 20,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 10.w),
+                        padding: const EdgeInsets.only(left: 10),
                         child: Row(
                           children: [
-                            CircleAvatar(
-                              radius: 20.r,
-                              backgroundImage: const AssetImage(
+                            const CircleAvatar(
+                              radius: 20,
+                              backgroundImage: AssetImage(
                                   'assets/homepageimages/Ellipse 190.png'),
                             ),
-                            SizedBox(
-                              width: 10.w,
+                            const SizedBox(
+                              width: 10,
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -132,17 +131,17 @@ class MyConsultations extends StatelessWidget {
                                   style: TextStyle(
                                     color: AppColors.blue,
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 12.sp,
+                                    fontSize: 12,
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 5.h,
+                                const SizedBox(
+                                  height: 5,
                                 ),
                                 Text(
                                   'Psychologists | Apollo hospital',
                                   style: TextStyle(
                                       color: AppColors.grey5,
-                                      fontSize: 12.sp,
+                                      fontSize: 12,
                                       fontWeight: FontWeight.w400),
                                 ),
                               ],
@@ -154,12 +153,12 @@ class MyConsultations extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20.h,
+              const SizedBox(
+                height: 20,
               ),
               heading('Map Towards Hospital'),
-              SizedBox(
-                height: 10.h,
+              const SizedBox(
+                height: 10,
               ),
               Row(
                 children: [
@@ -167,49 +166,49 @@ class MyConsultations extends StatelessWidget {
                     'assets/icons/locationicon.svg',
                     color: AppColors.blue,
                   ),
-                  SizedBox(
-                    width: 5.w,
+                  const SizedBox(
+                    width: 5,
                   ),
                   Text(
                     '154/11, Bannerghatta Road Opp, Bangalore - 560 076',
                     style: TextStyle(
-                        fontSize: 12.sp,
+                        fontSize: 12,
                         color: AppColors.textcolor,
                         fontWeight: FontWeight.w300),
                   )
                 ],
               ),
-              SizedBox(
-                height: 10.h,
+              const SizedBox(
+                height: 10,
               ),
               Container(
-                height: 200.h,
-                width: 326.w,
+                height: 200,
+                width: 326,
                 decoration: BoxDecoration(
                     color: AppColors.grey,
-                    borderRadius: BorderRadius.circular(10.r)),
+                    borderRadius: BorderRadius.circular(10)),
                     child: const MapScreen(),
               ),
-              SizedBox(
-                height: 20.h,
+              const SizedBox(
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
                     child: Container(
-                      height: 35.h,
-                      width: 150.w,
+                      height: 35,
+                      width: 150,
                       decoration: BoxDecoration(
                           border: Border.all(color: AppColors.blue),
                           color: AppColors.blue,
-                          borderRadius: BorderRadius.circular(4.r)),
+                          borderRadius: BorderRadius.circular(4)),
                       child: Center(
                           child: Text(
                         'I’m at Hospital',
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: 12.sp,
+                            fontSize: 12,
                             color: AppColors.white),
                       )),
                     ),
@@ -217,85 +216,85 @@ class MyConsultations extends StatelessWidget {
                   GestureDetector(
                     onTap: () => Get.toNamed('/DrInfo'),
                     child: Container(
-                      height: 35.h,
-                      width: 150.w,
+                      height: 35,
+                      width: 150,
                       decoration: BoxDecoration(
                           border: Border.all(color: AppColors.blue),
-                          borderRadius: BorderRadius.circular(4.r)),
+                          borderRadius: BorderRadius.circular(4)),
                       child: Center(
                           child: Text(
                         'Report To Doctor/Nurse',
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: 12.sp,
+                            fontSize: 12,
                             color: AppColors.blue),
                       )),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
-                height: 30.h,
+              const SizedBox(
+                height: 30,
               ),
               heading('Need Help?'),
-              SizedBox(
-                height: 10.h,
+              const SizedBox(
+                height: 10,
               ),
               Text(
                 'If you can’t make it, please cancel or reschedule.',
                 style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 12,
                     color: AppColors.textcolor,
                     fontWeight: FontWeight.w300),
               ),
-              SizedBox(
-                height: 15.h,
+              const SizedBox(
+                height: 15,
               ),
               Row(
                 children: [
                   SvgPicture.asset(
                     'assets/icons/reschedule.svg',
-                    height: 24.h,
-                    width: 24.w,
+                    height: 24,
+                    width: 24,
                     color: AppColors.textcolor2,
                   ),
-                  SizedBox(
-                    width: 10.w,
+                  const SizedBox(
+                    width: 10,
                   ),
                   Text(
                     'Reschedule',
                     style: TextStyle(
                         color: AppColors.textcolor2,
-                        fontSize: 16.sp,
+                        fontSize: 16,
                         fontWeight: FontWeight.w600),
                   )
                 ],
               ),
-              SizedBox(
-                height: 15.h,
+              const SizedBox(
+                height: 15,
               ),
               Row(
                 children: [
                   SvgPicture.asset(
                     'assets/icons/cancel.svg',
-                    height: 24.h,
-                    width: 24.w,
+                    height: 24,
+                    width: 24,
                     color: AppColors.textcolor2,
                   ),
-                  SizedBox(
-                    width: 10.w,
+                  const SizedBox(
+                    width: 10,
                   ),
                   Text(
                     'Cancel',
                     style: TextStyle(
                         color: AppColors.textcolor2,
-                        fontSize: 16.sp,
+                        fontSize: 16,
                         fontWeight: FontWeight.w600),
                   )
                 ],
               ),
-              SizedBox(
-                height: 40.h,
+              const SizedBox(
+                height: 40,
               )
             ],
           ),

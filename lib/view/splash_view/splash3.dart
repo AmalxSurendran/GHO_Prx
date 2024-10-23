@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:patient_journey_management/constants/colors.dart';
 
@@ -24,23 +23,23 @@ class Splash3 extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 280.h,
-              left: 20.w,
-              right: 20.w,
+              top: 280,
+              left: 20,
+              right: 20,
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      height: 105.h,
-                      width: 105.w,
+                      height: 105,
+                      width: 105,
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(color: AppColors.blue7)),
                       child: Center(
                         child: Container(
-                          height: 100.h,
-                          width: 100.w,
+                          height: 100,
+                          width: 100,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: AppColors.white,
@@ -53,30 +52,30 @@ class Splash3 extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 10.h,
+                    const SizedBox(
+                      height: 10,
                     ),
-                    Text(
+                    const Text(
                       'Your Health,\nOne Tap Away',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: const Color(0xff0D2E41),
-                          fontSize: 26.sp,
+                          color: Color(0xff0D2E41),
+                          fontSize: 26,
                           fontWeight: FontWeight.w600),
                     ),
-                    SizedBox(
-                      height: 10.h,
+                    const SizedBox(
+                      height: 10,
                     ),
                     Text(
                       'Connect with Specialized Doctors for your time & \n Comprehensive Medical Consultations.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: const Color(0xff0D2E41).withOpacity(0.5),
-                          fontSize: 14.sp,
+                          fontSize: 14,
                           fontWeight: FontWeight.w600),
                     ),
-                    SizedBox(
-                      height: 10.h,
+                    const SizedBox(
+                      height: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -84,32 +83,32 @@ class Splash3 extends StatelessWidget {
                         GestureDetector(
                           onTap: () => Get.toNamed('/RegisterPage'),
                           child: Container(
-                            height: 37.h,
-                            width: 147.w,
+                            height: 37,
+                            width: 147,
                             decoration: BoxDecoration(
                                 border:
                                     Border.all(color: const Color(0xff027DFF)),
-                                borderRadius: BorderRadius.circular(4.r)),
-                            child: Center(
+                                borderRadius: BorderRadius.circular(4)),
+                            child: const Center(
                                 child: Text(
                               'Sign Up',
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,
-                                  fontSize: 14.sp,
-                                  color: const Color(0xff027DFF)),
+                                  fontSize: 14,
+                                  color: Color(0xff027DFF)),
                             )),
                           ),
                         ),
-                        SizedBox(
-                          width: 10.w,
+                        const SizedBox(
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () => Get.toNamed('/LoginPage'),
                           child: Container(
-                            height: 37.h,
-                            width: 147.w,
+                            height: 37,
+                            width: 147,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4.r),
+                              borderRadius: BorderRadius.circular(4),
                               gradient: const LinearGradient(
                                 begin: Alignment.centerRight,
                                 end: Alignment.centerLeft,
@@ -124,15 +123,15 @@ class Splash3 extends StatelessWidget {
                               'Log In',
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,
-                                  fontSize: 14.sp,
+                                  fontSize: 14,
                                   color: AppColors.white),
                             )),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 10.h,
+                    const SizedBox(
+                      height: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -140,30 +139,30 @@ class Splash3 extends StatelessWidget {
                         Text(
                           'By signing up, you agree to our ',
                           style: TextStyle(
-                              fontSize: 8.sp,
+                              fontSize: 8,
                               fontWeight: FontWeight.w400,
                               color: const Color(0xff0D2E41).withOpacity(0.5)),
                         ),
-                        Text(
+                        const Text(
                           'Terms and Conditions',
                           style: TextStyle(
-                              fontSize: 8.sp,
+                              fontSize: 8,
                               fontWeight: FontWeight.w400,
-                              color: const Color(0xff027DFF)),
+                              color: Color(0xff027DFF)),
                         ),
                         Text(
                           '& ',
                           style: TextStyle(
-                              fontSize: 8.sp,
+                              fontSize: 8,
                               fontWeight: FontWeight.w400,
                               color: const Color(0xff0D2E41).withOpacity(0.5)),
                         ),
-                        Text(
+                        const Text(
                           'Privacy Policy.',
                           style: TextStyle(
-                              fontSize: 8.sp,
+                              fontSize: 8,
                               fontWeight: FontWeight.w400,
-                              color: const Color(0xff027DFF)),
+                              color: Color(0xff027DFF)),
                         ),
                       ],
                     )

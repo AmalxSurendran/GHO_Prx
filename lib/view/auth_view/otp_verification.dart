@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:patient_journey_management/constants/colors.dart';
@@ -24,8 +23,8 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     final defaultPinTheme = PinTheme(
-      width: 56.h,
-      height: 60.w,
+      width: 56,
+      height: 60,
       textStyle: const TextStyle(color: Colors.black, fontSize: 18),
       decoration: BoxDecoration(
         color: AppColors.blue7.withOpacity(0.4),
@@ -67,7 +66,7 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                       fontSize: size.width / 11,
                     ),
                   ),
-                  SizedBox(height: 10.h),
+                  const SizedBox(height: 10),
                   Text(
                     "OTP has been sent to $email",
                     style: TextStyle(
@@ -87,10 +86,10 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
-                    BoxShadow(
-                      color: const Color(0x1A000000),
-                      blurRadius: 12.r,
-                      offset: const Offset(0, 0),
+                    const BoxShadow(
+                      color: Color(0x1A000000),
+                      blurRadius: 12,
+                      offset: Offset(0, 0),
                     ),
                   ],
                 ),
@@ -116,23 +115,23 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                             },
                             length: 6,
                             defaultPinTheme: defaultPinTheme.copyWith(
-                                height: 46.h,
-                                width: 46.w,
+                                height: 46,
+                                width: 46,
                                 textStyle: TextStyle(
                                     color: AppColors.blue6,
-                                    fontSize: 15.sp,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold),
                                 decoration: BoxDecoration(
                                     border: Border.all(
                                       color: AppColors.blue7,
                                     ),
-                                    borderRadius: BorderRadius.circular(4.r))),
+                                    borderRadius: BorderRadius.circular(4))),
                             focusedPinTheme: defaultPinTheme.copyWith(
-                                height: 46.h,
-                                width: 45.w,
+                                height: 46,
+                                width: 45,
                                 textStyle: TextStyle(
                                     color: AppColors.white,
-                                    fontSize: 15.sp,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold),
                                 decoration: defaultPinTheme.decoration!
                                     .copyWith(
@@ -140,13 +139,13 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                                         border:
                                             Border.all(color: AppColors.blue7),
                                         borderRadius:
-                                            BorderRadius.circular(4.r))),
+                                            BorderRadius.circular(4))),
                             onCompleted: (value) {
                               otpController.text = value;
                             },
                           ),
                         ),
-                        SizedBox(height: 5.h),
+                        const SizedBox(height: 5),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -164,7 +163,7 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                                 width: 2,
                               ),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4.r),
+                                borderRadius: BorderRadius.circular(4),
                               ),
                             ),
                             Text("Didn't get OTP Code?",
@@ -208,30 +207,30 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                                           // Add your resend OTP logic here
                                         },
                                         child: Container(
-                                          width: 279.w,
-                                          height: 48.h,
+                                          width: 279,
+                                          height: 48,
                                           decoration: BoxDecoration(
                                             border: Border.all(color: AppColors.blue),
                                             borderRadius:
-                                                BorderRadius.circular(10.r),
+                                                BorderRadius.circular(10),
                                           ),
                                           child: Center(
                                             child: Text(
                                               'Resend',
                                               style: TextStyle(
                                                 color: AppColors.blue,
-                                                fontSize: 14.sp,
+                                                fontSize: 14,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                             ),
                                           ),
                                         ),
                                       )
-                                    :  ButtonCustom(
+                                    :  const ButtonCustom(
                                         name: 'Verify',
-                                        height: 48.h,
-                                        width: 279.w)),
-                         SizedBox(height: 20.h),
+                                        height: 48,
+                                        width: 279)),
+                         const SizedBox(height: 20),
                       ],
                     ),
                   ),

@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:patient_journey_management/constants/colors.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/button.dart';
@@ -25,16 +24,16 @@ class SelectHospital extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Container(
-              width: 326.w,
-              height: 310.h,
+              width: 326,
+              height: 310,
               decoration: BoxDecoration(
                   color: AppColors.white,
-                  borderRadius: BorderRadius.circular(10.r)),
-              padding: EdgeInsets.all(10.w),
+                  borderRadius: BorderRadius.circular(10)),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 20.h),
+                  const SizedBox(height: 20),
 
                   // Dropdown for Hospital Selection
                   Obx(() {
@@ -49,7 +48,7 @@ class SelectHospital extends StatelessWidget {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: AppColors.white4,
-                        borderRadius: BorderRadius.circular(4.r),
+                        borderRadius: BorderRadius.circular(4),
                         border: Border.all(color: AppColors.grey),
                       ),
                       child: DropdownButtonHideUnderline(
@@ -58,7 +57,7 @@ class SelectHospital extends StatelessWidget {
                           hint: Text(
                             'Select Hospital',
                             style: TextStyle(
-                              fontSize: 14.sp,
+                              fontSize: 14,
                               color: Theme.of(context).hintColor,
                             ),
                           ),
@@ -67,8 +66,8 @@ class SelectHospital extends StatelessWidget {
                                     value: hospital,
                                     child: Text(
                                       hospital,
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
+                                      style: const TextStyle(
+                                        fontSize: 14,
                                       ),
                                     ),
                                   ))
@@ -84,43 +83,43 @@ class SelectHospital extends StatelessWidget {
                                 ''; // Reset doctor
                             searchController.clear(); // Clear the search field
                           },
-                          buttonStyleData: ButtonStyleData(
-                            height: 45.h,
-                            padding: EdgeInsets.only(right: 10.w),
+                          buttonStyleData: const ButtonStyleData(
+                            height: 45,
+                            padding: EdgeInsets.only(right: 10),
                           ),
                           dropdownStyleData: DropdownStyleData(
                             decoration: BoxDecoration(
                               color: AppColors.white,
-                              borderRadius: BorderRadius.circular(4.r),
+                              borderRadius: BorderRadius.circular(4),
                             ),
-                            maxHeight: 275.h,
+                            maxHeight: 275,
                           ),
                           // Include a search bar
                           dropdownSearchData: DropdownSearchData(
                             searchController: searchController,
-                            searchInnerWidgetHeight: 50.h,
+                            searchInnerWidgetHeight: 50,
                             searchInnerWidget: Container(
-                              height: 50.h,
-                              padding: EdgeInsets.only(
-                                top: 8.h,
-                                bottom: 4.h,
-                                right: 8.w,
-                                left: 8.w,
+                              height: 50,
+                              padding: const EdgeInsets.only(
+                                top: 8,
+                                bottom: 4,
+                                right: 8,
+                                left: 8,
                               ),
                               child: TextFormField(
                                 cursorColor: Theme.of(context).primaryColor,
                                 controller: searchController,
                                 decoration: InputDecoration(
                                   isDense: true,
-                                  contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 10.w,
-                                    vertical: 8.h,
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 8,
                                   ),
                                   hintText: 'Search Hospital',
-                                  hintStyle: TextStyle(fontSize: 12.sp),
+                                  hintStyle: const TextStyle(fontSize: 12),
                                   focusedBorder: InputBorder.none,
                                   border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(4.r),
+                                    borderRadius: BorderRadius.circular(4),
                                   ),
                                 ),
                                 onChanged: (value) {
@@ -134,14 +133,14 @@ class SelectHospital extends StatelessWidget {
                     );
                   }),
 
-                  SizedBox(height: 20.h),
+                  const SizedBox(height: 20),
 
                   // Dropdown for Specialty Selection
                   Obx(() => Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: AppColors.white4,
-                          borderRadius: BorderRadius.circular(4.r),
+                          borderRadius: BorderRadius.circular(4),
                           border: Border.all(color: AppColors.grey),
                         ),
                         child: DropdownButtonHideUnderline(
@@ -150,7 +149,7 @@ class SelectHospital extends StatelessWidget {
                             hint: Text(
                               'Select Specialty',
                               style: TextStyle(
-                                fontSize: 14.sp,
+                                fontSize: 14,
                                 color: Theme.of(context).hintColor,
                               ),
                             ),
@@ -161,8 +160,8 @@ class SelectHospital extends StatelessWidget {
                                       value: specialty,
                                       child: Text(
                                         specialty,
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
+                                        style: const TextStyle(
+                                          fontSize: 14,
                                         ),
                                       ),
                                     ))
@@ -175,21 +174,21 @@ class SelectHospital extends StatelessWidget {
                               controller.selectedDoctor.value =
                                   ''; // Reset doctor
                             },
-                            buttonStyleData: ButtonStyleData(
-                              height: 45.h,
-                              padding: EdgeInsets.only(right: 10.w),
+                            buttonStyleData: const ButtonStyleData(
+                              height: 45,
+                              padding: EdgeInsets.only(right: 10),
                             ),
                             dropdownStyleData: DropdownStyleData(
                               decoration: BoxDecoration(
                                 color: AppColors.white,
-                                borderRadius: BorderRadius.circular(4.r),
+                                borderRadius: BorderRadius.circular(4),
                               ),
-                              maxHeight: 275.h,
+                              maxHeight: 275,
                             ),
                           ),
                         ),
                       )),
-                  SizedBox(height: 20.h),
+                  const SizedBox(height: 20),
 
                   // Dropdown for Doctor Selection
                   Obx(() => Container(
@@ -205,7 +204,7 @@ class SelectHospital extends StatelessWidget {
                             hint: Text(
                               'Select Doctor',
                               style: TextStyle(
-                                fontSize: 14.sp,
+                                fontSize: 14,
                                 color: Theme.of(context).hintColor,
                               ),
                             ),
@@ -218,8 +217,8 @@ class SelectHospital extends StatelessWidget {
                                       value: doctor,
                                       child: Text(
                                         doctor,
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
+                                        style: const TextStyle(
+                                          fontSize: 14,
                                         ),
                                       ),
                                     ))
@@ -230,16 +229,16 @@ class SelectHospital extends StatelessWidget {
                             onChanged: (value) {
                               controller.selectedDoctor.value = value ?? '';
                             },
-                            buttonStyleData: ButtonStyleData(
-                              height: 45.h,
-                              padding: EdgeInsets.only(right: 10.w),
+                            buttonStyleData: const ButtonStyleData(
+                              height: 45,
+                              padding: EdgeInsets.only(right: 10),
                             ),
                             dropdownStyleData: DropdownStyleData(
                               decoration: BoxDecoration(
                                 color: AppColors.white,
-                                borderRadius: BorderRadius.circular(4.r),
+                                borderRadius: BorderRadius.circular(4),
                               ),
-                              maxHeight: 275.h,
+                              maxHeight: 275,
                             ),
                           ),
                         ),
@@ -259,16 +258,16 @@ class SelectHospital extends StatelessWidget {
                             }
                           : null,
                       child: isEnabled
-                          ? ButtonCustom(
+                          ? const ButtonCustom(
                               name: 'Continue',
-                              height: 48.h,
-                              width: 280.w,
+                              height: 48,
+                              width: 280,
                             )
                           : const Text(''),
                     );
                   }),
 
-                  SizedBox(height: 20.h),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

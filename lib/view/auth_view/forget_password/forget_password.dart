@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:patient_journey_management/constants/colors.dart';
@@ -64,26 +62,26 @@ class _ForgetpasswordemailState extends State<Forgetpasswordemail> {
                   ],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20.w,
-                    vertical: 15.h,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 15,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        height: 25.h,
+                      const SizedBox(
+                        height: 25,
                       ),
                       Text(
                         'Forget Password?',
                         style: TextStyle(
                           color: AppColors.headline,
                           fontWeight: FontWeight.w700,
-                          fontSize: 32.sp,
+                          fontSize: 32,
                         ),
                       ),
-                      SizedBox(
-                        height: 10.h,
+                      const SizedBox(
+                        height: 10,
                       ),
                       Text(
                         "Enter your Email",
@@ -95,12 +93,12 @@ class _ForgetpasswordemailState extends State<Forgetpasswordemail> {
                         style: TextStyle(color: AppColors.grey2),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(
-                        height: 25.h,
+                      const SizedBox(
+                        height: 25,
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.r),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: TextFormField(
                           controller: emailcontroller,
@@ -113,31 +111,31 @@ class _ForgetpasswordemailState extends State<Forgetpasswordemail> {
                                 TextStyle(color: AppColors.blue),
                             labelText: 'Your Email',
                             labelStyle: TextStyle(
-                                fontSize: 14.sp,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.labelcolor),
-                            border: OutlineInputBorder(),
+                            border: const OutlineInputBorder(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: AppColors.white),
-                                borderRadius: BorderRadius.circular(10.r)),
-                            errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            errorBorder: const OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10.r)),
+                                  BorderRadius.all(Radius.circular(10)),
                             ),
-                            focusedErrorBorder: OutlineInputBorder(
+                            focusedErrorBorder: const OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10.r)),
+                                  BorderRadius.all(Radius.circular(10)),
                             ),
                             focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.r),
+                                borderRadius: BorderRadius.circular(10),
                                 borderSide: BorderSide(color: AppColors.blue)),
-                            contentPadding: EdgeInsets.all(12.w),
+                            contentPadding: const EdgeInsets.all(12),
                           ),
                         ),
                       ),
-                      SizedBox(height: 25.h),
+                      const SizedBox(height: 25),
                       GestureDetector(
                         onTap: () async {
                           if (_formKey.currentState!.validate()) {
@@ -157,9 +155,9 @@ class _ForgetpasswordemailState extends State<Forgetpasswordemail> {
                         },
                         child: Container(
                           width: double.infinity,
-                          height: 55.h,
+                          height: 55,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.r),
+                            borderRadius: BorderRadius.circular(10),
                             gradient: const LinearGradient(
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
@@ -173,20 +171,20 @@ class _ForgetpasswordemailState extends State<Forgetpasswordemail> {
                             child: isLoading
                                 ? LoadingAnimationWidget.fourRotatingDots(
                                     color: AppColors.white,
-                                    size: 24.sp,
+                                    size: 24,
                                   )
                                 : Text(
                                     'Continue',
                                     style: TextStyle(
                                       color: AppColors.white,
-                                      fontSize: 14.sp,
+                                      fontSize: 14,
                                     ),
                                   ),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 10.h,
+                      const SizedBox(
+                        height: 10,
                       ),
                     ],
                   ),

@@ -1,6 +1,5 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:patient_journey_management/constants/colors.dart';
 
 class SelectPlace extends StatefulWidget {
@@ -51,7 +50,7 @@ class _SelectPlaceState extends State<SelectPlace> {
             hint: Text(
               'Kochi',
               style: TextStyle(
-                fontSize: 14.sp,
+                fontSize: 14,
                 color: AppColors.grey2,
               ),
             ),
@@ -62,8 +61,8 @@ class _SelectPlaceState extends State<SelectPlace> {
                       value: item,
                       child: Text(
                         item,
-                        style: TextStyle(
-                          fontSize: 14.sp,
+                        style: const TextStyle(
+                          fontSize: 14,
                         ),
                       ),
                     ))
@@ -110,7 +109,7 @@ class _SelectPlaceState extends State<SelectPlace> {
                       vertical: 8,
                     ),
                     hintText: 'Search Places...',
-                    hintStyle: TextStyle(fontSize: 12.sp),
+                    hintStyle: const TextStyle(fontSize: 12),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(4),
                     ),

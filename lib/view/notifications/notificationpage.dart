@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:patient_journey_management/constants/colors.dart';
 
@@ -23,7 +22,7 @@ class Notificationpage extends StatelessWidget {
           'Notifications',
           style: TextStyle(
               color: AppColors.textcolor,
-              fontSize: 16.sp,
+              fontSize: 16,
               fontWeight: FontWeight.w500),
         ),
       ),
@@ -31,13 +30,13 @@ class Notificationpage extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(20.w),
+              padding: const EdgeInsets.all(20),
               child: Row(
                 children: [
                   Text(
                     'TODAY',
                     style: TextStyle(
-                        fontSize: 16.sp,
+                        fontSize: 16,
                         fontWeight: FontWeight.w400,
                         color:AppColors.grey3),
                   ),
@@ -46,19 +45,19 @@ class Notificationpage extends StatelessWidget {
                     'Mark all as read',
                     style: TextStyle(
                         color:AppColors.blue5,
-                        fontSize: 14.sp,
+                        fontSize: 14,
                         fontWeight: FontWeight.w700),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: 10.h,
+            const SizedBox(
+              height: 10,
             ),
             ListTile(
               tileColor: AppColors.white,
               leading: CircleAvatar(
-                radius: 35.r,
+                radius: 35,
                 backgroundColor:AppColors.white2,
                 child: Center(
                     child: SvgPicture.asset(
@@ -66,17 +65,17 @@ class Notificationpage extends StatelessWidget {
               ),
               title: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Appointment Success',
                     style:
-                        TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   const Spacer(),
                   Text(
                     '1h',
                     style: TextStyle(
                         color: AppColors.grey3,
-                        fontSize: 14.sp,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400),
                   ),
                 ],
@@ -84,7 +83,7 @@ class Notificationpage extends StatelessWidget {
               subtitle: Text(
                 'You have successfully booked your appointment with Dr. Emily Walker.',
                 style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color:AppColors.grey3),
               ),
@@ -92,7 +91,7 @@ class Notificationpage extends StatelessWidget {
             ListTile(
               tileColor: AppColors.white,
               leading: CircleAvatar(
-                radius: 35.r,
+                radius: 35,
                 backgroundColor:AppColors.bordercolor1,
                 child: Center(
                     child: SvgPicture.asset(
@@ -100,17 +99,17 @@ class Notificationpage extends StatelessWidget {
               ),
               title: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Appointment Cancelled',
                     style:
-                        TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   const Spacer(),
                   Text(
                     '2h',
                     style: TextStyle(
                         color:AppColors.grey3,
-                        fontSize: 14.sp,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400),
                   ),
                 ],
@@ -118,7 +117,7 @@ class Notificationpage extends StatelessWidget {
               subtitle: Text(
                 'You have successfully cancelled your appointment with Dr. David Patel.',
                 style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color:AppColors.grey3),
               ),
@@ -126,7 +125,7 @@ class Notificationpage extends StatelessWidget {
             ListTile(
               tileColor: AppColors.white,
               leading: CircleAvatar(
-                radius: 35.r,
+                radius: 35,
                 backgroundColor:AppColors.iconbackground,
                 child: Center(
                     child: SvgPicture.asset(
@@ -134,17 +133,17 @@ class Notificationpage extends StatelessWidget {
               ),
               title: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Scheduled Changed',
                     style:
-                        TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   const Spacer(),
                   Text(
                     '8h',
                     style: TextStyle(
                         color:AppColors.grey3,
-                        fontSize: 14.sp,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400),
                   ),
                 ],
@@ -152,19 +151,19 @@ class Notificationpage extends StatelessWidget {
               subtitle: Text(
                 'You have successfully changes your appointment with Dr. Jesica Turner.',
                 style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color:AppColors.grey3),
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(20.w),
+              padding: const EdgeInsets.all(20),
               child: Row(
                 children: [
                   Text(
                     'YESTERDAY',
                     style: TextStyle(
-                        fontSize: 16.sp,
+                        fontSize: 16,
                         fontWeight: FontWeight.w400,
                         color:AppColors.grey3),
                   ),
@@ -173,7 +172,7 @@ class Notificationpage extends StatelessWidget {
                     'Mark all as read',
                     style: TextStyle(
                         color: AppColors.blue5,
-                        fontSize: 14.sp,
+                        fontSize: 14,
                         fontWeight: FontWeight.w700),
                   ),
                 ],
@@ -182,7 +181,7 @@ class Notificationpage extends StatelessWidget {
             ListTile(
               tileColor:AppColors.white,
               leading: CircleAvatar(
-                radius: 35.r,
+                radius: 35,
                 backgroundColor:AppColors.white2,
                 child: Center(
                     child: SvgPicture.asset(
@@ -190,17 +189,17 @@ class Notificationpage extends StatelessWidget {
               ),
               title: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Appointment Success',
                     style:
-                        TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   const Spacer(),
                   Text(
                     '1d',
                     style: TextStyle(
                         color:AppColors.grey3,
-                        fontSize: 14.sp,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400),
                   ),
                 ],
@@ -208,7 +207,7 @@ class Notificationpage extends StatelessWidget {
               subtitle: Text(
                 'You have successfully booked your appointment with Dr. David Patel.',
                 style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color:AppColors.grey3),
               ),

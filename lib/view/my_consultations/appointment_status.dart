@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/button.dart';
 
@@ -16,7 +15,7 @@ class AppointmentStatus extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back_ios_rounded,
             color: AppColors.textcolor,
-            size: 20.sp,
+            size: 20,
           ),
           onPressed: () {
             Navigator.pop(context); // Navigates back to the previous screen
@@ -26,104 +25,104 @@ class AppointmentStatus extends StatelessWidget {
           'Appointment Status',
           style: TextStyle(
               color: AppColors.textcolor,
-              fontSize: 16.sp,
+              fontSize: 16,
               fontWeight: FontWeight.w500),
         ),
       ),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  height: 200.h,
-                  width: 326.w,
+                  height: 200,
+                  width: 326,
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
                         color: AppColors.shadow, // Shadow color
                         offset: const Offset(
                             0, 10), // Horizontal and vertical offsets
-                        blurRadius: 15.r, // Blur radius
-                        spreadRadius: -3.r, // Spread radius
+                        blurRadius: 15, // Blur radius
+                        spreadRadius: -3, // Spread radius
                       ),
                     ],
                     color: AppColors.white,
-                    borderRadius: BorderRadius.circular(10.r),
+                    borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                       color: AppColors.bordercolor, // Border color
-                      width: 1.w, // Border width
+                      width: 1, // Border width
                     ),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: 35.h,
+                        height: 35,
                         color: AppColors.bordercolor,
                         child: Center(
                           child: Text(
                             'Case Closed',
                             style: TextStyle(
                                 color: AppColors.red1,
-                                fontSize: 14.sp,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w400),
                           ),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 10.w, top: 20.h),
+                        padding: const EdgeInsets.only(left: 10, top: 20),
                         child: Text(
                           'Booking ID: XXXXXX',
                           style: TextStyle(
                             color: AppColors.blue,
-                            fontSize: 14.sp,
+                            fontSize: 14,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 10.h,
+                      const SizedBox(
+                        height: 10,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 10.w),
+                        padding: const EdgeInsets.only(left: 10),
                         child: Row(
                           children: [
                             SvgPicture.asset(
                               'assets/icons/clockicon.svg',
                               color: AppColors.grey4,
-                              height: 16.67.h,
-                              width: 16.67.w,
+                              height: 16.67,
+                              width: 16.67,
                             ),
-                            SizedBox(
-                              width: 4.w,
+                            const SizedBox(
+                              width: 4,
                             ),
                             Text(
                               'Sep, Wed 20 . 10:00 am - 10:30 am',
                               style: TextStyle(
                                   color:AppColors.grey2,
-                                  fontSize: 12.sp,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.w400),
                             )
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 20.h,
+                      const SizedBox(
+                        height: 20,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 10.w),
+                        padding: const EdgeInsets.only(left: 10),
                         child: Row(
                           children: [
-                            CircleAvatar(
-                              radius: 20.r,
-                              backgroundImage: const AssetImage(
+                            const CircleAvatar(
+                              radius: 20,
+                              backgroundImage: AssetImage(
                                   'assets/homepageimages/Ellipse 190.png'),
                             ),
-                            SizedBox(
-                              width: 10.w,
+                            const SizedBox(
+                              width: 10,
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -134,17 +133,17 @@ class AppointmentStatus extends StatelessWidget {
                                   style: TextStyle(
                                     color: AppColors.blue,
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 12.sp,
+                                    fontSize: 12,
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 5.h,
+                                const SizedBox(
+                                  height: 5,
                                 ),
                                 Text(
                                   'Psychologists | Apollo hospital',
                                   style: TextStyle(
                                       color:AppColors.grey5,
-                                      fontSize: 12.sp,
+                                      fontSize: 12,
                                       fontWeight: FontWeight.w400),
                                 ),
                               ],
@@ -155,8 +154,8 @@ class AppointmentStatus extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 20.h,
+                const SizedBox(
+                  height: 20,
                 ),
                 TextFormField(
                   maxLines: 6,
@@ -170,16 +169,16 @@ class AppointmentStatus extends StatelessWidget {
                       fillColor:AppColors.white,
                       border: const OutlineInputBorder(),
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.r),
+                          borderRadius: BorderRadius.circular(10),
                           borderSide:  BorderSide(
                             color: AppColors.bordercolor1,
                           
                           ))),
                 ),
-                SizedBox(
-                  height: 20.h,
+                const SizedBox(
+                  height: 20,
                 ),
-                ButtonCustom(name: 'Follow-Up', height: 35.h, width: 326.w)
+                const ButtonCustom(name: 'Follow-Up', height: 35, width: 326)
               ],
             ),
           ),

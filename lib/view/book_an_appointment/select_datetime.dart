@@ -1,8 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:patient_journey_management/constants/colors.dart';
 import 'package:patient_journey_management/controller/datecontroller.dart';
@@ -40,7 +38,7 @@ class SelectDateAndTime extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back_ios_rounded,
             color: AppColors.textcolor,
-            size: 20.sp,
+            size: 20,
           ),
           onPressed: () {
             Get.back(); // Using GetX for navigation
@@ -50,38 +48,38 @@ class SelectDateAndTime extends StatelessWidget {
           'Select Date & Time',
           style: TextStyle(
             color: AppColors.textcolor,
-            fontSize: 16.sp,
+            fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20.w),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              ContainerDr(
-                  height: 90.h), // Assuming ContainerDr is a custom widget
-              SizedBox(height: 10.h),
+              const ContainerDr(
+                  height: 90), // Assuming ContainerDr is a custom widget
+              const SizedBox(height: 10),
               heading('Select Date'),
-              SizedBox(height: 10.h),
+              const SizedBox(height: 10),
 
               // Calendar inside a container
               Container(
-                padding: EdgeInsets.all(5.w),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   color: AppColors.white,
-                  borderRadius: BorderRadius.circular(10.r),
+                  borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       color: AppColors.shadow1.withOpacity(0.1),
-                      blurRadius: 8.r,
+                      blurRadius: 8,
                       offset: const Offset(0, 4),
                     ),
                   ],
                 ),
                 child: Obx(() => TableCalendar(
-                      rowHeight: 35.h,
+                      rowHeight: 35,
                       firstDay: DateTime.utc(2010, 10, 16),
                       lastDay: DateTime.utc(2030, 3, 14),
                       focusedDay: dateController.focusedDay.value,
@@ -111,13 +109,13 @@ class SelectDateAndTime extends StatelessWidget {
                         outsideDaysVisible: true,
                         outsideTextStyle: TextStyle(color: Colors.grey[400]),
                       ),
-                      headerStyle: HeaderStyle(
+                      headerStyle: const HeaderStyle(
                           formatButtonVisible: false,
-                          rightChevronIcon: const Icon(Icons.arrow_right),
+                          rightChevronIcon: Icon(Icons.arrow_right),
                           leftChevronVisible: false,
-                          headerMargin: EdgeInsets.only(left: 5.w),
+                          headerMargin: EdgeInsets.only(left: 5),
                           titleTextStyle: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 14.sp)),
+                              fontWeight: FontWeight.w700, fontSize: 14)),
                       daysOfWeekStyle: DaysOfWeekStyle(
                         weekdayStyle: TextStyle(
                             fontWeight: FontWeight.w600,
@@ -126,20 +124,20 @@ class SelectDateAndTime extends StatelessWidget {
                         weekendStyle: TextStyle(
                             fontWeight: FontWeight.w600,
                             color: AppColors.grey8,
-                            fontSize: 12.sp),
+                            fontSize: 12),
                       ),
                       calendarBuilders: CalendarBuilders(
                         defaultBuilder: (context, day, focusedDay) {
                           // Highlight available dates using the controller method
                           if (dateController.isAvailable(day)) {
                             return Padding(
-                              padding: EdgeInsets.all(4.w),
+                              padding: const EdgeInsets.all(4),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: AppColors
                                       .white5, // Highlight available date
                                   borderRadius: BorderRadius.circular(
-                                      5.r), // Rounded corners
+                                      5), // Rounded corners
                                 ),
                                 child: Center(
                                   child: Text(
@@ -160,9 +158,9 @@ class SelectDateAndTime extends StatelessWidget {
                     )),
               ),
               // Time slot selection
-              SizedBox(height: 15.h),
+              const SizedBox(height: 15),
               heading('Select Hour'),
-              SizedBox(height: 15.h),
+              const SizedBox(height: 15),
 
               // Grid for time slots
               GridView.builder(
@@ -194,13 +192,13 @@ class SelectDateAndTime extends StatelessWidget {
                                   : AppColors.grey1,
                           side: BorderSide(color: AppColors.white),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.r),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                         child: Text(
                           timeSlots[index],
                           style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 12,
                             fontWeight: FontWeight.w600,
                             color: dateController.selectedTimeSlot.value ==
                                     timeSlots[index]
@@ -211,8 +209,8 @@ class SelectDateAndTime extends StatelessWidget {
                       ));
                 },
               ),
-              SizedBox(
-                height: 40.h,
+              const SizedBox(
+                height: 40,
               ),
               GestureDetector(
                   onTap: () {
@@ -223,12 +221,12 @@ class SelectDateAndTime extends StatelessWidget {
                       },
                     );
                   },
-                  child: ButtonCustom(
+                  child: const ButtonCustom(
                       name: 'Schedule Appointment',
-                      height: 48.h,
-                      width: 310.w)),
-              SizedBox(
-                height: 10.h,
+                      height: 48,
+                      width: 310)),
+              const SizedBox(
+                height: 10,
               )
             ],
           ),
@@ -251,56 +249,56 @@ class ScheduleAppointment extends StatelessWidget {
           color: AppColors.blue6.withOpacity(0.1),
           child: Dialog(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.r),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Container(
-              width: 341.w,
-              height: 400.h,
+              width: 341,
+              height: 400,
               decoration: BoxDecoration(
                   color: AppColors.white,
-                  borderRadius: BorderRadius.circular(10.r)),
-              padding: EdgeInsets.all(10.r),
+                  borderRadius: BorderRadius.circular(10)),
+              padding: const EdgeInsets.all(10),
               child: Center(
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 20.h,
+                    const SizedBox(
+                      height: 20,
                     ),
                     Image.asset(
                       'assets/appointmentpageimages/Image (1).png',
-                      height: 131.h,
-                      width: 131.w,
+                      height: 131,
+                      width: 131,
                     ),
-                    SizedBox(
-                      height: 20.h,
+                    const SizedBox(
+                      height: 20,
                     ),
                     heading('Appointment Confirmed!'),
-                    SizedBox(
-                      height: 10.h,
+                    const SizedBox(
+                      height: 10,
                     ),
                     Text(
                       'Your appointment with Dr. Merin Jacob is',
                       style: TextStyle(
-                          fontSize: 12.h,
+                          fontSize: 12,
                           fontWeight: FontWeight.w400,
                           color: AppColors.grey3),
                     ),
                     Text(
                       'confirmed for June 25, 2024, at 10:00 am',
                       style: TextStyle(
-                          fontSize: 12.h,
+                          fontSize: 12,
                           fontWeight: FontWeight.w400,
                           color: AppColors.grey3),
                     ),
-                    SizedBox(
-                      height: 20.h,
+                    const SizedBox(
+                      height: 20,
                     ),
                     GestureDetector(
                         onTap: () => Get.toNamed('/CustomBottomNavigationBar'),
-                        child: ButtonCustom(
-                            name: 'Done', height: 48.h, width: 245.w)),
-                    SizedBox(
-                      height: 10.h,
+                        child: const ButtonCustom(
+                            name: 'Done', height: 48, width: 245)),
+                    const SizedBox(
+                      height: 10,
                     ),
                     TextButton(
                       onPressed: () {
@@ -309,7 +307,7 @@ class ScheduleAppointment extends StatelessWidget {
                       child: Text(
                         'Edit your appointment ',
                         style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 12,
                             fontWeight: FontWeight.w400,
                             color: AppColors.grey3),
                       ),

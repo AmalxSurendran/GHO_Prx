@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:patient_journey_management/view/splash_view/splash3.dart';
 
 import 'splash2.dart';
 
@@ -17,18 +17,18 @@ class _Splash1State extends State<Splash1> {
     super.initState();
     // Wait for 3 seconds before navigating to Splash2
     Future.delayed(const Duration(seconds: 2), () {
-      Get.off(() => const Splash2()); // Navigate after the delay
+      Get.off(() => const Splash3()); // Navigate after the delay
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Color(0xff244C81),
+      backgroundColor:const Color(0xff244C81),
       body: Center(child: Container(
-        height: 100.h,
-        width: 100.w,
-        decoration: BoxDecoration(shape: BoxShape.circle),
+        height: 100,
+        width: 100,
+        decoration: const BoxDecoration(shape: BoxShape.circle),
         child: Image.asset('assets/splash_images/Ellipse 3014.png',fit: BoxFit.cover,)),),
     );
   }

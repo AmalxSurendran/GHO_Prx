@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:patient_journey_management/constants/colors.dart';
@@ -65,9 +63,9 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   ],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 15.w,
-                    vertical: 15.h,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 15,
                   ),
                   child: Center(
                     child: SingleChildScrollView(
@@ -79,23 +77,23 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                             style: TextStyle(
                                 color: AppColors.blue6,
                                 fontWeight: FontWeight.w700,
-                                fontSize: 28.sp),
+                                fontSize: 28),
                           ),
-                          SizedBox(
-                            height: 10.h,
+                          const SizedBox(
+                            height: 10,
                           ),
                           Text(
                             "Your new password must be different from previously used password",
                             style: TextStyle(
-                                color: AppColors.grey2, fontSize: 14.sp),
+                                color: AppColors.grey2, fontSize: 14),
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(
-                            height: 25.h,
+                          const SizedBox(
+                            height: 25,
                           ),
                           Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             child: TextFormField(
                               controller: newpasscontroller,
@@ -116,7 +114,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                     TextStyle(color: AppColors.blue),
                                 filled: true,
                                 fillColor: AppColors.white,
-                                border: OutlineInputBorder(),
+                                border: const OutlineInputBorder(),
                                 labelText: 'Enter  New Password',
                                 labelStyle: TextStyle(
                                     color: AppColors.labelcolor,
@@ -125,31 +123,31 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                 enabledBorder: OutlineInputBorder(
                                     borderSide:
                                         BorderSide(color: AppColors.white),
-                                    borderRadius: BorderRadius.circular(10.r)),
-                                errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                errorBorder: const OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10.r)),
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
-                                focusedErrorBorder: OutlineInputBorder(
+                                focusedErrorBorder: const OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10.r)),
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.r),
+                                    borderRadius: BorderRadius.circular(10),
                                     borderSide:
                                         BorderSide(color: AppColors.blue)),
-                                contentPadding: EdgeInsets.all(12.w),
+                                contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 20.h,
+                          const SizedBox(
+                            height: 20,
                           ),
                           Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             child: TextFormField(
                               controller: confirmpasscontroller,
@@ -177,22 +175,22 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                 enabledBorder: OutlineInputBorder(
                                     borderSide:
                                         BorderSide(color: AppColors.white),
-                                    borderRadius: BorderRadius.circular(10.r)),
-                                errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                errorBorder: const OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10.r)),
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
-                                focusedErrorBorder: OutlineInputBorder(
+                                focusedErrorBorder: const OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10.r)),
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.r),
+                                    borderRadius: BorderRadius.circular(10),
                                     borderSide:
                                         BorderSide(color: AppColors.blue)),
-                                contentPadding: EdgeInsets.all(12.w),
+                                contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                           ),
@@ -219,9 +217,9 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                             },
                             child: Container(
                               width: double.infinity,
-                              height: 55.h,
+                              height: 55,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.r),
+                                borderRadius: BorderRadius.circular(10),
                                 gradient: const LinearGradient(
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
@@ -235,20 +233,20 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                 child: isLoading
                                     ? LoadingAnimationWidget.fourRotatingDots(
                                         color: AppColors.white,
-                                        size: 24.sp,
+                                        size: 24,
                                       )
                                     : Text(
                                         'Reset Password',
                                         style: TextStyle(
                                           color: AppColors.white,
-                                          fontSize: 14.sp,
+                                          fontSize: 14,
                                         ),
                                       ),
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 10.h,
+                          const SizedBox(
+                            height: 10,
                           )
                         ],
                       ),

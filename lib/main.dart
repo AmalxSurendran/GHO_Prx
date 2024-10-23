@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:patient_journey_management/constants/colors.dart';
@@ -36,69 +35,66 @@ class MyApp extends StatelessWidget {
     // var width = MediaQuery.of(context).size.width;
     // print(height);
     // print(width);
-    return ScreenUtilInit(
-      designSize: const Size(360, 640),
-      child: GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Patient Journey Management',
-        theme: ThemeData(
-          textSelectionTheme: TextSelectionThemeData(
-            selectionColor: AppColors.blue50,
-            cursorColor: AppColors.blue,
-            selectionHandleColor: AppColors.blue,
-          ),
-          scaffoldBackgroundColor: AppColors.background,
-          appBarTheme: AppBarTheme(
-              color: AppColors.background,
-              surfaceTintColor: AppColors.background),
-          textTheme: GoogleFonts.latoTextTheme(),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Patient Journey Management',
+      theme: ThemeData(
+        textSelectionTheme: TextSelectionThemeData(
+          selectionColor: AppColors.blue50,
+          cursorColor: AppColors.blue,
+          selectionHandleColor: AppColors.blue,
         ),
-        initialRoute: '/',
-        getPages: [
-          GetPage(name: '/', page: () => const Splash1()),
-          GetPage(name: '/homepage', page: () => const HomePage()),
-          GetPage(
-              name: '/customBottomNavBar',
-              page: () => const CustomBottomNavigationBar()),
-          GetPage(
-              name: '/Notificationpage', page: () => const Notificationpage()),
-          GetPage(
-              name: '/AppointmentPage', page: () => const AppointmentPage()),
-          GetPage(
-              name: '/AppointmentType', page: () => const AppointmentType()),
-          GetPage(name: '/AppointmentType', page: () => const SelectHospital()),
-          GetPage(
-              name: '/SelectDateAndTime',
-              page: () => const SelectDateAndTime()),
-          GetPage(
-              name: '/CustomBottomNavigationBar',
-              page: () => const CustomBottomNavigationBar()),
-          GetPage(
-              name: '/MyConsultations', page: () => const MyConsultations()),
-          GetPage(name: '/DrInfo', page: () => const DrInfo()),
-          GetPage(
-              name: '/AppointmentStatus',
-              page: () => const AppointmentStatus()),
-          GetPage(
-              name: '/LoginPage',
-              page: () =>  LoginPage()),
-          GetPage(
-              name: '/RegisterPage',
-              page: () =>  RegisterPage()),
-          GetPage(
-              name: '/OtpConfirmation',
-              page: () =>  OtpConfirmation()),
-          GetPage(
-              name: '/Forgetpasswordemail',
-              page: () =>  Forgetpasswordemail()),
-          GetPage(
-              name: '/Forgetpasswordotp',
-              page: () =>  Forgetpasswordotp()),
-          GetPage(
-              name: '/CreateNewPassword',
-              page: () =>  CreateNewPassword()),
-        ],
+        scaffoldBackgroundColor: AppColors.background,
+        appBarTheme: AppBarTheme(
+            color: AppColors.background,
+            surfaceTintColor: AppColors.background),
+        textTheme: GoogleFonts.latoTextTheme(),
       ),
+      initialRoute: '/',
+      getPages: [
+        GetPage(name: '/', page: () => const Splash1()),
+        GetPage(name: '/homepage', page: () => const HomePage()),
+        GetPage(
+            name: '/customBottomNavBar',
+            page: () => const CustomBottomNavigationBar()),
+        GetPage(
+            name: '/Notificationpage', page: () => const Notificationpage()),
+        GetPage(
+            name: '/AppointmentPage', page: () => const AppointmentPage()),
+        GetPage(
+            name: '/AppointmentType', page: () => const AppointmentType()),
+        GetPage(name: '/AppointmentType', page: () => const SelectHospital()),
+        GetPage(
+            name: '/SelectDateAndTime',
+            page: () => const SelectDateAndTime()),
+        GetPage(
+            name: '/CustomBottomNavigationBar',
+            page: () => const CustomBottomNavigationBar()),
+        GetPage(
+            name: '/MyConsultations', page: () => const MyConsultations()),
+        GetPage(name: '/DrInfo', page: () => const DrInfo()),
+        GetPage(
+            name: '/AppointmentStatus',
+            page: () => const AppointmentStatus()),
+        GetPage(
+            name: '/LoginPage',
+            page: () =>  LoginPage()),
+        GetPage(
+            name: '/RegisterPage',
+            page: () =>  RegisterPage()),
+        GetPage(
+            name: '/OtpConfirmation',
+            page: () =>  OtpConfirmation()),
+        GetPage(
+            name: '/Forgetpasswordemail',
+            page: () =>  Forgetpasswordemail()),
+        GetPage(
+            name: '/Forgetpasswordotp',
+            page: () =>  Forgetpasswordotp()),
+        GetPage(
+            name: '/CreateNewPassword',
+            page: () =>  CreateNewPassword()),
+      ],
     );
   }
 }

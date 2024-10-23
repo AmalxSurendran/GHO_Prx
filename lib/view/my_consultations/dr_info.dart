@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/button.dart';
@@ -17,7 +16,7 @@ class DrInfo extends StatelessWidget {
               icon: Icon(
                 Icons.arrow_back_ios_rounded,
                 color: AppColors.textcolor,
-                size: 20.sp,
+                size: 20,
               ),
               onPressed: () {
                 Navigator.pop(context); // Navigates back to the previous screen
@@ -27,7 +26,7 @@ class DrInfo extends StatelessWidget {
               'Doctor’s Info',
               style: TextStyle(
                   color: AppColors.textcolor,
-                  fontSize: 16.sp,
+                  fontSize: 16,
                   fontWeight: FontWeight.w500),
             )),
         body: SingleChildScrollView(
@@ -35,31 +34,31 @@ class DrInfo extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/homepageimages/Doctors info.png',
-                height: 200.h,
-                width: 374.w,
+                height: 200,
+                width: 374,
                 fit: BoxFit.cover,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Container(
-                    width: 326.w,
-                    height: 400.h,
+                    width: 326,
+                    height: 400,
                     decoration: BoxDecoration(
                         color: AppColors.white,
-                        borderRadius: BorderRadius.circular(10.r)),
+                        borderRadius: BorderRadius.circular(10)),
                     padding:
-                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Divider(
                           color: AppColors.dividercolor1,
-                          indent: 110.w,
-                          endIndent: 110.w,
+                          indent: 110,
+                          endIndent: 110,
                           thickness: 3,
                         ),
-                        SizedBox(
-                          height: 20.h,
+                        const SizedBox(
+                          height: 20,
                         ),
                         Row(
                           children: [
@@ -67,32 +66,32 @@ class DrInfo extends StatelessWidget {
                               'Dr. Merin Jacob',
                               style: TextStyle(
                                   color: AppColors.blue,
-                                  fontSize: 18.sp,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.w700),
                             ),
                             const Spacer(),
                             Text(
                               '4.8',
                               style: TextStyle(
-                                  fontSize: 14.sp,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.w600,
                                   color: AppColors.grey5),
                             ),
                             Icon(
                               Icons.star,
-                              size: 17.sp,
+                              size: 17,
                               color: AppColors.yellow,
                             )
                           ],
                         ),
-                        SizedBox(
-                          height: 10.sp,
+                        const SizedBox(
+                          height: 10,
                         ),
                         Text(
                           'Psychologists ',
                           style: TextStyle(
                               color: AppColors.grey5,
-                              fontSize: 16.sp,
+                              fontSize: 16,
                               fontWeight: FontWeight.w400),
                         ),
                         Row(
@@ -101,7 +100,7 @@ class DrInfo extends StatelessWidget {
                               'Apollo hospital at 3rd Floor',
                               style: TextStyle(
                                   color: AppColors.grey5,
-                                  fontSize: 16.sp,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.w400),
                             ),
                             const Spacer(),
@@ -113,33 +112,33 @@ class DrInfo extends StatelessWidget {
                                 ))
                           ],
                         ),
-                        SizedBox(
-                          height: 10.h,
+                        const SizedBox(
+                          height: 10,
                         ),
                         Row(
                           children: [
                             SvgPicture.asset('assets/icons/clockicon.svg',
                                 height: 18, width: 18, color: AppColors.grey5),
-                            SizedBox(
-                              width: 5.w,
+                            const SizedBox(
+                              width: 5,
                             ),
                             Text(
                               '10:30am - 5:30pm',
                               style: TextStyle(
                                   color: AppColors.grey5,
-                                  fontSize: 14.sp,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.w400),
                             )
                           ],
                         ),
-                        SizedBox(
-                          height: 15.h,
+                        const SizedBox(
+                          height: 15,
                         ),
                         Divider(
                           color: AppColors.dividercolor1,
                         ),
-                        SizedBox(
-                          height: 15.h,
+                        const SizedBox(
+                          height: 15,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -150,17 +149,17 @@ class DrInfo extends StatelessWidget {
                                   '15yr',
                                   style: TextStyle(
                                       color: AppColors.blue,
-                                      fontSize: 16.sp,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w700),
                                 ),
-                                SizedBox(
-                                  height: 10.h,
+                                const SizedBox(
+                                  height: 10,
                                 ),
                                 Text(
                                   'Experience',
                                   style: TextStyle(
                                       color: AppColors.grey5,
-                                      fontSize: 16.sp,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w400),
                                 )
                               ],
@@ -171,17 +170,17 @@ class DrInfo extends StatelessWidget {
                                   '50+',
                                   style: TextStyle(
                                       color: AppColors.blue,
-                                      fontSize: 16.sp,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w700),
                                 ),
-                                SizedBox(
-                                  height: 10.h,
+                                const SizedBox(
+                                  height: 10,
                                 ),
                                 Text(
                                   'Treated',
                                   style: TextStyle(
                                       color: AppColors.grey5,
-                                      fontSize: 16.sp,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w400),
                                 )
                               ],
@@ -192,36 +191,36 @@ class DrInfo extends StatelessWidget {
                                   '\$25.00',
                                   style: TextStyle(
                                       color: AppColors.blue,
-                                      fontSize: 16.sp,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w700),
                                 ),
-                                SizedBox(
-                                  height: 10.h,
+                                const SizedBox(
+                                  height: 10,
                                 ),
                                 Text(
                                   'Hourly Rate',
                                   style: TextStyle(
                                       color: AppColors.grey5,
-                                      fontSize: 16.sp,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w400),
                                 )
                               ],
                             )
                           ],
                         ),
-                        SizedBox(
-                          height: 30.h,
+                        const SizedBox(
+                          height: 30,
                         ),
                         GestureDetector(
                           onTap: () => Get.toNamed('/AppointmentStatus'),
-                          child: ButtonCustom(
-                              name: 'Report', height: 56.h, width: 284.w),
+                          child: const ButtonCustom(
+                              name: 'Report', height: 56, width: 284),
                         )
                       ],
                     )),
               ),
               Padding(
-                padding: EdgeInsets.all(20.w),
+                padding: const EdgeInsets.all(20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -261,10 +260,10 @@ class Container2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140.h,
-      width: 150.w,
+      height: 140,
+      width: 150,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10.r)),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
           image: const DecorationImage(
               image:
                   AssetImage('assets/appointmentpageimages/containerbg2.jpeg'),
@@ -280,24 +279,24 @@ class Container2 extends StatelessWidget {
               style: TextStyle(
                   color: AppColors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: 15.sp),
+                  fontSize: 15),
             ),
-            SizedBox(
-              height: 10.h,
+            const SizedBox(
+              height: 10,
             ),
             Text(
               text2,
               style: TextStyle(
                   color: AppColors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: 15.sp),
+                  fontSize: 15),
             ),
             Text(
               text3!,
               style: TextStyle(
                   color: AppColors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: 15.sp),
+                  fontSize: 15),
             )
           ],
         ),

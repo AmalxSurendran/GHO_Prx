@@ -1,8 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:patient_journey_management/constants/colors.dart';
@@ -22,8 +20,8 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
 
   final defaultPinTheme = PinTheme(
     
-    width: 60.h,
-    height: 50.w,
+    width: 60,
+    height: 50,
     textStyle: const TextStyle(color: Colors.black, fontSize: 18),
     decoration: BoxDecoration(
       color: AppColors.white,
@@ -68,9 +66,9 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                   ],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20.w,
-                    vertical: 15.h,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 15,
                   ),
                   child: Center(
                     child: SingleChildScrollView(
@@ -81,16 +79,16 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                          
                           Column(
                             children: [
-                              SizedBox(height: 15.h),
+                              const SizedBox(height: 15),
                               Text(
                                 'Verify OTP',
                                 style: TextStyle(
                                   color: AppColors.headline,
                                   fontWeight: FontWeight.w700,
-                                  fontSize: 30.sp,
+                                  fontSize: 30,
                                 ),
                               ),
-                              SizedBox(height: 10.h),
+                              const SizedBox(height: 10),
                               Text(
                                 "Enter the OTP",
                                 style: TextStyle(color: AppColors.grey10),
@@ -101,7 +99,7 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                                 style: TextStyle(color: AppColors.grey10),
                                 textAlign: TextAlign.center,
                               ),
-                              SizedBox(height: 25.h),
+                              const SizedBox(height: 25),
                               Pinput(
                                 
                                 validator: (value) {
@@ -119,24 +117,24 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                           
                                  defaultPinTheme: defaultPinTheme.copyWith(
 
-                              height: 46.h,
-                              width: 46.w,
+                              height: 46,
+                              width: 46,
                               textStyle: TextStyle(
                                   color: AppColors.blue6,
-                                  fontSize: 15.sp,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold),
                               decoration: BoxDecoration(
                                 color: AppColors.white,
                                   border: Border.all(
                                     color: AppColors.blue7,
                                   ),
-                                  borderRadius: BorderRadius.circular(10.r))),
+                                  borderRadius: BorderRadius.circular(10))),
                           focusedPinTheme: defaultPinTheme.copyWith(
-                              height: 46.h,
-                              width: 45.w,
+                              height: 46,
+                              width: 45,
                               textStyle: TextStyle(
                                   color: AppColors.white,
-                                  fontSize: 15.sp,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold),
                               decoration: defaultPinTheme.decoration!
                                   .copyWith(
@@ -144,13 +142,13 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                                       border:
                                           Border.all(color: AppColors.blue7),
                                       borderRadius:
-                                          BorderRadius.circular(10.r))),
+                                          BorderRadius.circular(10))),
                           
                                 onCompleted: (value) {
                                   otpController.text = value;
                                 },
                               ),
-                              SizedBox(height: 25.h),
+                              const SizedBox(height: 25),
                               GestureDetector(
                                 onTap: () async {
                                   if (_formKey.currentState!.validate()) {
@@ -174,7 +172,7 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                                   height: 48,
                                   decoration: BoxDecoration(
                                     borderRadius:
-                                        BorderRadius.circular(10.r),
+                                        BorderRadius.circular(10),
                                     gradient: const LinearGradient(
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
@@ -189,18 +187,18 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                                         ? LoadingAnimationWidget
                                             .fourRotatingDots(
                                             color: AppColors.white,
-                                            size: 24.w,
+                                            size: 24,
                                           )
                                         : Text(
                                             'Verify',
                                             style: TextStyle(
                                                 color: AppColors.white,
-                                                fontSize: 14.sp),
+                                                fontSize: 14),
                                           ),
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 25.h),
+                              const SizedBox(height: 25),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -221,7 +219,7 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 25.h),
+                              const SizedBox(height: 25),
                             ],
                           ),
                         ],

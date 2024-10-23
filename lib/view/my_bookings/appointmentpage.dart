@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:patient_journey_management/constants/colors.dart';
 
 import 'upcoming.dart';
@@ -28,7 +27,7 @@ class AppointmentPage extends StatelessWidget {
             'My Bookings',
             style: TextStyle(
               color: AppColors.textcolor,
-              fontSize: 16.sp,
+              fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -39,18 +38,18 @@ class AppointmentPage extends StatelessWidget {
             labelColor: AppColors.textcolor2,
             indicator: const BoxDecoration(), // Removes the indicator
             splashFactory: NoSplash.splashFactory, // Removes splash effect
-            tabs: <Widget>[
+            tabs: const <Widget>[
               SizedBox(
-                width: 90.w,
-                child: const Tab(text: 'Upcoming'),
+                width: 90,
+                child: Tab(text: 'Upcoming'),
               ),
               SizedBox(
-                width: 90.w,
-                child: const Tab(text: 'Completed'),
+                width: 90,
+                child: Tab(text: 'Completed'),
               ),
               SizedBox(
-                width: 90.w,
-                child: const Tab(text: 'Canceled'),
+                width: 90,
+                child: Tab(text: 'Canceled'),
               ),
             ],
           ),

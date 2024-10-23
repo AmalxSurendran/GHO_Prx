@@ -63,4 +63,12 @@ class AppColors {
   static Color green =   const Color(0xff12A817);
   static Color red1 =   const Color(0xff771D1D);
   static Color error =   Color.fromARGB(255, 165, 25, 15);
+
+
+
+  static Color circle1 =   Color(0xffC72FF8);
+  static Color circle2 =   Color(0xffC72FF8).withOpacity(0);
+
+
+  
 }
