@@ -1,3 +1,4 @@
+//changed
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -84,13 +85,13 @@ class MyApp extends StatelessWidget {
             page: () =>  RegisterPage()),
         GetPage(
             name: '/OtpConfirmation',
-            page: () =>  OtpConfirmation()),
+            page: () =>  const OtpConfirmation()),
         GetPage(
             name: '/Forgetpasswordemail',
-            page: () =>  Forgetpasswordemail()),
+            page: () =>  const Forgetpasswordemail()),
         GetPage(
             name: '/Forgetpasswordotp',
-            page: () =>  Forgetpasswordotp()),
+            page: () =>  const Forgetpasswordotp()),
         GetPage(
             name: '/CreateNewPassword',
             page: () =>  CreateNewPassword()),

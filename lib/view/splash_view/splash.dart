@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:patient_journey_management/view/splash_view/splash3.dart';
+import 'package:patient_journey_management/view/splash_view/splash2.dart';
 
 import 'splash2.dart';
 
@@ -17,7 +17,7 @@ class _Splash1State extends State<Splash1> {
     super.initState();
     // Wait for 3 seconds before navigating to Splash2
     Future.delayed(const Duration(seconds: 2), () {
-      Get.off(() => const Splash3()); // Navigate after the delay
+      Get.off(() => const Splash2()); // Navigate after the delay
     });
   }
 
