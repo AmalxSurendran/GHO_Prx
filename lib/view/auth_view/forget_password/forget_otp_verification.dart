@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:patient_journey_management/constants/colors.dart';
+import 'package:patient_journey_management/utilities/custom_widgets/bg_img.dart';
 import 'package:pinput/pinput.dart';
 
 class Forgetpasswordotp extends StatefulWidget {
@@ -19,7 +20,6 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
   bool isLoading = false;
 
   final defaultPinTheme = PinTheme(
-    
     width: 60,
     height: 50,
     textStyle: const TextStyle(color: Colors.black, fontSize: 18),
@@ -34,28 +34,23 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Form(
         key: _formKey,
         child: Stack(
           children: [
-            Positioned(
-                width: size.width,
-                height: size.height,
-                child: Image.asset(
-                  'assets/homepageimages/Sign Up.png',
-                  fit: BoxFit.cover,
-                )),
+            BgImg(),
 
-            // Login elements
+            // otp elements
 
             Positioned(
-              top: size.height / 5,
-              left: 25,
-              right: 25,
+              top: 316.5,
+              left: 24,
+              right: 24,
               child: Container(
                 width: size.width,
                 decoration: BoxDecoration(
-                  color: AppColors.white.withOpacity(0.6),
+                  color: AppColors.white,
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: const [
                     BoxShadow(
@@ -76,7 +71,6 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                         
                           Column(
                             children: [
                               const SizedBox(height: 15),
@@ -101,7 +95,6 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                               ),
                               const SizedBox(height: 25),
                               Pinput(
-                                
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -114,36 +107,34 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                                   return null;
                                 },
                                 length: 6,
-                          
-                                 defaultPinTheme: defaultPinTheme.copyWith(
-
-                              height: 46,
-                              width: 46,
-                              textStyle: TextStyle(
-                                  color: AppColors.blue6,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                              decoration: BoxDecoration(
-                                color: AppColors.white,
-                                  border: Border.all(
-                                    color: AppColors.blue7,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10))),
-                          focusedPinTheme: defaultPinTheme.copyWith(
-                              height: 46,
-                              width: 45,
-                              textStyle: TextStyle(
-                                  color: AppColors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                              decoration: defaultPinTheme.decoration!
-                                  .copyWith(
-                                      color: AppColors.blue,
-                                      border:
-                                          Border.all(color: AppColors.blue7),
-                                      borderRadius:
-                                          BorderRadius.circular(10))),
-                          
+                                defaultPinTheme: defaultPinTheme.copyWith(
+                                    height: 46,
+                                    width: 46,
+                                    textStyle: TextStyle(
+                                        color: AppColors.blue6,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold),
+                                    decoration: BoxDecoration(
+                                        color: AppColors.dividercolor,
+                                        border: Border.all(
+                                          color: AppColors.blue7,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(10))),
+                                focusedPinTheme: defaultPinTheme.copyWith(
+                                    height: 46,
+                                    width: 45,
+                                    textStyle: TextStyle(
+                                        color: AppColors.white,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold),
+                                    decoration: defaultPinTheme.decoration!
+                                        .copyWith(
+                                            color: AppColors.blue,
+                                            border: Border.all(
+                                                color: AppColors.blue7),
+                                            borderRadius:
+                                                BorderRadius.circular(10))),
                                 onCompleted: (value) {
                                   otpController.text = value;
                                 },
@@ -155,15 +146,15 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                                     setState(() {
                                       isLoading = true;
                                     });
-                                                    
+
                                     // Simulate loading and perform your verification action here
                                     await Future.delayed(
                                         const Duration(seconds: 2));
-                                                    
+
                                     setState(() {
                                       isLoading = false;
                                     });
-                                                    
+
                                     Get.offNamed('/CreateNewPassword');
                                   }
                                 },
@@ -171,8 +162,7 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                                   width: double.infinity,
                                   height: 48,
                                   decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10),
                                     gradient: const LinearGradient(
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,

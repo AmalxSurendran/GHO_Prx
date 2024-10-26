@@ -24,12 +24,12 @@ class _Splash1State extends State<Splash1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:const Color(0xff244C81),
+      
       body: Center(child: Container(
-        height: 100,
-        width: 100,
-        decoration: const BoxDecoration(shape: BoxShape.circle),
-        child: Image.asset('assets/splash_images/Ellipse 3014.png',fit: BoxFit.cover,)),),
+        height: double.infinity,
+        width: double.infinity,
+        decoration: const BoxDecoration(),
+        child: Image.asset('assets/splash_images/Spalsh screen (1).png',fit: BoxFit.cover,)),),
     );
   }
 }

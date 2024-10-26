@@ -21,6 +21,7 @@ import 'package:patient_journey_management/view/book_an_appointment/select_datet
 import 'package:patient_journey_management/view/book_an_appointment/select_hospital.dart';
 
 import 'package:patient_journey_management/view/splash_view/splash.dart';
+import 'package:patient_journey_management/view/splash_view/splash2.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => const Splash1()),
+        GetPage(name: '/splash', page: () => const Splash2()),
         GetPage(name: '/homepage', page: () => const HomePage()),
         GetPage(
             name: '/customBottomNavBar',

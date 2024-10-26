@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:patient_journey_management/constants/colors.dart';
+import 'package:patient_journey_management/utilities/custom_widgets/bg_img.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/button.dart';
 import 'package:pinput/pinput.dart';
 
@@ -34,22 +35,15 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
     );
 
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Form(
         key: _formKey,
         child: Stack(
           children: [
-             Positioned(
-                width: size.width,
-                height: size.height,
-                child: Image.asset(
-                  'assets/homepageimages/Sign Up.png',
-                  fit: BoxFit.cover,
-                )),
-            
+            BgImg(),
             Positioned(
-              left: size.width / 25,
-              right: size.width / 25,
-              top: 25,
+              left: 108,
+              top: 200,
               child: Column(
                 children: [
                   SizedBox(
@@ -61,7 +55,7 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                     'Verify\nEmail Address',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color:AppColors.headline,
+                      color: AppColors.headline,
                       fontWeight: FontWeight.w700,
                       fontSize: size.width / 11,
                     ),
@@ -77,9 +71,9 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
               ),
             ),
             Positioned(
-              top: size.height / 2.6,
-              left: 25,
-              right: 25,
+              top: 470,
+              left: 52,
+              right: 52,
               child: Container(
                 width: size.width,
                 decoration: BoxDecoration(
@@ -157,7 +151,7 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                                 });
                               },
                               activeColor: AppColors.blue,
-                              checkColor:AppColors.white,
+                              checkColor: AppColors.white,
                               side: BorderSide(
                                 color: AppColors.blue7,
                                 width: 2,
@@ -210,7 +204,8 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                                           width: 279,
                                           height: 48,
                                           decoration: BoxDecoration(
-                                            border: Border.all(color: AppColors.blue),
+                                            border: Border.all(
+                                                color: AppColors.blue),
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                           ),
@@ -226,11 +221,11 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                                           ),
                                         ),
                                       )
-                                    :  const ButtonCustom(
+                                    : const ButtonCustom(
                                         name: 'Verify',
                                         height: 48,
                                         width: 279)),
-                         const SizedBox(height: 20),
+                        const SizedBox(height: 20),
                       ],
                     ),
                   ),

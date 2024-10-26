@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:patient_journey_management/constants/colors.dart';
+import 'package:patient_journey_management/utilities/custom_widgets/bg_img.dart';
 
 class Forgetpasswordemail extends StatefulWidget {
   const Forgetpasswordemail({super.key});
@@ -30,28 +31,21 @@ class _ForgetpasswordemailState extends State<Forgetpasswordemail> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Form(
         key: _formKey,
         child: Stack(
           children: [
+            BgImg(),
+            // container
             Positioned(
-                width: size.width,
-                height: size.height,
-                child: Image.asset(
-                  'assets/homepageimages/Sign Up.png',
-                  fit: BoxFit.cover,
-                )),
-
-            // Login elements
-
-            Positioned(
-              top: size.height / 4,
-              left: 25,
-              right: 25,
+              top: 324,
+              left: 24,
+              right: 24,
               child: Container(
                 width: size.width,
                 decoration: BoxDecoration(
-                  color: AppColors.white.withOpacity(0.6),
+                  color: AppColors.white,
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: const [
                     BoxShadow(
@@ -109,33 +103,32 @@ class _ForgetpasswordemailState extends State<Forgetpasswordemail> {
                             fillColor: AppColors.white,
                             floatingLabelStyle:
                                 TextStyle(color: AppColors.blue),
-                            labelText: 'Your Email',
-                            labelStyle: TextStyle(
+                            hintText: 'Your Email',
+                            hintStyle: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
-                                color: AppColors.labelcolor),
+                                color: Color(0xff1A1C1E)),
                             border: const OutlineInputBorder(),
                             enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: AppColors.white),
+                                borderSide:
+                                    const BorderSide(color: Color(0xffEDF1F3)),
                                 borderRadius: BorderRadius.circular(10)),
-                            errorBorder: const OutlineInputBorder(
-                              borderSide: BorderSide.none,
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.error),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                            ),
-                            focusedErrorBorder: const OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  const BorderRadius.all(Radius.circular(10)),
                             ),
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: AppColors.blue)),
+                                borderSide: BorderSide(color: AppColors.blue7)),
+                            focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(color: AppColors.grey)),
                             contentPadding: const EdgeInsets.all(12),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 25),
+                      SizedBox(height: 15),
                       GestureDetector(
                         onTap: () async {
                           if (_formKey.currentState!.validate()) {

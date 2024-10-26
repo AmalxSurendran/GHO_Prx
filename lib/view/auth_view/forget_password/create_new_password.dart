@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:patient_journey_management/constants/colors.dart';
+import 'package:patient_journey_management/utilities/custom_widgets/bg_img.dart';
 
 class CreateNewPassword extends StatefulWidget {
   CreateNewPassword({Key? key}) : super(key: key);
@@ -31,28 +32,23 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Form(
         key: _formKey,
         child: Stack(
           children: [
-            Positioned(
-                width: size.width,
-                height: size.height,
-                child: Image.asset(
-                  'assets/homepageimages/Sign Up.png',
-                  fit: BoxFit.cover,
-                )),
+            BgImg(),
 
-            // Login elements
+            // confirm password elements
 
             Positioned(
-              top: size.height / 5,
-              left: 25,
-              right: 25,
+              top: 317,
+              left: 24,
+              right: 24,
               child: Container(
                 width: size.width,
                 decoration: BoxDecoration(
-                  color: AppColors.white.withOpacity(0.6),
+                  color: AppColors.white,
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: const [
                     BoxShadow(
@@ -84,8 +80,8 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                           ),
                           Text(
                             "Your new password must be different from previously used password",
-                            style: TextStyle(
-                                color: AppColors.grey2, fontSize: 14),
+                            style:
+                                TextStyle(color: AppColors.grey2, fontSize: 14),
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(
@@ -109,36 +105,30 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                 return null;
                               },
                               cursorColor: AppColors.blue50,
-                              decoration: InputDecoration(
-                                floatingLabelStyle:
-                                    TextStyle(color: AppColors.blue),
-                                filled: true,
-                                fillColor: AppColors.white,
-                                border: const OutlineInputBorder(),
-                                labelText: 'Enter  New Password',
-                                labelStyle: TextStyle(
-                                    color: AppColors.labelcolor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 14),
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColors.white),
-                                    borderRadius: BorderRadius.circular(10)),
-                                errorBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                focusedErrorBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide:
-                                        BorderSide(color: AppColors.blue)),
-                                contentPadding: const EdgeInsets.all(12),
+                              decoration:InputDecoration(
+          filled: true,
+          fillColor: AppColors.white,
+          floatingLabelStyle: TextStyle(color: AppColors.blue),
+          hintText: 'Create New Password',
+          hintStyle: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: Color(0xff1A1C1E)),
+          border: const OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Color(0xffEDF1F3)),
+              borderRadius: BorderRadius.circular(10)),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.error),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: AppColors.blue7)),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: AppColors.grey)),
+          contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                           ),
@@ -163,34 +153,29 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                               },
                               cursorColor: AppColors.blue50,
                               decoration: InputDecoration(
-                                floatingLabelStyle:
-                                    TextStyle(color: AppColors.blue),
-                                filled: true,
-                                fillColor: AppColors.white,
-                                labelText: 'Confirm Password',
-                                labelStyle: TextStyle(
-                                    color: AppColors.labelcolor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 14),
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColors.white),
-                                    borderRadius: BorderRadius.circular(10)),
-                                errorBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                focusedErrorBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide:
-                                        BorderSide(color: AppColors.blue)),
-                                contentPadding: const EdgeInsets.all(12),
+          filled: true,
+          fillColor: AppColors.white,
+          floatingLabelStyle: TextStyle(color: AppColors.blue),
+          hintText: 'Confirm Password',
+          hintStyle: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: Color(0xff1A1C1E)),
+          border: const OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Color(0xffEDF1F3)),
+              borderRadius: BorderRadius.circular(10)),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.error),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: AppColors.blue7)),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: AppColors.grey)),
+          contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                           ),
