@@ -28,6 +28,7 @@ class AppColors {
   static Color blue5 = const Color(0xff1C2A3A);
   static Color blue6 = const Color(0xff0B181F);
   static Color blue7 = const Color(0xffB0C7E6);
+  //  const Color(0xff0D2E41)
 
   ////////////////////// GREY COLORS////////////////////////////
 
@@ -51,6 +52,8 @@ class AppColors {
   static Color shadow1 = const Color(0x0D000000);
   static Color headline = const Color(0xff111827);
   static Color labelcolor = const Color(0xff1A1C1E);
+  static Color black1 = const Color(0xff0D2E41);
+
 
   ////////////////////////////MULTIPLE COLORS/////////////////////////////
 

@@ -55,7 +55,7 @@ class SelectDateAndTime extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(25),
           child: Column(
             children: [
               const ContainerDr(
@@ -222,9 +222,7 @@ class SelectDateAndTime extends StatelessWidget {
                     );
                   },
                   child: const ButtonCustom(
-                      name: 'Schedule Appointment',
-                      height: 48,
-                      width: 310)),
+                      name: 'Schedule Appointment', height: 48, width: 310)),
               const SizedBox(
                 height: 10,
               )

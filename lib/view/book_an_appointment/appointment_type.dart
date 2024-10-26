@@ -29,8 +29,9 @@ class AppointmentType extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
           )),
-      body: Center(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(25),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -92,54 +93,56 @@ class ContainerCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      width: 326,
-      decoration: BoxDecoration(
-          borderRadius:  const BorderRadius.all(Radius.circular(10)),
-          image: const DecorationImage(
-              image: AssetImage(
-                  'assets/appointmentpageimages/containerbackground.jpeg'),
-              opacity: 0.2,
-              fit: BoxFit.cover),
-          color: color),
-      child: Padding(
-        padding:  const EdgeInsets.only(left: 20, top: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CircleAvatar(
-              radius: 25,
-              backgroundColor: AppColors.white,
-              child: Center(
-                  child: SvgPicture.asset(
-                path,
-                height: 24,
-                width: 24,
-              )),
-            ),
-             const SizedBox(
-              height: 5,
-            ),
-            Text(
-              heading,
-              style:  TextStyle(
-                  color: AppColors.textcolor,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400),
-            ),
-             const SizedBox(
-              height: 5,
-            ),
-            Text(
-              text,
-              style:  TextStyle(
-                  color: AppColors.textcolor,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w300),
-            )
-          ],
+    return Center(
+      child: Container(
+        height: 150,
+        width: 326,
+        decoration: BoxDecoration(
+            borderRadius:  const BorderRadius.all(Radius.circular(10)),
+            image: const DecorationImage(
+                image: AssetImage(
+                    'assets/appointmentpageimages/containerbackground.jpeg'),
+                opacity: 0.2,
+                fit: BoxFit.cover),
+            color: color),
+        child: Padding(
+          padding:  const EdgeInsets.only(left: 20, top: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CircleAvatar(
+                radius: 25,
+                backgroundColor: AppColors.white,
+                child: Center(
+                    child: SvgPicture.asset(
+                  path,
+                  height: 24,
+                  width: 24,
+                )),
+              ),
+               const SizedBox(
+                height: 5,
+              ),
+              Text(
+                heading,
+                style:  TextStyle(
+                    color: AppColors.textcolor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400),
+              ),
+               const SizedBox(
+                height: 5,
+              ),
+              Text(
+                text,
+                style:  TextStyle(
+                    color: AppColors.textcolor,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w300),
+              )
+            ],
+          ),
         ),
       ),
     );
