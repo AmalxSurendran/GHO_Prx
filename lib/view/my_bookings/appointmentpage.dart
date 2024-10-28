@@ -27,8 +27,8 @@ class AppointmentPage extends StatelessWidget {
             'My Bookings',
             style: TextStyle(
               color: AppColors.textcolor,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
           ),
           bottom: TabBar(
@@ -36,6 +36,7 @@ class AppointmentPage extends StatelessWidget {
             isScrollable: true, // Makes the TabBar scrollable
             unselectedLabelColor:AppColors.grey1,
             labelColor: AppColors.textcolor2,
+            labelStyle: TextStyle(fontSize: 17),
             indicator: const BoxDecoration(), // Removes the indicator
             splashFactory: NoSplash.splashFactory, // Removes splash effect
             tabs: const <Widget>[

@@ -17,10 +17,10 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leadingWidth: 1,
-        toolbarHeight: 70,
+        toolbarHeight: 75,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(left: 20, top: 5),
+            padding: const EdgeInsets.only(left: 30, top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,6 +34,7 @@ class HomePage extends StatelessWidget {
                         AssetImage('assets/homepageimages/Frame 586.png'),
                   ),
                 ),
+                SizedBox(width: 10,),
                 Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,7 +55,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 5,
+                        height: 3,
                       ),
                       Text(
                         'Add Member',
@@ -68,7 +69,10 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const SizedBox(width: 155, child: SelectPlace())
+          const SizedBox(width: 155, child: SelectPlace()),
+          SizedBox(
+            width: 5,
+          )
         ],
       ),
       body: SingleChildScrollView(
@@ -116,7 +120,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Padding(
@@ -126,14 +130,12 @@ class HomePage extends StatelessWidget {
                   children: [
                     GestureDetector(
                         onTap: () => Get.toNamed('/AppointmentType'),
-                        child: BookAnAppointment()),
-                    GestureDetector(
-                        onTap: () => Get.toNamed('/AppointmentType'),
-                        child: TeleMedicine())
+                        child: const BookAnAppointment()),
+                    GestureDetector(child: const TeleMedicine())
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               heading('Find Hospital near you'),
@@ -155,7 +157,7 @@ class HomePage extends StatelessWidget {
                 ),
                 constraints: const BoxConstraints(maxHeight: 270),
                 child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
@@ -304,8 +306,8 @@ class HomePage extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Center(
-                      child: const ContainerDr(
+                    const Center(
+                      child: ContainerDr(
                         height: 95,
                       ),
                     ),
@@ -316,7 +318,7 @@ class HomePage extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Center(child: My_consultation()),
+                    const Center(child: My_consultation()),
                     const SizedBox(
                       height: 20,
                     ),
@@ -333,14 +335,17 @@ class HomePage extends StatelessWidget {
                           path:
                               'assets/homepageimages/Frame 1000001455 (1).png',
                         ),
+                        SizedBox(
+                          width: 10,
+                        ),
                         Container3(
                             text1: 'Peer',
                             text2: 'Review',
                             path: 'assets/homepageimages/Frame 1000001456.png')
                       ],
                     ),
-                    SizedBox(
-                      height: 10,
+                    const SizedBox(
+                      height: 20,
                     ),
                     Center(
                         child: Container3(
@@ -369,9 +374,10 @@ class TeleMedicine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double containerSize = (MediaQuery.of(context).size.width - 70) / 2;
     return Container(
-      height: 150,
-      width: 160,
+      height: containerSize,
+      width: containerSize,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         gradient: const LinearGradient(
@@ -424,9 +430,10 @@ class BookAnAppointment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double containerSize = (MediaQuery.of(context).size.width - 70) / 2;
     return Container(
-      height: 150,
-      width: 160,
+      height: containerSize,
+      width: containerSize,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         gradient: const LinearGradient(
@@ -445,6 +452,7 @@ class BookAnAppointment extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
+                textAlign: TextAlign.end,
                 'Book an \nAppointment',
                 style: TextStyle(
                   color: AppColors.white,
@@ -480,7 +488,6 @@ class My_consultation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 250,
-      width: 326,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -503,9 +510,6 @@ class My_consultation extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 25,
-            ),
             Text(
               'Booking ID: XXXXXX',
               style: TextStyle(
@@ -579,8 +583,11 @@ class My_consultation extends StatelessWidget {
             GestureDetector(
               onTap: () => Get.toNamed('MyConsultations'),
               child: const Padding(
-                padding: EdgeInsets.only(right: 20, top: 20, bottom: 20),
-                child: ButtonCustom(name: 'Click Here', height: 35, width: 291),
+                padding: EdgeInsets.only(right: 20, top: 20,),
+                child: ButtonCustom(
+                  name: 'Click Here',
+                  height: 40,
+                ),
               ),
             )
           ],
@@ -602,11 +609,13 @@ class Container3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     double containerHeight = 200;
+    double containerWidth = 150;
     return Stack(
       children: [
         Container(
-          height: 200,
-          width: 150,
+          height: containerHeight,
+          width: containerWidth,
           decoration: BoxDecoration(
             image: DecorationImage(image: AssetImage(path), fit: BoxFit.cover),
           ),
@@ -657,7 +666,6 @@ class ContainerDr extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: height,
-      width: 326,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(

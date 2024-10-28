@@ -25,8 +25,8 @@ class AppointmentStatus extends StatelessWidget {
           'Appointment Status',
           style: TextStyle(
               color: AppColors.textcolor,
-              fontSize: 16,
-              fontWeight: FontWeight.w500),
+              fontSize: 20,
+              fontWeight: FontWeight.bold),
         ),
       ),
       body: Center(

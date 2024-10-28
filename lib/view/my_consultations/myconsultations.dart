@@ -27,18 +27,15 @@ class MyConsultations extends StatelessWidget {
             'My Consultations',
             style: TextStyle(
                 color: AppColors.textcolor,
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
+                fontSize: 20,
+                fontWeight: FontWeight.bold),
           )),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding:  EdgeInsets.all(25),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 20,
-              ),
               Center(
                 child: Container(
                   height: 200,
@@ -65,7 +62,9 @@ class MyConsultations extends StatelessWidget {
                     children: [
                       Container(
                         height: 35,
-                        color: AppColors.bordercolor,
+                        decoration: BoxDecoration(
+                            color: AppColors.bordercolor,
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10))),
                         child: const Center(
                           child: Text('Token no: 25'),
                         ),
@@ -169,33 +168,38 @@ class MyConsultations extends StatelessWidget {
                   const SizedBox(
                     width: 5,
                   ),
-                  Text(
-                    '154/11, Bannerghatta Road Opp, Bangalore - 560 076',
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: AppColors.textcolor,
-                        fontWeight: FontWeight.w300),
+                  Flexible(
+                    child: Text(
+                      '154/11, Bannerghatta Road Opp, Bangalore - 560 076',
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: AppColors.textcolor,
+                          fontWeight: FontWeight.w300),
+                    ),
                   )
                 ],
               ),
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                height: 200,
-                width: 326,
-                decoration: BoxDecoration(
-                    color: AppColors.grey,
-                    borderRadius: BorderRadius.circular(10)),
-                    child: const MapScreen(),
+              Center(
+                child: Container(
+                  height: 200,
+                  width: 326,
+                  decoration: BoxDecoration(
+                      color: AppColors.grey,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: const MapScreen(),
+                ),
               ),
               const SizedBox(
                 height: 20,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
+                    onTap: () => Get.toNamed('/DrInfo'),
                     child: Container(
                       height: 35,
                       width: 150,
@@ -214,7 +218,6 @@ class MyConsultations extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Get.toNamed('/DrInfo'),
                     child: Container(
                       height: 35,
                       width: 150,

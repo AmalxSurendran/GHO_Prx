@@ -48,8 +48,8 @@ class SelectDateAndTime extends StatelessWidget {
           'Select Date & Time',
           style: TextStyle(
             color: AppColors.textcolor,
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
@@ -222,7 +222,7 @@ class SelectDateAndTime extends StatelessWidget {
                     );
                   },
                   child: const ButtonCustom(
-                      name: 'Schedule Appointment', height: 48, width: 310)),
+                      name: 'Schedule Appointment', height: 48, )),
               const SizedBox(
                 height: 10,
               )

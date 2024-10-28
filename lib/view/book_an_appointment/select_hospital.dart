@@ -261,7 +261,6 @@ class SelectHospital extends StatelessWidget {
                           ? const ButtonCustom(
                               name: 'Continue',
                               height: 48,
-                              width: 280,
                             )
                           : const Text(''),
                     );

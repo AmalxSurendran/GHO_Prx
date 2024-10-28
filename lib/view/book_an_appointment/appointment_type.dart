@@ -26,8 +26,8 @@ class AppointmentType extends StatelessWidget {
             'Appointment Type',
             style: TextStyle(
                 color: AppColors.textcolor,
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
+                fontSize: 20,
+                fontWeight: FontWeight.bold),
           )),
       body: SingleChildScrollView(
         child: Padding(

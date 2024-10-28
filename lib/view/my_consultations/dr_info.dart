@@ -26,8 +26,8 @@ class DrInfo extends StatelessWidget {
               'Doctor’s Info',
               style: TextStyle(
                   color: AppColors.textcolor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
             )),
         body: SingleChildScrollView(
           child: Column(
@@ -39,7 +39,7 @@ class DrInfo extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
                     width: 326,
                     height: 400,
@@ -220,7 +220,7 @@ class DrInfo extends StatelessWidget {
                     )),
               ),
               Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(25),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

@@ -15,9 +15,10 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
+      body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
         child: FlutterMap(
             options: MapOptions(
                 initialCenter: LatLng(latitude, longitude), initialZoom: 13.0),

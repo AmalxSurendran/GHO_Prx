@@ -15,9 +15,10 @@ buildscript {
 
 
 allprojects {
-    repositories {
-        google()
-        mavenCentral()
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8" // Align all modules to JVM 1.8 for compatibility with shared_preferences_android
+        }
     }
 }
 
