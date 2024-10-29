@@ -34,7 +34,9 @@ class HomePage extends StatelessWidget {
                         AssetImage('assets/homepageimages/Frame 586.png'),
                   ),
                 ),
-                SizedBox(width: 10,),
+                SizedBox(
+                  width: 10,
+                ),
                 Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -416,6 +418,11 @@ class TeleMedicine extends StatelessWidget {
                 color: AppColors.white,
               ),
             ),
+          ),
+          Align(
+            alignment:Alignment.bottomLeft,
+            child: Image.asset('assets/homepageimages/TEE (1).png',fit: BoxFit.cover,
+            height: 300,),
           )
         ],
       ),
@@ -471,6 +478,13 @@ class BookAnAppointment extends StatelessWidget {
                 height: 24, // Responsive icon size
                 color: AppColors.white,
               ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Image.asset(
+              'assets/homepageimages/BOO-removebg-preview1.png',
+              fit: BoxFit.cover,
             ),
           )
         ],
@@ -583,7 +597,10 @@ class My_consultation extends StatelessWidget {
             GestureDetector(
               onTap: () => Get.toNamed('MyConsultations'),
               child: const Padding(
-                padding: EdgeInsets.only(right: 20, top: 20,),
+                padding: EdgeInsets.only(
+                  right: 20,
+                  top: 20,
+                ),
                 child: ButtonCustom(
                   name: 'Click Here',
                   height: 40,
@@ -609,7 +626,7 @@ class Container3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     double containerHeight = 200;
+    double containerHeight = 200;
     double containerWidth = 150;
     return Stack(
       children: [

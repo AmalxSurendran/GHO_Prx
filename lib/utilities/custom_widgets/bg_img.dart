@@ -76,7 +76,7 @@ class BgImg extends StatelessWidget {
             top: 121,
             left: 44,
             child: Text(
-              'Welcome to \nGHOPRx',
+              'Welcome to \nPRx.Care',
               style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.w600,
