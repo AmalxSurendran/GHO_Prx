@@ -104,8 +104,11 @@ class SelectDateAndTime extends StatelessWidget {
                         ),
                         selectedDecoration: BoxDecoration(
                           color: AppColors.blue50,
-                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(10),
+                          shape: BoxShape.rectangle
+                          
                         ),
+                        
                         outsideDaysVisible: true,
                         outsideTextStyle: TextStyle(color: Colors.grey[400]),
                       ),
@@ -137,7 +140,7 @@ class SelectDateAndTime extends StatelessWidget {
                                   color: AppColors
                                       .white5, // Highlight available date
                                   borderRadius: BorderRadius.circular(
-                                      5), // Rounded corners
+                                      10), // Rounded corners
                                 ),
                                 child: Center(
                                   child: Text(

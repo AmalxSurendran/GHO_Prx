@@ -200,7 +200,7 @@ class HomePage extends StatelessWidget {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(left: 15),
+                                      padding: const EdgeInsets.only(left: 15,right: 15),
                                       child: Row(
                                         children: [
                                           SvgPicture.asset(
@@ -213,11 +213,15 @@ class HomePage extends StatelessWidget {
                                           const SizedBox(
                                             width: 4,
                                           ),
-                                          Text(
-                                            '123 Oak Street, CA 98765',
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: AppColors.grey3),
+                                          Expanded
+                                          (
+                                            child: Text(
+                                              '123 Oak Street, CA 98765',
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: AppColors.grey3),
+                                                  overflow: TextOverflow.ellipsis,
+                                            ),
                                           )
                                         ],
                                       ),

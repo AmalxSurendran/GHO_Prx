@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
   // State variables
   RxBool isPasswordVisible = false.obs;
+  RxBool isConfirmPasswordVisible = false.obs;
   RxBool isLoading = false.obs;
   RxBool isChecked = false.obs;
   // RxBool isCheckboxError = false.obs;
@@ -13,7 +13,10 @@ class AuthController extends GetxController {
   void togglePasswordVisibility() {
     isPasswordVisible.value = !isPasswordVisible.value;
   }
-
+   
+void toggleConfirmPasswordVisibility(){
+  isConfirmPasswordVisible.value=!isConfirmPasswordVisible.value;
+}
   // is checked ///////
   void isCheckedvisibility() {
     isChecked.value = !isChecked.value;

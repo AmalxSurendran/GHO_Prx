@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:patient_journey_management/constants/colors.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/bg_img.dart';
+import 'package:patient_journey_management/view/auth_view/register_page.dart';
 
 class CreateNewPassword extends StatefulWidget {
   CreateNewPassword({Key? key}) : super(key: key);
@@ -84,109 +85,35 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                           const SizedBox(
                             height: 25,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: TextFormField(
-                              controller: newpasscontroller,
-                              obscureText: true,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'This field is Required';
-                                }
-                                if (value.length < 6) {
-                                  return 'Password must be at least 6 characters long';
-                                }
+                          CustomWidgets().textFormField(
+                            hinttext: 'Create New Password',
+                            txtController: newpasscontroller,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'This field is Required';
+                              }
+                              if (value.length < 6) {
+                                return 'Password must be at least 6 characters long';
+                              }
 
-                                return null;
-                              },
-                              cursorColor: AppColors.blue50,
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: AppColors.white,
-                                floatingLabelStyle:
-                                    TextStyle(color: AppColors.blue),
-                                hintText: 'Create New Password',
-                                hintStyle: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff1A1C1E)),
-                                border: const OutlineInputBorder(),
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        color: Color(0xffEDF1F3)),
-                                    borderRadius: BorderRadius.circular(10)),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: AppColors.error),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10)),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide:
-                                        BorderSide(color: AppColors.blue7)),
-                                focusedErrorBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide:
-                                        BorderSide(color: AppColors.grey)),
-                                contentPadding: const EdgeInsets.all(12),
-                              ),
-                            ),
+                              return null;
+                            },
                           ),
                           const SizedBox(
-                            height: 20,
+                            height: 10,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: TextFormField(
-                              controller: confirmpasscontroller,
-                              obscureText: true,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'This field is Required';
-                                }
-                                if (value != newpasscontroller.text) {
-                                  return 'Passwords do not match';
-                                }
-                                return null;
-                              },
-                              cursorColor: AppColors.blue50,
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: AppColors.white,
-                                floatingLabelStyle:
-                                    TextStyle(color: AppColors.blue),
-                                hintText: 'Confirm Password',
-                                hintStyle: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff1A1C1E)),
-                                border: const OutlineInputBorder(),
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        color: Color(0xffEDF1F3)),
-                                    borderRadius: BorderRadius.circular(10)),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: AppColors.error),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10)),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide:
-                                        BorderSide(color: AppColors.blue7)),
-                                focusedErrorBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide:
-                                        BorderSide(color: AppColors.grey)),
-                                contentPadding: const EdgeInsets.all(12),
-                              ),
-                            ),
+                          CustomWidgets().textFormField(
+                            hinttext: 'Confirm Password',
+                            txtController: confirmpasscontroller,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'This field is Required';
+                              }
+                              if (value != newpasscontroller.text) {
+                                return 'Passwords do not match';
+                              }
+                              return null;
+                            },
                           ),
                           const SizedBox(height: 25),
                           GestureDetector(

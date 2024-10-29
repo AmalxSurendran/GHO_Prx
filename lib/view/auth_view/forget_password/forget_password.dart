@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:patient_journey_management/constants/colors.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/bg_img.dart';
+import 'package:patient_journey_management/view/auth_view/register_page.dart';
 
 class Forgetpasswordemail extends StatefulWidget {
   const Forgetpasswordemail({super.key});
@@ -16,17 +17,6 @@ class _ForgetpasswordemailState extends State<Forgetpasswordemail> {
   final _formKey = GlobalKey<FormState>();
   bool isLoading = false;
 
-  String? validateField(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'This field cannot be empty';
-    } else if (!RegExp(
-            r"^[a-zA-Z0-9.a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}")
-        .hasMatch(value)) {
-      return 'Please enter a valid email';
-    }
-    return null;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +24,8 @@ class _ForgetpasswordemailState extends State<Forgetpasswordemail> {
       body: Stack(
         children: [
           const BgImg(),
-          SingleChildScrollView( // Wrap the entire body with a SingleChildScrollView
+          SingleChildScrollView(
+            // Wrap the entire body with a SingleChildScrollView
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Form(
@@ -80,34 +71,19 @@ class _ForgetpasswordemailState extends State<Forgetpasswordemail> {
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 25),
-                          TextFormField(
-                            controller: emailcontroller,
-                            cursorColor: AppColors.blue50,
-                            validator: validateField,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: AppColors.white,
-                              hintText: 'Your Email',
-                              hintStyle: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff1A1C1E)),
-                              border: const OutlineInputBorder(),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Color(0xffEDF1F3)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: AppColors.error),
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(10)),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(color: AppColors.blue7)),
-                              contentPadding: const EdgeInsets.all(12),
-                            ),
-                          ),
+                          CustomWidgets().textFormField(
+                              hinttext: 'Your Email',
+                              txtController: emailcontroller,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field cannot be empty';
+                                } else if (!RegExp(
+                                        r"^[a-zA-Z0-9.a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}")
+                                    .hasMatch(value)) {
+                                  return 'Please enter a valid email';
+                                }
+                                return null;
+                              }),
                           const SizedBox(height: 15),
                           GestureDetector(
                             onTap: () async {

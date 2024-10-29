@@ -67,10 +67,17 @@ class BgImg extends StatelessWidget {
         Positioned(
             top: 50,
             left: 49,
-            child: Image.asset(
-              'assets/splash_images/Ellipse 3014-1.png',
-              height: 48,
-              width: 49,
+            child: CircleAvatar(
+              backgroundColor: AppColors.white,
+              radius: 23,
+              child: Center(
+                child: Image.asset(
+                  'assets/splash_images/Ellipse_3014-1-removebg-preview.png',
+                  height: 50,
+                  width: 51,
+                  fit: BoxFit.cover,
+                ),
+              ),
             )),
         Positioned(
             top: 121,

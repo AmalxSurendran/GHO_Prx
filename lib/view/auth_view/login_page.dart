@@ -21,7 +21,6 @@ class LoginPage extends StatelessWidget {
     final AuthController authController = Get.put(AuthController());
 
     return Scaffold(
-      
       backgroundColor: AppColors.white,
       body: Stack(
         children: [
@@ -82,70 +81,35 @@ class LoginPage extends StatelessWidget {
                             },
                           ),
                           const SizedBox(height: 5),
-                          // Password input
+                           // Password input
                           Obx(
-                            () => Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: TextFormField(
-                                controller: passwordController,
-                                obscureText:
-                                    !authController.isPasswordVisible.value,
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'This field is Required';
-                                  }
-
-                                  return null;
+                            () => CustomWidgets().textFormField(
+                              hinttext: 'Enter Password',
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  authController.togglePasswordVisibility();
                                 },
-                                cursorColor: AppColors.blue50,
-                                decoration: InputDecoration(
-                                  focusColor: AppColors.blue7,
-                                  floatingLabelStyle:
-                                      TextStyle(color: AppColors.blue),
-                                  filled: true,
-                                  fillColor: AppColors.white,
-                                  suffixIcon: IconButton(
-                                    onPressed: () {
-                                      authController.togglePasswordVisibility();
-                                    },
-                                    icon: Icon(
-                                      authController.isPasswordVisible.value
-                                          ? Icons.visibility_off
-                                          : Icons.visibility,
-                                      color: AppColors.grey,
-                                    ),
-                                  ),
-                                  hintText: 'Enter password',
-                                  hintStyle: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xff1A1C1E)),
-                                  border: const OutlineInputBorder(),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          color: Color(0xffEDF1F3)),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColors.error),
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(10)),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide:
-                                          BorderSide(color: AppColors.blue7)),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide:
-                                          BorderSide(color: AppColors.grey)),
-                                  contentPadding: const EdgeInsets.all(12),
+                                icon: Icon(
+                                  authController.isPasswordVisible.value
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                  color: AppColors.grey,
                                 ),
                               ),
+                              txtController: passwordController,
+                              obsecuretext:
+                                  !authController.isPasswordVisible.value,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'This field is Required';
+                                }
+
+                                return null;
+                              },
                             ),
                           ),
+                         
+
                           const SizedBox(height: 10),
                           // Forget password link
                           Align(
