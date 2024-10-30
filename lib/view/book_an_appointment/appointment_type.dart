@@ -36,40 +36,39 @@ class AppointmentType extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               heading('Choose Appointment Type'),
-               const SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               GestureDetector(
                 onTap: () {
                   showDialog(
-                    
                     context: context,
                     builder: (context) => const SelectHospital(),
                   );
                 },
                 child: ContainerCustom(
-                  color:AppColors.grey6,
+                  color: AppColors.grey6,
                   heading: 'Hospital',
                   text: 'Your journey to recovery starts here.',
                   path: 'assets/icons/hospitalicon.svg',
                 ),
               ),
-               const SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               ContainerCustom(
                   heading: 'Clinic',
                   text: 'Your health is our priority—let’s check in!',
                   path: 'assets/icons/clinicicon.svg',
-                  color:AppColors.yellowshade),
-               const SizedBox(
+                  color: AppColors.yellowshade),
+              const SizedBox(
                 height: 10,
               ),
               ContainerCustom(
                   heading: 'Specialist',
                   text: 'Expert insights for your specific health needs.',
                   path: 'assets/icons/speacialisticon.svg',
-                  color:AppColors.redshade)
+                  color: AppColors.redshade)
             ],
           ),
         ),
@@ -98,7 +97,7 @@ class ContainerCustom extends StatelessWidget {
         height: 150,
         width: 326,
         decoration: BoxDecoration(
-            borderRadius:  const BorderRadius.all(Radius.circular(10)),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
             image: const DecorationImage(
                 image: AssetImage(
                     'assets/appointmentpageimages/containerbackground.jpeg'),
@@ -106,7 +105,7 @@ class ContainerCustom extends StatelessWidget {
                 fit: BoxFit.cover),
             color: color),
         child: Padding(
-          padding:  const EdgeInsets.only(left: 20, top: 20),
+          padding: const EdgeInsets.only(left: 20, top: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,22 +120,22 @@ class ContainerCustom extends StatelessWidget {
                   width: 24,
                 )),
               ),
-               const SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
                 heading,
-                style:  TextStyle(
+                style: TextStyle(
                     color: AppColors.textcolor,
                     fontSize: 18,
                     fontWeight: FontWeight.w400),
               ),
-               const SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
                 text,
-                style:  TextStyle(
+                style: TextStyle(
                     color: AppColors.textcolor,
                     fontSize: 14,
                     fontWeight: FontWeight.w300),

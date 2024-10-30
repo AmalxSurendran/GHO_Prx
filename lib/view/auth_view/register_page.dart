@@ -24,246 +24,95 @@ class RegisterPage extends StatelessWidget {
   final TextEditingController phonecontroller = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+  final FocusNode firstNameFocusNode = FocusNode();
+  final FocusNode lastNameFocusNode = FocusNode();
+  final FocusNode phonenumberFocusNode = FocusNode();
+  final FocusNode emailFocusNode = FocusNode();
+  final FocusNode passwordFocusNode = FocusNode();
+  final FocusNode confirmPassFocusNode = FocusNode();
+  final FocusNode checkboxFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
     final AuthController authController = Get.put(AuthController());
     // final Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: AppColors.white,
-      body: Stack(
-        children: [
-          const BgImg(),
-          Positioned.fill(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 300,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 25),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 15),
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(4),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        backgroundColor: AppColors.white,
+        body: Stack(
+          children: [
+            const BgImg(),
+            Positioned.fill(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 300,
                       ),
-                      child: Column(
-                        children: [
-                          titleSignup(),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          textAlreadyaccount(),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          firstNameField(),
-
-                          const SizedBox(height: 5),
-                          lastNameField(),
-                          const SizedBox(height: 5),
-                          phonenumberTxtfield(),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          CustomWidgets().textFormField(
-                            hinttext: 'Enter your email',
-                            txtController: emailcontroller,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your email';
-                              } else if (!RegExp(
-                                      r"^[a-zA-Z0-9.a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}")
-                                  .hasMatch(value)) {
-                                return 'Please enter a valid email';
-                              }
-                              return null;
-                            },
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-
-                          Obx(
-                            () => CustomWidgets().textFormField(
-                              txtController: passwordcontroller,
-                              hinttext: 'Enter Password',
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  authController.togglePasswordVisibility();
-                                },
-                                icon: Icon(
-                                  !authController.isPasswordVisible.value
-                                      ? Icons.visibility_off
-                                      : Icons.visibility,
-                                  color: AppColors.grey,
-                                ),
-                              ),
-                              obsecuretext:
-                                  !authController.isPasswordVisible.value,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'This field is Required';
-                                }
-
-                                return null;
-                              },
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 25),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 15),
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Column(
+                          children: [
+                            titleSignup(),
+                            const SizedBox(
+                              height: 10,
                             ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Obx(
-                            () => CustomWidgets().textFormField(
-                              txtController: confirmcontroller,
-                              hinttext: 'Confirm Password',
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  authController
-                                      .toggleConfirmPasswordVisibility();
-                                },
-                                icon: Icon(
-                                  !authController.isConfirmPasswordVisible.value
-                                      ? Icons.visibility_off
-                                      : Icons.visibility,
-                                  color: AppColors.grey,
-                                ),
-                              ),
-                              obsecuretext: !authController
-                                  .isConfirmPasswordVisible.value,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'This field is Required';
-                                }
-                                if (value != passwordcontroller.text) {
-                                  return 'Passwords do not match';
-                                }
-                                return null;
-                              },
+                            textAlreadyaccount(),
+                            const SizedBox(
+                              height: 20,
                             ),
-                          ),
+                            firstNameField(context),
 
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            children: [
-                              Obx(
-                                () => Checkbox(
-                                  value: authController.isChecked.value,
-                                  onChanged: (value) {
-                                    authController.isCheckedvisibility();
-                                  },
-                                  activeColor: AppColors.blue,
-                                  checkColor: AppColors.white,
-                                  side: BorderSide(
-                                    color: AppColors.blue,
-                                    width: 2,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                "I agree to the ",
-                                style: TextStyle(
-                                    color: AppColors.grey,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                "Terms of Service ",
-                                style: TextStyle(
-                                    color: AppColors.blue,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                "& ",
-                                style: TextStyle(
-                                    color: AppColors.grey,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 10),
-                              ),
-                              Text(
-                                "Privacy Policy",
-                                style: TextStyle(
-                                    color: AppColors.blue,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 10),
-                              ),
-                            ],
-                          ),
+                            const SizedBox(height: 5),
+                            lastNameField(context),
+                            const SizedBox(height: 5),
+                            phonenumberTxtfield(context),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            emailField(context),
+                            const SizedBox(
+                              height: 5,
+                            ),
 
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          // register button
-                          Obx(
-                            () => GestureDetector(
-                                onTap: () {
-                                  if (_formKey.currentState!.validate() &&
-                                      authController.isChecked.value) {
-                                    authController.register();
-                                  }
-                                },
-                                child: authController.isLoading.value
-                                    ? Center(
-                                        child: CircularProgressIndicator(
-                                          color: AppColors.blue,
-                                        ),
-                                      )
-                                    : Container(
-                                        width: 279,
-                                        height: 48,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          gradient: LinearGradient(
-                                            begin: Alignment.topCenter,
-                                            end: Alignment.bottomCenter,
-                                            colors:
-                                                authController.isChecked.value
-                                                    ? [
-                                                        const Color(0xFF065FD5),
-                                                        const Color(0xFF064DAB),
-                                                      ]
-                                                    : [
-                                                        AppColors.blue50,
-                                                        AppColors.blue50
-                                                      ],
-                                          ),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            " Sign Up",
-                                            style: TextStyle(
-                                              color: AppColors.white,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ),
-                                      )),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          )
-                        ],
+                            passwordField(authController, context),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            confirmPassField(authController, context),
+
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            chechBoxField(authController),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            // register button
+                            registerButton(authController),
+                            const SizedBox(
+                              height: 10,
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -304,21 +153,13 @@ class RegisterPage extends StatelessWidget {
         ],
       );
 
-  Widget firstNameField() => CustomWidgets().textFormField(
+  Widget firstNameField(BuildContext context) => CustomWidgets().textFormField(
         hinttext: 'Enter first  name',
-        txtController: lastnamecontroller,
-        validator: (value) {
-          if (value!.isEmpty) {
-            return 'This field is Required';
-          }
-
-          return null;
-        },
-      );
-
-  Widget lastNameField() => CustomWidgets().textFormField(
-        hinttext: 'Enter your last name',
         txtController: firstnamecontroller,
+        focusNode: firstNameFocusNode,
+        onFieldSubmitted: (value) {
+          FocusScope.of(context).requestFocus(lastNameFocusNode);
+        },
         validator: (value) {
           if (value!.isEmpty) {
             return 'This field is Required';
@@ -327,20 +168,42 @@ class RegisterPage extends StatelessWidget {
           return null;
         },
       );
-  Widget phonenumberTxtfield() {
+
+  Widget lastNameField(BuildContext context) => CustomWidgets().textFormField(
+        hinttext: 'Enter your last name',
+        txtController: lastnamecontroller,
+        focusNode: lastNameFocusNode,
+        onFieldSubmitted: (value) {
+          FocusScope.of(context).requestFocus(phonenumberFocusNode);
+        },
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'This field is Required';
+          }
+
+          return null;
+        },
+      );
+
+  Widget phonenumberTxtfield(BuildContext context) {
     return IntlPhoneField(
       controller: phonecontroller,
+      focusNode: phonenumberFocusNode,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      onSubmitted: (value) {
+        FocusScope.of(context).requestFocus(emailFocusNode);
+      },
       initialCountryCode: 'IN',
       flagsButtonPadding: const EdgeInsets.all(5),
       pickerDialogStyle: PickerDialogStyle(
         width: 300,
         countryCodeStyle: const TextStyle(fontWeight: FontWeight.bold),
       ),
-      validator: (value) {
-        if (value == null || !value.isValidNumber()) {
-          return 'Please enter your phone number';
+      validator: (phone) {
+        if (phone == null || phone.completeNumber.length < 10) {
+          return 'Enter a valid phone number';
         }
-        return null; // Return null if the input is valid
+        return null;
       },
       invalidNumberMessage: 'Enter valid PhoneNumber',
       decoration: InputDecoration(
@@ -373,6 +236,183 @@ class RegisterPage extends StatelessWidget {
       },
     );
   }
+
+  Widget emailField(BuildContext context) => CustomWidgets().textFormField(
+        hinttext: 'Enter your email',
+        txtController: emailcontroller,
+        focusNode: emailFocusNode,
+        onFieldSubmitted: (value) {
+          FocusScope.of(context).requestFocus(passwordFocusNode);
+        },
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter your email';
+          } else if (!RegExp(
+                  r"^[a-zA-Z0-9.a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}")
+              .hasMatch(value)) {
+            return 'Please enter a valid email';
+          }
+          return null;
+        },
+      );
+  Widget passwordField(AuthController authController, BuildContext context) =>
+      Obx(
+        () => CustomWidgets().textFormField(
+          txtController: passwordcontroller,
+          focusNode: passwordFocusNode,
+          onFieldSubmitted: (value) {
+            FocusScope.of(context).requestFocus(confirmPassFocusNode);
+          },
+          hinttext: 'Enter Password',
+          suffixIcon: IconButton(
+            onPressed: () {
+              authController.togglePasswordVisibility();
+            },
+            icon: Icon(
+              !authController.isPasswordVisible.value
+                  ? Icons.visibility_off
+                  : Icons.visibility,
+              color: AppColors.grey,
+            ),
+          ),
+          obsecuretext: !authController.isPasswordVisible.value,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'This field is Required';
+            }
+
+            return null;
+          },
+        ),
+      );
+
+  Widget confirmPassField(
+          AuthController authController, BuildContext context) =>
+      Obx(
+        () => CustomWidgets().textFormField(
+          txtController: confirmcontroller,
+          focusNode: confirmPassFocusNode,
+          onFieldSubmitted: (value) {
+            FocusScope.of(context).requestFocus(checkboxFocusNode);
+          },
+          hinttext: 'Confirm Password',
+          suffixIcon: IconButton(
+            onPressed: () {
+              authController.toggleConfirmPasswordVisibility();
+            },
+            icon: Icon(
+              !authController.isConfirmPasswordVisible.value
+                  ? Icons.visibility_off
+                  : Icons.visibility,
+              color: AppColors.grey,
+            ),
+          ),
+          obsecuretext: !authController.isConfirmPasswordVisible.value,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'This field is Required';
+            }
+            if (value != passwordcontroller.text) {
+              return 'Passwords do not match';
+            }
+            return null;
+          },
+        ),
+      );
+
+  Widget chechBoxField(AuthController authController) => Row(
+        children: [
+          Obx(
+            () => Checkbox(
+              value: authController.isChecked.value,
+              focusNode: checkboxFocusNode,
+              onChanged: (value) {
+                authController.isCheckedvisibility();
+              },
+              activeColor: AppColors.blue,
+              checkColor: AppColors.white,
+              side: BorderSide(
+                color: AppColors.blue,
+                width: 2,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+          ),
+          Text(
+            "I agree to the ",
+            style: TextStyle(
+                color: AppColors.grey,
+                fontSize: 10,
+                fontWeight: FontWeight.w500),
+          ),
+          Text(
+            "Terms of Service ",
+            style: TextStyle(
+                color: AppColors.blue,
+                fontSize: 10,
+                fontWeight: FontWeight.w500),
+          ),
+          Text(
+            "& ",
+            style: TextStyle(
+                color: AppColors.grey,
+                fontWeight: FontWeight.w500,
+                fontSize: 10),
+          ),
+          Text(
+            "Privacy Policy",
+            style: TextStyle(
+                color: AppColors.blue,
+                fontWeight: FontWeight.w500,
+                fontSize: 10),
+          ),
+        ],
+      );
+
+  Widget registerButton(AuthController authController) => Obx(
+        () => GestureDetector(
+            onTap: () {
+              if (_formKey.currentState!.validate() &&
+                  authController.isChecked.value) {
+                authController.register();
+              }
+            },
+            child: authController.isLoading.value
+                ? Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.blue,
+                    ),
+                  )
+                : Container(
+                    width: 279,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: authController.isChecked.value
+                            ? [
+                                const Color(0xFF065FD5),
+                                const Color(0xFF064DAB),
+                              ]
+                            : [AppColors.blue50, AppColors.blue50],
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        " Sign Up",
+                        style: TextStyle(
+                          color: AppColors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  )),
+      );
 }
 
 class CustomWidgets {
@@ -384,6 +424,8 @@ class CustomWidgets {
     String? Function(String?)? validator,
     IconButton? suffixIcon,
     bool obsecuretext = false,
+    FocusNode? focusNode,
+    Function(String)? onFieldSubmitted,
   }) {
     return Container(
       decoration: BoxDecoration(
@@ -392,6 +434,7 @@ class CustomWidgets {
       child: TextFormField(
         obscureText: obsecuretext,
         controller: txtController,
+        focusNode: focusNode,
         cursorColor: AppColors.blue50,
         validator: validator,
         decoration: InputDecoration(
@@ -420,6 +463,7 @@ class CustomWidgets {
               borderSide: BorderSide(color: AppColors.grey)),
           contentPadding: const EdgeInsets.all(12),
         ),
+        onFieldSubmitted: onFieldSubmitted,
       ),
     );
   }

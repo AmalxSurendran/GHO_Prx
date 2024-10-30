@@ -134,7 +134,7 @@ class Splash2 extends StatelessWidget {
                           GestureDetector(
                             onTap: () => Get.toNamed('/RegisterPage'),
                             child: Container(
-                              height: height * 0.05,
+                              height: height * 0.06,
                               width: width * 0.4,
                               decoration: BoxDecoration(
                                 border: Border.all(color: const Color(0xff027DFF)),
@@ -156,7 +156,7 @@ class Splash2 extends StatelessWidget {
                           GestureDetector(
                             onTap: () => Get.toNamed('/LoginPage'),
                             child: Container(
-                              height: height * 0.05,
+                              height: height * 0.06,
                               width: width * 0.4,
                               decoration: BoxDecoration(
                                 color: AppColors.blue,
