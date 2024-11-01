@@ -9,7 +9,7 @@ class ButtonCustom extends StatelessWidget {
   const ButtonCustom({
     required this.name,
     required this.height,
-     this.width,
+    this.width,
     super.key,
   });
 

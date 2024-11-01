@@ -56,19 +56,35 @@ class AppointmentType extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              ContainerCustom(
-                  heading: 'Clinic',
-                  text: 'Your health is our priority—let’s check in!',
-                  path: 'assets/icons/clinicicon.svg',
-                  color: AppColors.yellowshade),
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const SelectHospital(),
+                  );
+                },
+                child: ContainerCustom(
+                    heading: 'Clinic',
+                    text: 'Your health is our priority—let’s check in!',
+                    path: 'assets/icons/clinicicon.svg',
+                    color: AppColors.yellowshade),
+              ),
               const SizedBox(
                 height: 10,
               ),
-              ContainerCustom(
-                  heading: 'Specialist',
-                  text: 'Expert insights for your specific health needs.',
-                  path: 'assets/icons/speacialisticon.svg',
-                  color: AppColors.redshade)
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const SelectHospital(),
+                  );
+                },
+                child: ContainerCustom(
+                    heading: 'Specialist',
+                    text: 'Expert insights for your specific health needs.',
+                    path: 'assets/icons/speacialisticon.svg',
+                    color: AppColors.redshade),
+              )
             ],
           ),
         ),

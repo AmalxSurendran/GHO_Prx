@@ -6,6 +6,7 @@ import 'package:patient_journey_management/controller/auth_controller/auth_contr
 import 'package:patient_journey_management/utilities/custom_widgets/bg_img.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/button.dart';
 import 'package:patient_journey_management/view/auth_view/register_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -31,7 +32,7 @@ class LoginPage extends StatelessWidget {
           children: [
             BgImg(),
             // Login elements
-      
+
             Positioned.fill(
               child: SingleChildScrollView(
                 child: Form(
@@ -66,7 +67,7 @@ class LoginPage extends StatelessWidget {
                                   fontSize: 12),
                               textAlign: TextAlign.center,
                             ),
-      
+
                             const SizedBox(
                               height: 20,
                             ),
@@ -75,7 +76,8 @@ class LoginPage extends StatelessWidget {
                               hinttext: 'Enter Your Email',
                               focusNode: emailFocusNode,
                               onFieldSubmitted: (value) {
-                                FocusScope.of(context).requestFocus(passwordFocusNode);
+                                FocusScope.of(context)
+                                    .requestFocus(passwordFocusNode);
                               },
                               txtController: emailController,
                               validator: (value) {
@@ -90,7 +92,7 @@ class LoginPage extends StatelessWidget {
                               },
                             ),
                             const SizedBox(height: 5),
-                             // Password input
+                            // Password input
                             Obx(
                               () => CustomWidgets().textFormField(
                                 hinttext: 'Enter Password',
@@ -113,13 +115,12 @@ class LoginPage extends StatelessWidget {
                                   if (value!.isEmpty) {
                                     return 'This field is Required';
                                   }
-      
+
                                   return null;
                                 },
                               ),
                             ),
-                           
-      
+
                             const SizedBox(height: 10),
                             // Forget password link
                             Align(
@@ -193,10 +194,13 @@ class LoginPage extends StatelessWidget {
                                 const SizedBox(
                                   width: 20,
                                 ),
-                                SvgPicture.asset('assets/icons/googleicon.svg'),
+                                GestureDetector(
+                                    child: SvgPicture.asset(
+                                        'assets/icons/googleicon.svg')),
                                 SvgPicture.asset('assets/icons/appleicon.svg'),
                                 SvgPicture.asset('assets/icons/metaicon.svg'),
-                                SvgPicture.asset('assets/icons/windowsicon.svg'),
+                                SvgPicture.asset(
+                                    'assets/icons/windowsicon.svg'),
                                 const SizedBox(
                                   width: 20,
                                 ),

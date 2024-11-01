@@ -16,6 +16,7 @@ import 'package:patient_journey_management/view/my_consultations/dr_info.dart';
 import 'package:patient_journey_management/view/home_page/homepage.dart';
 import 'package:patient_journey_management/view/auth_view/login_page.dart';
 import 'package:patient_journey_management/view/my_consultations/myconsultations.dart';
+import 'package:patient_journey_management/view/my_consultations/reportToDoct_Nurse.dart';
 import 'package:patient_journey_management/view/notifications/notificationpage.dart';
 import 'package:patient_journey_management/view/book_an_appointment/select_datetime.dart';
 import 'package:patient_journey_management/view/book_an_appointment/select_hospital.dart';
@@ -97,6 +98,9 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: '/CreateNewPassword',
             page: () =>  CreateNewPassword()),
+        GetPage(
+            name: '/ReporttodoctNurse',
+            page: () =>  ReporttodoctNurse()),
       ],
     );
   }

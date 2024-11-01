@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
                         AssetImage('assets/homepageimages/Frame 586.png'),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Column(
@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
           ),
           const Spacer(),
           const SizedBox(width: 155, child: SelectPlace()),
-          SizedBox(
+          const SizedBox(
             width: 5,
           )
         ],
@@ -133,7 +133,9 @@ class HomePage extends StatelessWidget {
                     GestureDetector(
                         onTap: () => Get.toNamed('/AppointmentType'),
                         child: const BookAnAppointment()),
-                    GestureDetector(child: const TeleMedicine())
+                    GestureDetector(
+                        onTap: () => Get.toNamed('/AppointmentType'),
+                        child: const TeleMedicine())
                   ],
                 ),
               ),
@@ -200,7 +202,8 @@ class HomePage extends StatelessWidget {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(left: 15,right: 15),
+                                      padding: const EdgeInsets.only(
+                                          left: 15, right: 15),
                                       child: Row(
                                         children: [
                                           SvgPicture.asset(
@@ -213,14 +216,13 @@ class HomePage extends StatelessWidget {
                                           const SizedBox(
                                             width: 4,
                                           ),
-                                          Expanded
-                                          (
+                                          Expanded(
                                             child: Text(
                                               '123 Oak Street, CA 98765',
                                               style: TextStyle(
                                                   fontSize: 12,
                                                   color: AppColors.grey3),
-                                                  overflow: TextOverflow.ellipsis,
+                                              overflow: TextOverflow.ellipsis,
                                             ),
                                           )
                                         ],
@@ -341,7 +343,7 @@ class HomePage extends StatelessWidget {
                           path:
                               'assets/homepageimages/Frame 1000001455 (1).png',
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Container3(
@@ -424,9 +426,12 @@ class TeleMedicine extends StatelessWidget {
             ),
           ),
           Align(
-            alignment:Alignment.bottomLeft,
-            child: Image.asset('assets/homepageimages/TEE (1).png',fit: BoxFit.cover,
-            height: 300,),
+            alignment: Alignment.bottomLeft,
+            child: Image.asset(
+              'assets/homepageimages/TEE (1).png',
+              fit: BoxFit.cover,
+              height: 300,
+            ),
           )
         ],
       ),

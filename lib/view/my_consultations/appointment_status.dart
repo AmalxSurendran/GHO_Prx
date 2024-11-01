@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/button.dart';
 
 import '../../constants/colors.dart';
@@ -178,7 +179,9 @@ class AppointmentStatus extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const ButtonCustom(name: 'Follow-Up', height: 35, width: 326)
+                 GestureDetector(
+                  onTap: () => Get.offNamed('homepage'),
+                  child: const ButtonCustom(name: 'Follow-Up', height: 40, width: 326))
               ],
             ),
           ),

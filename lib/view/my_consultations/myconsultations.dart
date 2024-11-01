@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/headings.dart';
+import 'package:patient_journey_management/view/my_consultations/cancelConsultation.dart';
 import 'package:patient_journey_management/view/my_consultations/map_screen.dart';
+import 'package:patient_journey_management/view/my_consultations/rescheduleConsultation.dart';
 
 import '../../constants/colors.dart';
 
@@ -185,7 +187,7 @@ class MyConsultations extends StatelessWidget {
               Center(
                 child: Container(
                   height: 200,
-                  width: 326,
+                  // width: 326,
                   decoration: BoxDecoration(
                       color: AppColors.grey,
                       borderRadius: BorderRadius.circular(10)),
@@ -218,6 +220,7 @@ class MyConsultations extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
+                     onTap: () => Get.toNamed('/ReporttodoctNurse'),
                     child: Container(
                       height: 35,
                       width: 150,
@@ -264,12 +267,19 @@ class MyConsultations extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  Text(
-                    'Reschedule',
-                    style: TextStyle(
-                        color: AppColors.textcolor2,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
+                  GestureDetector(
+                    onTap: () {
+                       showDialog(
+                    context: context,
+                    builder: (context) => const RescheduleConsultation(),
+                  );},
+                    child: Text(
+                      'Reschedule',
+                      style: TextStyle(
+                          color: AppColors.textcolor2,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600),
+                    ),
                   )
                 ],
               ),
@@ -287,12 +297,20 @@ class MyConsultations extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  Text(
-                    'Cancel',
-                    style: TextStyle(
-                        color: AppColors.textcolor2,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
+                  GestureDetector(
+                    onTap: () {
+                       showDialog(
+                    context: context,
+                    builder: (context) => const Cancelconsultation(),
+                  );
+                    },
+                    child: Text(
+                      'Cancel',
+                      style: TextStyle(
+                          color: AppColors.textcolor2,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600),
+                    ),
                   )
                 ],
               ),
