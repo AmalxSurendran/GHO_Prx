@@ -195,6 +195,8 @@ class LoginPage extends StatelessWidget {
                                   width: 20,
                                 ),
                                 GestureDetector(
+                                   
+                                    
                                     child: SvgPicture.asset(
                                         'assets/icons/googleicon.svg')),
                                 SvgPicture.asset('assets/icons/appleicon.svg'),

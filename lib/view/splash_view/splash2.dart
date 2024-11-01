@@ -188,12 +188,15 @@ class Splash2 extends StatelessWidget {
                               color: const Color(0xff0D2E41).withOpacity(0.5),
                             ),
                           ),
-                          Text(
-                            'Terms and Conditions',
-                            style: TextStyle(
-                              fontSize: width * 0.02,
-                              fontWeight: FontWeight.w400,
-                              color: const Color(0xff027DFF),
+                          GestureDetector(
+                            onTap: () => Get.toNamed('/TermsAndCondition'),
+                            child: Text(
+                              'Terms and Conditions',
+                              style: TextStyle(
+                                fontSize: width * 0.02,
+                                fontWeight: FontWeight.w400,
+                                color: const Color(0xff027DFF),
+                              ),
                             ),
                           ),
                           Text(
@@ -204,12 +207,15 @@ class Splash2 extends StatelessWidget {
                               color: const Color(0xff0D2E41).withOpacity(0.5),
                             ),
                           ),
-                          Text(
-                            'Privacy Policy.',
-                            style: TextStyle(
-                              fontSize: width * 0.02,
-                              fontWeight: FontWeight.w400,
-                              color: const Color(0xff027DFF),
+                          GestureDetector(
+                            onTap: () => Get.toNamed('/PrivacyPolicy'),
+                            child: Text(
+                              'Privacy Policy.',
+                              style: TextStyle(
+                                fontSize: width * 0.02,
+                                fontWeight: FontWeight.w400,
+                                color: const Color(0xff027DFF),
+                              ),
                             ),
                           ),
                         ],

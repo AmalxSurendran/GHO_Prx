@@ -134,7 +134,7 @@ class HomePage extends StatelessWidget {
                         onTap: () => Get.toNamed('/AppointmentType'),
                         child: const BookAnAppointment()),
                     GestureDetector(
-                        onTap: () => Get.toNamed('/AppointmentType'),
+                        onTap: () => Get.toNamed('/Telemedicinepage'),
                         child: const TeleMedicine())
                   ],
                 ),
@@ -337,30 +337,39 @@ class HomePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container3(
-                          text1: 'Second',
-                          text2: 'Opinion',
-                          path:
-                              'assets/homepageimages/Frame 1000001455 (1).png',
+                        GestureDetector(
+                          onTap: () => Get.toNamed('/SecondOpinion'),
+                          child: Container3(
+                            text1: 'Second',
+                            text2: 'Opinion',
+                            path:
+                                'assets/homepageimages/Frame 1000001455 (1).png',
+                          ),
                         ),
                         const SizedBox(
                           width: 10,
                         ),
-                        Container3(
-                            text1: 'Peer',
-                            text2: 'Review',
-                            path: 'assets/homepageimages/Frame 1000001456.png')
+                        GestureDetector(
+                          onTap: () => Get.toNamed('/PeerReview'),
+                          child: Container3(
+                              text1: 'Peer',
+                              text2: 'Review',
+                              path: 'assets/homepageimages/Frame 1000001456.png'),
+                        )
                       ],
                     ),
                     const SizedBox(
                       height: 20,
                     ),
                     Center(
-                        child: Container3(
-                            text1: 'US',
-                            text2: 'InPatient',
-                            path:
-                                'assets/homepageimages/Frame 1000001457.png')),
+                        child: GestureDetector(
+                          onTap: () => Get.toNamed('/Usinpatient'),
+                          child: Container3(
+                              text1: 'US',
+                              text2: 'InPatient',
+                              path:
+                                  'assets/homepageimages/Frame 1000001457.png'),
+                        )),
                     const SizedBox(
                       height: 20,
                     ),

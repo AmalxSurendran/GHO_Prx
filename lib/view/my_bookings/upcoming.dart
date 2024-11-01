@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:patient_journey_management/constants/colors.dart';
+import 'package:patient_journey_management/view/my_consultations/cancelConsultation.dart';
+import 'package:patient_journey_management/view/my_consultations/rescheduleConsultation.dart';
 
 class UpComing extends StatelessWidget {
   const UpComing({super.key});
@@ -133,36 +135,44 @@ class UpComing extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            height: 37,
-                            width: 147,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: AppColors.blue),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                                child: Text(
-                              'Cancel',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 14,
-                                  color: AppColors.blue),
-                            )),
+                          GestureDetector(
+                            onTap: () => showDialog(context: context,
+                              builder: (context)=>Cancelconsultation(),),
+                            child: Container(
+                              height: 37,
+                              width: 147,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: AppColors.blue),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Center(
+                                  child: Text(
+                                'Cancel',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 14,
+                                    color: AppColors.blue),
+                              )),
+                            ),
                           ),
-                          Container(
-                            height: 37,
-                            width: 147,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: AppColors.blue),
-                                color: AppColors.blue,
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                                child: Text(
-                              'Reschedule',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 14,
-                                  color: AppColors.white),
-                            )),
+                          GestureDetector(
+                            onTap: () => showDialog(context: context,
+                              builder: (context) => RescheduleConsultation(), ),
+                            child: Container(
+                              height: 37,
+                              width: 147,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: AppColors.blue),
+                                  color: AppColors.blue,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Center(
+                                  child: Text(
+                                'Reschedule',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 14,
+                                    color: AppColors.white),
+                              )),
+                            ),
                           ),
                         ],
                       )

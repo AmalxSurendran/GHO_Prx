@@ -38,23 +38,23 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
         backgroundColor: AppColors.white,
         body: Stack(
           children: [
-            BgImg(),
-      
+            const BgImg(),
+
             // otp elements
-      
+
             Positioned.fill(
               child: SingleChildScrollView(
                 child: Form(
                   key: _formKey,
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 320,
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 25),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 15),
+                            horizontal: 15, vertical: 15),
                         decoration: BoxDecoration(
                           color: AppColors.white,
                           borderRadius: BorderRadius.circular(12),
@@ -102,32 +102,32 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                               },
                               length: 6,
                               defaultPinTheme: defaultPinTheme.copyWith(
-                                  height: 46,
+                                  height: 40,
                                   width: 46,
                                   textStyle: TextStyle(
                                       color: AppColors.blue6,
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold),
                                   decoration: BoxDecoration(
-                                      color: AppColors.dividercolor,
+                                      color: AppColors.white,
                                       border: Border.all(
                                         color: AppColors.blue7,
                                       ),
-                                      borderRadius: BorderRadius.circular(10))),
+                                      borderRadius: BorderRadius.circular(5))),
                               focusedPinTheme: defaultPinTheme.copyWith(
-                                  height: 46,
-                                  width: 45,
+                                  height: 40,
+                                  width: 46,
                                   textStyle: TextStyle(
-                                      color: AppColors.white,
+                                      color: AppColors.black1,
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold),
                                   decoration: defaultPinTheme.decoration!
                                       .copyWith(
-                                          color: AppColors.blue,
-                                          border:
-                                              Border.all(color: AppColors.blue7),
+                                          color: AppColors.white,
+                                          border: Border.all(
+                                              color: AppColors.blue7),
                                           borderRadius:
-                                              BorderRadius.circular(10))),
+                                              BorderRadius.circular(5))),
                               onCompleted: (value) {
                                 otpController.text = value;
                               },
@@ -139,15 +139,15 @@ class _ForgetpasswordotpState extends State<Forgetpasswordotp> {
                                   setState(() {
                                     isLoading = true;
                                   });
-      
+
                                   // Simulate loading and perform your verification action here
                                   await Future.delayed(
                                       const Duration(seconds: 2));
-      
+
                                   setState(() {
                                     isLoading = false;
                                   });
-      
+
                                   Get.offNamed('/CreateNewPassword');
                                 }
                               },

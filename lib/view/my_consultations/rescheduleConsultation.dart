@@ -6,17 +6,17 @@ class RescheduleConsultation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  AlertDialog(
-          title: Text('Cancel'),
-          content: Text('This is an alert message. Do you want to cancel the Consultation?'),
+          title: const Text('Cancel'),
+          content: const Text('This is an alert message. Do you want to Reschedule?'),
           actions: [
             TextButton(
-              child: Text('NO'),
+              child: const Text('NO'),
               onPressed: () {
                 Navigator.of(context).pop(); // Close the alert box
               },
             ),
             TextButton(
-              child: Text('YES'),
+              child: const Text('YES'),
               onPressed: () {
                 // Perform an action when 'OK' is pressed
                 Navigator.of(context).pop(); // Close the alert box

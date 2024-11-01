@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 import '../../constants/colors.dart';
 
-class PrivacyPolicy extends StatelessWidget {
-  const PrivacyPolicy({super.key});
+class SelectClinic extends StatelessWidget {
+  const SelectClinic({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +18,13 @@ class PrivacyPolicy extends StatelessWidget {
           ),
         ),
         title: Text(
-          'Privacy Policy',
+          'Select Clinic',
           style: TextStyle(
               color: AppColors.textcolor,
               fontSize: 20,
               fontWeight: FontWeight.bold),
         ),),
-      body: Center(child: Text('(no functionality added)'),),
+      body: const Center(child: Text('(no functionality added)'),),
     );
   }
 }

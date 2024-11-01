@@ -3,13 +3,12 @@ import 'package:get/get.dart';
 
 import '../../constants/colors.dart';
 
-class PrivacyPolicy extends StatelessWidget {
-  const PrivacyPolicy({super.key});
+class Telemedicinepage extends StatelessWidget {
+  const Telemedicinepage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(leading: IconButton(
+    return Scaffold(appBar: AppBar(leading: IconButton(
           onPressed: () => Get.back(),
           icon: Icon(
             Icons.arrow_back_ios_rounded,
@@ -18,13 +17,12 @@ class PrivacyPolicy extends StatelessWidget {
           ),
         ),
         title: Text(
-          'Privacy Policy',
+          'Tele - Medicine',
           style: TextStyle(
               color: AppColors.textcolor,
               fontSize: 20,
               fontWeight: FontWeight.bold),
         ),),
-      body: Center(child: Text('(no functionality added)'),),
-    );
+      body: const Center(child: Text('(no functionality added)'),),);
   }
 }

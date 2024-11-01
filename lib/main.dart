@@ -9,20 +9,30 @@ import 'package:patient_journey_management/view/auth_view/forget_password/forget
 import 'package:patient_journey_management/view/auth_view/forget_password/forget_password.dart';
 import 'package:patient_journey_management/view/auth_view/otp_verification.dart';
 import 'package:patient_journey_management/view/auth_view/register_page.dart';
+import 'package:patient_journey_management/view/book_an_appointment/selectClinic.dart';
+import 'package:patient_journey_management/view/book_an_appointment/selectSpecialist.dart';
 import 'package:patient_journey_management/view/my_consultations/appointment_status.dart';
 import 'package:patient_journey_management/view/book_an_appointment/appointment_type.dart';
 import 'package:patient_journey_management/view/my_bookings/appointmentpage.dart';
+import 'package:patient_journey_management/view/my_consultations/cancelConsultation.dart';
 import 'package:patient_journey_management/view/my_consultations/dr_info.dart';
 import 'package:patient_journey_management/view/home_page/homepage.dart';
 import 'package:patient_journey_management/view/auth_view/login_page.dart';
 import 'package:patient_journey_management/view/my_consultations/myconsultations.dart';
 import 'package:patient_journey_management/view/my_consultations/reportToDoct_Nurse.dart';
+import 'package:patient_journey_management/view/my_consultations/rescheduleConsultation.dart';
 import 'package:patient_journey_management/view/notifications/notificationpage.dart';
 import 'package:patient_journey_management/view/book_an_appointment/select_datetime.dart';
 import 'package:patient_journey_management/view/book_an_appointment/select_hospital.dart';
+import 'package:patient_journey_management/view/peerReview/peerReviewPage.dart';
+import 'package:patient_journey_management/view/privacyPolicy.dart';
+import 'package:patient_journey_management/view/secondOpinion/secondOpinionPage.dart';
 
 import 'package:patient_journey_management/view/splash_view/splash.dart';
 import 'package:patient_journey_management/view/splash_view/splash2.dart';
+import 'package:patient_journey_management/view/teleMedicine/telemedicinePage.dart';
+import 'package:patient_journey_management/view/termsAndCondition.dart';
+import 'package:patient_journey_management/view/usInPatient/usInPatient.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,7 +72,7 @@ class MyApp extends StatelessWidget {
             name: '/customBottomNavBar',
             page: () => const CustomBottomNavigationBar()),
         GetPage(
-            name: '/Notificationpage', page: () => const Notificationpage()),
+            name: '/Notificationpage', page: () => const NotificationPage()),
         GetPage(
             name: '/AppointmentPage', page: () => const AppointmentPage()),
         GetPage(
@@ -99,8 +109,38 @@ class MyApp extends StatelessWidget {
             name: '/CreateNewPassword',
             page: () =>  CreateNewPassword()),
         GetPage(
+            name: '/SecondOpinion',
+            page: () =>  const SecondOpinion()),
+        GetPage(
+            name: '/PeerReview',
+            page: () =>  const PeerReview()),
+        GetPage(
+            name: '/Usinpatient',
+            page: () =>  const Usinpatient()),
+        GetPage(
             name: '/ReporttodoctNurse',
-            page: () =>  ReporttodoctNurse()),
+            page: () =>  const ReporttodoctNurse()),
+        GetPage(
+            name: '/TermsAndCondition',
+            page: () =>  const TermsAndCondition()),
+        GetPage(
+            name: '/PrivacyPolicy',
+            page: () =>  const PrivacyPolicy()),
+        GetPage(
+            name: '/Cancelconsultation',
+            page: () =>  const Cancelconsultation()),
+        GetPage(
+            name: '/RescheduleConsultation',
+            page: () =>  const RescheduleConsultation()),
+        GetPage(
+            name: '/Telemedicinepage',
+            page: () =>  const Telemedicinepage()),
+        GetPage(
+            name: '/SelectClinic',
+            page: () =>  const SelectClinic()),
+        GetPage(
+            name: '/Selectspecialist',
+            page: () =>  const Selectspecialist()),
       ],
     );
   }

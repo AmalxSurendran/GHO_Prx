@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/headings.dart';
 import 'package:patient_journey_management/view/book_an_appointment/select_hospital.dart';
 
@@ -58,10 +59,7 @@ class AppointmentType extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => const SelectHospital(),
-                  );
+                 Get.toNamed('/SelectClinic');
                 },
                 child: ContainerCustom(
                     heading: 'Clinic',
@@ -74,10 +72,7 @@ class AppointmentType extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => const SelectHospital(),
-                  );
+                   Get.toNamed('/Selectspecialist');
                 },
                 child: ContainerCustom(
                     heading: 'Specialist',

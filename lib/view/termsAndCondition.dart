@@ -18,7 +18,7 @@ class TermsAndCondition extends StatelessWidget {
           ),
         ),
         title: Text(
-          'Back to Home',
+          'Terms and Condition',
           style: TextStyle(
               color: AppColors.textcolor,
               fontSize: 20,

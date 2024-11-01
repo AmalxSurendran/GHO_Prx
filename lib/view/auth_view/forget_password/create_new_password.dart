@@ -168,7 +168,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                               },
                               child: Container(
                                 width: double.infinity,
-                                height: 55,
+                                height: 48,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   gradient: const LinearGradient(

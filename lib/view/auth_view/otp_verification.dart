@@ -18,11 +18,9 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
   final _formKey = GlobalKey<FormState>();
   bool isLoading = false;
   bool isChecked = false;
-  String email = ''; // Assign the email from where you need
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     final defaultPinTheme = PinTheme(
       width: 56,
       height: 60,
@@ -53,7 +51,7 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 25),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 15),
+                            horizontal: 15, vertical: 15),
                         decoration: BoxDecoration(
                           color: AppColors.white,
                           borderRadius: BorderRadius.circular(10),
@@ -73,16 +71,18 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                               style: TextStyle(
                                 color: AppColors.headline,
                                 fontWeight: FontWeight.w700,
-                                fontSize: size.width / 11,
+                                fontSize: 28,
                               ),
                             ),
                             const SizedBox(height: 10),
                             Text(
-                              "OTP has been sent to $email",
+                              "OTP has been sent to your email",
                               style: TextStyle(
-                                  color: AppColors.grey10,
-                                  fontSize: size.width / 30),
+                                  color: AppColors.grey10, fontSize: 12),
                               textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 5,
                             ),
                             Container(
                               child: Pinput(
@@ -91,14 +91,15 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                                     return 'This field is required';
                                   } else if (value.length != 6) {
                                     return 'Enter a valid OTP of 6 digits';
-                                  } else if (!RegExp(r'^\d+$').hasMatch(value)) {
+                                  } else if (!RegExp(r'^\d+$')
+                                      .hasMatch(value)) {
                                     return 'OTP should contain only numbers';
                                   }
                                   return null;
                                 },
                                 length: 6,
                                 defaultPinTheme: defaultPinTheme.copyWith(
-                                    height: 46,
+                                    height: 40,
                                     width: 46,
                                     textStyle: TextStyle(
                                         color: AppColors.blue6,
@@ -108,21 +109,22 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                                         border: Border.all(
                                           color: AppColors.blue7,
                                         ),
-                                        borderRadius: BorderRadius.circular(4))),
+                                        borderRadius:
+                                            BorderRadius.circular(5))),
                                 focusedPinTheme: defaultPinTheme.copyWith(
-                                    height: 46,
-                                    width: 45,
+                                    height: 40,
+                                    width: 46,
                                     textStyle: TextStyle(
-                                        color: AppColors.white,
+                                        color: AppColors.black1,
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold),
                                     decoration: defaultPinTheme.decoration!
                                         .copyWith(
-                                            color: AppColors.blue,
+                                            color: AppColors.white,
                                             border: Border.all(
                                                 color: AppColors.blue7),
                                             borderRadius:
-                                                BorderRadius.circular(4))),
+                                                BorderRadius.circular(5))),
                                 onCompleted: (value) {
                                   otpController.text = value;
                                 },
@@ -153,8 +155,7 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                                     style: TextStyle(color: AppColors.grey10)),
                               ],
                             ),
-                            const SizedBox(height: 5),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 10),
                             GestureDetector(
                                 onTap: () async {
                                   try {
@@ -162,20 +163,21 @@ class _OtpConfirmationState extends State<OtpConfirmation> {
                                       setState(() {
                                         isLoading = true;
                                       });
-      
+
                                       // Simulate a network call with a delay
                                       await Future.delayed(
                                           const Duration(seconds: 2));
-      
+
                                       setState(() {
                                         isLoading = false;
                                       });
-      
+
                                       Get.offNamed('/LoginPage');
                                     }
                                   } catch (e) {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                        SnackBar(content: Text('$e'.toString())));
+                                        SnackBar(
+                                            content: Text('$e'.toString())));
                                   }
                                 },
                                 child: isLoading
