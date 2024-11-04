@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
             surfaceTintColor: AppColors.background),
         textTheme: GoogleFonts.latoTextTheme(),
       ),
-      initialRoute: '/',
+      initialRoute: '/splash',
       getPages: [
         GetPage(name: '/', page: () => const Splash1()),
         GetPage(name: '/splash', page: () => const Splash2()),
@@ -141,6 +141,9 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: '/Selectspecialist',
             page: () =>  const Selectspecialist()),
+        GetPage(
+            name: '/SelectHospital',
+            page: () =>  const SelectHospital()),
       ],
     );
   }

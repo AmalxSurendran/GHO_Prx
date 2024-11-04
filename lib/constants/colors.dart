@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static Color white = Colors.white;
-  static Color background =const Color(0xffF4F4F4); // home page background color
+  static Color background =
+      const Color(0xffF4F4F4); // home page background color
   static Color offwhite = const Color(0xffCCCCCC);
-  static Color iconbackground = const Color(0xffF3F4F6); // icons background circle avatar in bottom nav bar
+  static Color iconbackground = const Color(
+      0xffF3F4F6); // icons background circle avatar in bottom nav bar
   static Color dividercolor = const Color(0xffE5E7EB);
-  static Color dividercolor1 =  const Color(0xffDFDFDF);
-
+  static Color dividercolor1 = const Color(0xffDFDFDF);
 
   static Color white1 = const Color(0xffE1E7EE);
   static Color white2 = const Color(0xffDEF7E5);
   static Color white3 = const Color(0xffEEEEEE);
-  
+
   static Color white4 = const Color(0xffE3F6FF);
   static Color white5 = const Color(0xffCDE1FF);
 
@@ -43,7 +44,7 @@ class AppColors {
   static Color grey8 = const Color(0xff6A7683);
   static Color grey9 = const Color(0xffB3AFAF);
   static Color grey10 = const Color(0xff6C7278);
- 
+  static Color grey11 = const Color(0xff7A7B7C);
 
   static Color textcolor = const Color(0xff283343);
   static Color textcolor1 = const Color(0xff1F2A37);
@@ -54,7 +55,6 @@ class AppColors {
   static Color labelcolor = const Color(0xff1A1C1E);
   static Color black1 = const Color(0xff0D2E41);
 
-
   ////////////////////////////MULTIPLE COLORS/////////////////////////////
 
   static Color yellowshade = const Color(0xffFFF48E);
@@ -62,16 +62,11 @@ class AppColors {
   static Color bordercolor = const Color(0xffFFD5C4);
   static Color bordercolor1 = const Color(0xffFDE8E8);
   static Color yellow = const Color(0xffEED600);
-  static Color red =  const Color(0xffE52516);
-  static Color green =   const Color(0xff12A817);
-  static Color red1 =   const Color(0xff771D1D);
-  static Color error =   Color.fromARGB(255, 165, 25, 15);
+  static Color red = const Color(0xffE52516);
+  static Color green = const Color(0xff12A817);
+  static Color red1 = const Color(0xff771D1D);
+  static Color error = Color.fromARGB(255, 165, 25, 15);
 
-
-
-  static Color circle1 =   Color(0xffC72FF8);
-  static Color circle2 =   Color(0xffC72FF8).withOpacity(0);
-
-
-  
+  static Color circle1 = Color(0xffC72FF8);
+  static Color circle2 = Color(0xffC72FF8).withOpacity(0);
 }

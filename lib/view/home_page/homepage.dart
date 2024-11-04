@@ -134,7 +134,7 @@ class HomePage extends StatelessWidget {
                         onTap: () => Get.toNamed('/AppointmentType'),
                         child: const BookAnAppointment()),
                     GestureDetector(
-                        onTap: () => Get.toNamed('/Telemedicinepage'),
+                        onTap: () => Get.toNamed('/AppointmentType'),//TeleMedicinePge
                         child: const TeleMedicine())
                   ],
                 ),

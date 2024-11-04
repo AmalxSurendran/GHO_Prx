@@ -71,10 +71,10 @@ class RegisterPage extends StatelessWidget {
                             const SizedBox(
                               height: 20,
                             ),
-                            firstNameField(context),
+                            lastNameField(context),
 
                             const SizedBox(height: 5),
-                            lastNameField(context),
+                            firstNameField(context),
                             const SizedBox(height: 5),
                             phonenumberTxtfield(context),
                             const SizedBox(
@@ -153,12 +153,12 @@ class RegisterPage extends StatelessWidget {
         ],
       );
 
-  Widget firstNameField(BuildContext context) => CustomWidgets().textFormField(
-        hinttext: 'Enter first  name',
-        txtController: firstnamecontroller,
-        focusNode: firstNameFocusNode,
+  Widget lastNameField(BuildContext context) => CustomWidgets().textFormField(
+        hinttext: 'Enter your last name',
+        txtController: lastnamecontroller,
+        focusNode: lastNameFocusNode,
         onFieldSubmitted: (value) {
-          FocusScope.of(context).requestFocus(lastNameFocusNode);
+          FocusScope.of(context).requestFocus(phonenumberFocusNode);
         },
         validator: (value) {
           if (value!.isEmpty) {
@@ -169,12 +169,12 @@ class RegisterPage extends StatelessWidget {
         },
       );
 
-  Widget lastNameField(BuildContext context) => CustomWidgets().textFormField(
-        hinttext: 'Enter your last name',
-        txtController: lastnamecontroller,
-        focusNode: lastNameFocusNode,
+  Widget firstNameField(BuildContext context) => CustomWidgets().textFormField(
+        hinttext: 'Enter your first name',
+        txtController: firstnamecontroller,
+        focusNode: firstNameFocusNode,
         onFieldSubmitted: (value) {
-          FocusScope.of(context).requestFocus(phonenumberFocusNode);
+          FocusScope.of(context).requestFocus(lastNameFocusNode);
         },
         validator: (value) {
           if (value!.isEmpty) {

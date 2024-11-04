@@ -59,7 +59,7 @@ class AppointmentType extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                 Get.toNamed('/SelectClinic');
+                 Get.toNamed('/SelectHospital');//SelectClinic
                 },
                 child: ContainerCustom(
                     heading: 'Clinic',
@@ -72,7 +72,7 @@ class AppointmentType extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                   Get.toNamed('/Selectspecialist');
+                   Get.toNamed('/SelectHospital');//SelectSpeciality
                 },
                 child: ContainerCustom(
                     heading: 'Specialist',
