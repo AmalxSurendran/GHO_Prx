@@ -213,7 +213,7 @@ class ContainerNew extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(10)),
       child: Padding(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(5),
         child: Column(
           children: [
             Row(
@@ -223,7 +223,7 @@ class ContainerNew extends StatelessWidget {
                 Text(
                   num!,
                   style: const TextStyle(
-                      fontWeight: FontWeight.w400, fontSize: 18),
+                      fontWeight: FontWeight.w400, fontSize: 15),
                 ),
                 const SizedBox(
                   width: 5,
@@ -231,7 +231,7 @@ class ContainerNew extends StatelessWidget {
                 Text(
                   heading!,
                   style: const TextStyle(
-                      fontWeight: FontWeight.w400, fontSize: 18),
+                      fontWeight: FontWeight.w400, fontSize: 15),
                 )
               ],
             ),

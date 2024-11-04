@@ -57,10 +57,10 @@ class MyApp extends StatelessWidget {
           cursorColor: AppColors.blue,
           selectionHandleColor: AppColors.blue,
         ),
-        scaffoldBackgroundColor: AppColors.background,
+        scaffoldBackgroundColor: AppColors.white,
         appBarTheme: AppBarTheme(
-            color: AppColors.background,
-            surfaceTintColor: AppColors.background),
+            color: AppColors.white,
+            surfaceTintColor: AppColors.white),
         textTheme: GoogleFonts.latoTextTheme(),
       ),
       initialRoute: '/splash',
