@@ -9,10 +9,10 @@ class DateController extends GetxController {
 
   // List of available dates for the selected doctor
   final List<DateTime> availableDays = [
-    DateTime.utc(2024, 10, 14),
-    DateTime.utc(2024, 10, 15),
-    DateTime.utc(2024, 10, 16),
-    DateTime.utc(2024, 10, 17),
+    DateTime.utc(2024, 11, 5),
+    DateTime.utc(2024, 11, 6),
+    DateTime.utc(2024, 11, 7),
+    DateTime.utc(2024, 11, 8),
     // Add more available days if needed
   ];
 

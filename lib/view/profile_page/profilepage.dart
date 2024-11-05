@@ -7,6 +7,7 @@ class Profilepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         leadingWidth: 100,
         leading: Padding(
@@ -51,8 +52,9 @@ class Profilepage extends StatelessWidget {
                       height: 23,
                       width: 70,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          border: Border.all(color: AppColors.blue),),
+                        borderRadius: BorderRadius.circular(4),
+                        border: Border.all(color: AppColors.blue),
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -85,10 +87,9 @@ class Profilepage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     left: 15, top: 20, bottom: 20, right: 15),
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.blue),
-                  borderRadius: BorderRadius.circular(4),
-                  color: Colors.blue.shade100
-                ),
+                    border: Border.all(color: AppColors.blue),
+                    borderRadius: BorderRadius.circular(4),
+                    color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -208,10 +209,9 @@ class Profilepage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     left: 15, top: 20, bottom: 20, right: 15),
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.blue),
-                  borderRadius: BorderRadius.circular(4),
-                   color: Colors.blue.shade100
-                ),
+                    border: Border.all(color: AppColors.blue),
+                    borderRadius: BorderRadius.circular(4),
+                    color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -253,7 +253,7 @@ class Profilepage extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   Container(
                     height: 23,
                     width: 95,
@@ -307,7 +307,7 @@ class Profilepage extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   Container(
                     height: 23,
                     width: 95,

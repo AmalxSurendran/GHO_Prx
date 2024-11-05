@@ -180,7 +180,7 @@ class AppointmentStatus extends StatelessWidget {
                   height: 20,
                 ),
                  GestureDetector(
-                  onTap: () => Get.offNamed('homepage'),
+                  onTap: () => Get.offNamed('/CustomBottomNavigationBar'),
                   child: const ButtonCustom(name: 'Follow-Up', height: 40, width: 326))
               ],
             ),

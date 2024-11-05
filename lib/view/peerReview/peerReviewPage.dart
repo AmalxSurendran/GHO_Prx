@@ -144,20 +144,20 @@ class PeerReview extends StatelessWidget {
                 ),
                 Listtile(
                   heading: 'Patient-Centered Approach:',
-                  text2: 'We prioritize your needs and well-being.',
+                  text2: 'We prioritize your needs and well-\nbeing.',
                 ),
                 Listtile(
                   heading: 'Comprehensive Reviews:',
-                  text2: 'Get a thorough evaluation of your medical case.',
+                  text2: 'Get a thorough evaluation of your \nmedical case.',
                 ),
                 Listtile(
                   heading: 'Global Network: ',
-                  text2: 'Benefit from expertise from around the world.',
+                  text2: 'Benefit from expertise from \naround the world.',
                 ),
                 Listtile(
                   heading: 'Confidentiality:',
                   text2:
-                      'Your medical information is treated with the utmost privacy.',
+                      'Your medical information is \ntreated with the utmost privacy.',
                 )
               ],
             ),
@@ -174,17 +174,30 @@ class Listtile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+
       iconColor: AppColors.blue,
-      leading: const Icon(
+      
+      
+      title: Row(
+        children: [
+           const Icon(
         Icons.circle,
         size: 15,
       ),
-      title: Text(
-        heading!,
-        style: TextStyle(
-            color: AppColors.blue, fontWeight: FontWeight.w700, fontSize: 18),
+      const SizedBox(width: 10,),
+          Text(
+            heading!,
+            style: TextStyle(
+                color: AppColors.blue, fontWeight: FontWeight.w700, fontSize: 18),
+          ),
+        ],
       ),
-      subtitle: Text(text2!),
+      subtitle: Row(
+        children: [
+          const SizedBox(width: 25,),
+          Text(text2!,maxLines: 2,),
+        ],
+      ),
     );
   }
 }

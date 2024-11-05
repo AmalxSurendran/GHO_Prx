@@ -57,7 +57,7 @@ class _SelectPlaceState extends State<SelectPlace> {
             items: items
                 .map((item) => DropdownMenuItem(
 
-                      alignment: Alignment.centerRight,
+                      alignment: Alignment.centerLeft,
                       value: item,
                       child: Text(
                         item,
@@ -79,7 +79,8 @@ class _SelectPlaceState extends State<SelectPlace> {
               width: 500,
             ),
             dropdownStyleData: const DropdownStyleData(
-              maxHeight: 200,
+              maxHeight: 250,
+              width: 200
             ),
             menuItemStyleData: const MenuItemStyleData(
               height: 40,
