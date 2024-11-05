@@ -116,7 +116,7 @@ class MyApp extends StatelessWidget {
             page: () =>  const PeerReview()),
         GetPage(
             name: '/Usinpatient',
-            page: () =>  const Usinpatient()),
+            page: () =>   Usinpatient()),
         GetPage(
             name: '/ReporttodoctNurse',
             page: () =>  const ReporttodoctNurse()),

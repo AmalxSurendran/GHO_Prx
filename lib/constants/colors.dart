@@ -54,6 +54,7 @@ class AppColors {
   static Color headline = const Color(0xff111827);
   static Color labelcolor = const Color(0xff1A1C1E);
   static Color black1 = const Color(0xff0D2E41);
+  static Color black2 = const Color(0xff404040);
 
   ////////////////////////////MULTIPLE COLORS/////////////////////////////
 
