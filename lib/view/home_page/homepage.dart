@@ -4,14 +4,26 @@ import 'package:get/get.dart';
 import 'package:patient_journey_management/constants/colors.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/button.dart';
 import 'package:patient_journey_management/view/home_page/select_place.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../utilities/custom_widgets/headings.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const String locationUrl =
+        'https://www.google.com/maps/search/?api=1&query=37.7749,-122.4194'; // Replace with your latitude and longitude
+
+    Future<void> openMap() async {
+      if (await canLaunch(locationUrl)) {
+        await launch(locationUrl);
+      } else {
+        throw 'Could not launch $locationUrl';
+      }
+    }
+
     return Scaffold(
       // backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -134,7 +146,8 @@ class HomePage extends StatelessWidget {
                         onTap: () => Get.toNamed('/AppointmentType'),
                         child: const BookAnAppointment()),
                     GestureDetector(
-                        onTap: () => Get.toNamed('/AppointmentType'),//TeleMedicinePge
+                        onTap: () =>
+                            Get.toNamed('/AppointmentType'), //TeleMedicinePge
                         child: const TeleMedicine())
                   ],
                 ),
@@ -204,28 +217,31 @@ class HomePage extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(
                                           left: 15, right: 15),
-                                      child: Row(
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/icons/locationicon.svg',
-                                            color: AppColors.grey3,
-                                            fit: BoxFit.cover,
-                                            height: 14,
-                                            width: 14,
-                                          ),
-                                          const SizedBox(
-                                            width: 4,
-                                          ),
-                                          Expanded(
-                                            child: Text(
-                                              '123 Oak Street, CA 98765',
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: AppColors.grey3),
-                                              overflow: TextOverflow.ellipsis,
+                                      child: GestureDetector(
+                                        onTap: () => openMap(),
+                                        child: Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                              'assets/icons/locationicon.svg',
+                                              color: AppColors.grey3,
+                                              fit: BoxFit.cover,
+                                              height: 14,
+                                              width: 14,
                                             ),
-                                          )
-                                        ],
+                                            const SizedBox(
+                                              width: 4,
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                '123 Oak Street, CA 98765',
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: AppColors.grey3),
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Padding(
@@ -354,7 +370,8 @@ class HomePage extends StatelessWidget {
                           child: Container3(
                               text1: 'Peer',
                               text2: 'Review',
-                              path: 'assets/homepageimages/Frame 1000001456.png'),
+                              path:
+                                  'assets/homepageimages/Frame 1000001456.png'),
                         )
                       ],
                     ),
@@ -363,13 +380,12 @@ class HomePage extends StatelessWidget {
                     ),
                     Center(
                         child: GestureDetector(
-                          onTap: () => Get.toNamed('/Usinpatient'),
-                          child: Container3(
-                              text1: 'US',
-                              text2: 'InPatient',
-                              path:
-                                  'assets/homepageimages/Frame 1000001457.png'),
-                        )),
+                      onTap: () => Get.toNamed('/Usinpatient'),
+                      child: Container3(
+                          text1: 'US',
+                          text2: 'InPatient',
+                          path: 'assets/homepageimages/Frame 1000001457.png'),
+                    )),
                     const SizedBox(
                       height: 20,
                     ),
@@ -431,15 +447,19 @@ class TeleMedicine extends StatelessWidget {
                 'assets/icons/arrowicon.svg',
                 height: 24, // Responsive icon size
                 color: AppColors.white,
+                fit: BoxFit.cover,
               ),
             ),
           ),
           Align(
+            
             alignment: Alignment.bottomLeft,
             child: Image.asset(
-              'assets/homepageimages/TEE (1).png',
+              'assets/homepageimages/telemedicinebg.png',
               fit: BoxFit.cover,
-              height: 300,
+              
+
+              
             ),
           )
         ],

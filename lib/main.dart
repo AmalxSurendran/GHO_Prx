@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: '/', page: () => const Splash1()),
         GetPage(name: '/splash', page: () => const Splash2()),
-        GetPage(name: '/homepage', page: () => const HomePage()),
+        GetPage(name: '/homepage', page: () =>  HomePage()),
         GetPage(
             name: '/customBottomNavBar',
             page: () => const CustomBottomNavigationBar()),

@@ -7,7 +7,6 @@ class Profilepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
         leadingWidth: 100,
         leading: Padding(
@@ -20,9 +19,6 @@ class Profilepage extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
         ),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(25),
