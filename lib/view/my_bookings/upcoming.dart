@@ -21,11 +21,11 @@ class UpComing extends StatelessWidget {
                 width: 342,
                 height: 247,
                 decoration: BoxDecoration(
-                  color:AppColors.white,
+                  color: AppColors.white,
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
-                      color:AppColors.shadow1, // First shadow color
+                      color: AppColors.shadow1, // First shadow color
                       offset: const Offset(0, 4), // Shadow position
                       blurRadius: 6, // Blur radius
                       spreadRadius: 0, // Spread radius
@@ -48,13 +48,13 @@ class UpComing extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
-                            color:AppColors.textcolor1),
+                            color: AppColors.textcolor1),
                       ),
                       const SizedBox(
                         height: 5,
                       ),
-                       Divider(
-                        color:AppColors.dividercolor,
+                      Divider(
+                        color: AppColors.dividercolor,
                       ),
                       const SizedBox(
                         height: 5,
@@ -65,7 +65,7 @@ class UpComing extends StatelessWidget {
                             height: 109,
                             width: 109,
                             decoration: BoxDecoration(
-                                color:AppColors.grey,
+                                color: AppColors.grey,
                                 borderRadius: BorderRadius.circular(12),
                                 image: const DecorationImage(
                                     image: AssetImage(
@@ -92,7 +92,7 @@ class UpComing extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
-                                      color:AppColors.grey7),
+                                      color: AppColors.grey7),
                                 ),
                                 const SizedBox(
                                   height: 5,
@@ -114,7 +114,7 @@ class UpComing extends StatelessWidget {
                                       style: TextStyle(
                                           fontWeight: FontWeight.w400,
                                           fontSize: 14,
-                                          color:AppColors.grey7),
+                                          color: AppColors.grey7),
                                     )
                                   ],
                                 ),
@@ -126,8 +126,8 @@ class UpComing extends StatelessWidget {
                       const SizedBox(
                         height: 5,
                       ),
-                       Divider(
-                        color:AppColors.dividercolor,
+                      Divider(
+                        color: AppColors.dividercolor,
                       ),
                       const SizedBox(
                         height: 5,
@@ -136,8 +136,10 @@ class UpComing extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           GestureDetector(
-                            onTap: () => showDialog(context: context,
-                              builder: (context)=>Cancelconsultation(),),
+                            onTap: () => showDialog(
+                              context: context,
+                              builder: (context) => Cancelconsultation(),
+                            ),
                             child: Container(
                               height: 37,
                               width: 147,
@@ -155,8 +157,10 @@ class UpComing extends StatelessWidget {
                             ),
                           ),
                           GestureDetector(
-                            onTap: () => showDialog(context: context,
-                              builder: (context) => RescheduleConsultation(), ),
+                            onTap: () => showDialog(
+                              context: context,
+                              builder: (context) => RescheduleConsultation(),
+                            ),
                             child: Container(
                               height: 37,
                               width: 147,

@@ -1,8 +1,10 @@
 //changed
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:patient_journey_management/constants/colors.dart';
+import 'package:patient_journey_management/firebase_options.dart';
 import 'package:patient_journey_management/utilities/custom_bottom_navbar.dart';
 import 'package:patient_journey_management/view/auth_view/forget_password/create_new_password.dart';
 import 'package:patient_journey_management/view/auth_view/forget_password/forget_otp_verification.dart';
@@ -34,8 +36,14 @@ import 'package:patient_journey_management/view/teleMedicine/telemedicinePage.da
 import 'package:patient_journey_management/view/termsAndCondition.dart';
 import 'package:patient_journey_management/view/usInPatient/usInPatient.dart';
 
-void main() {
+import 'controller/auth_controller/authController.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  Get.put(AuthController());
   runApp(const MyApp());
 }
 
@@ -59,91 +67,60 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: AppColors.white,
         appBarTheme: AppBarTheme(
-            color: AppColors.white,
-            surfaceTintColor: AppColors.white),
+            color: AppColors.white, surfaceTintColor: AppColors.white),
         textTheme: GoogleFonts.latoTextTheme(),
       ),
-      initialRoute: '/splash',
+      initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: () => const Splash1()),
+        GetPage(name: '/', page: () =>  Splash1()),
         GetPage(name: '/splash', page: () => const Splash2()),
-        GetPage(name: '/homepage', page: () =>  HomePage()),
+        GetPage(name: '/homepage', page: () => HomePage()),
         GetPage(
             name: '/customBottomNavBar',
             page: () => const CustomBottomNavigationBar()),
         GetPage(
             name: '/Notificationpage', page: () => const NotificationPage()),
-        GetPage(
-            name: '/AppointmentPage', page: () => const AppointmentPage()),
-        GetPage(
-            name: '/AppointmentType', page: () => const AppointmentType()),
+        GetPage(name: '/AppointmentPage', page: () => const AppointmentPage()),
+        GetPage(name: '/AppointmentType', page: () => const AppointmentType()),
         GetPage(name: '/AppointmentType', page: () => const SelectHospital()),
         GetPage(
-            name: '/SelectDateAndTime',
-            page: () => const SelectDateAndTime()),
+            name: '/SelectDateAndTime', page: () => const SelectDateAndTime()),
         GetPage(
             name: '/CustomBottomNavigationBar',
             page: () => const CustomBottomNavigationBar()),
-        GetPage(
-            name: '/MyConsultations', page: () => const MyConsultations()),
+        GetPage(name: '/MyConsultations', page: () => const MyConsultations()),
         GetPage(name: '/DrInfo', page: () => const DrInfo()),
         GetPage(
-            name: '/AppointmentStatus',
-            page: () => const AppointmentStatus()),
-        GetPage(
-            name: '/LoginPage',
-            page: () =>  LoginPage()),
-        GetPage(
-            name: '/RegisterPage',
-            page: () =>  RegisterPage()),
-        GetPage(
-            name: '/OtpConfirmation',
-            page: () =>  const OtpConfirmation()),
+            name: '/AppointmentStatus', page: () => const AppointmentStatus()),
+        GetPage(name: '/LoginPage', page: () => LoginPage()),
+        GetPage(name: '/RegisterPage', page: () => RegisterPage()),
+        GetPage(name: '/OtpConfirmation', page: () => const OtpConfirmation()),
         GetPage(
             name: '/Forgetpasswordemail',
-            page: () =>  const Forgetpasswordemail()),
+            page: () => const Forgetpasswordemail()),
         GetPage(
-            name: '/Forgetpasswordotp',
-            page: () =>  const Forgetpasswordotp()),
+            name: '/Forgetpasswordotp', page: () => const Forgetpasswordotp()),
+        GetPage(name: '/CreateNewPassword', page: () => CreateNewPassword()),
+        GetPage(name: '/SecondOpinion', page: () => const SecondOpinion()),
+        GetPage(name: '/PeerReview', page: () => const PeerReview()),
+        GetPage(name: '/Usinpatient', page: () => Usinpatient()),
         GetPage(
-            name: '/CreateNewPassword',
-            page: () =>  CreateNewPassword()),
+            name: '/ReporttodoctNurse', page: () => const ReporttodoctNurse()),
         GetPage(
-            name: '/SecondOpinion',
-            page: () =>  const SecondOpinion()),
-        GetPage(
-            name: '/PeerReview',
-            page: () =>  const PeerReview()),
-        GetPage(
-            name: '/Usinpatient',
-            page: () =>   Usinpatient()),
-        GetPage(
-            name: '/ReporttodoctNurse',
-            page: () =>  const ReporttodoctNurse()),
-        GetPage(
-            name: '/TermsAndCondition',
-            page: () =>  const TermsAndCondition()),
-        GetPage(
-            name: '/PrivacyPolicy',
-            page: () =>  const PrivacyPolicy()),
+            name: '/TermsAndCondition', page: () => const TermsAndCondition()),
+        GetPage(name: '/PrivacyPolicy', page: () => const PrivacyPolicy()),
         GetPage(
             name: '/Cancelconsultation',
-            page: () =>  const Cancelconsultation()),
+            page: () => const Cancelconsultation()),
         GetPage(
             name: '/RescheduleConsultation',
-            page: () =>  const RescheduleConsultation()),
+            page: () => const RescheduleConsultation()),
         GetPage(
-            name: '/Telemedicinepage',
-            page: () =>  const Telemedicinepage()),
+            name: '/Telemedicinepage', page: () => const Telemedicinepage()),
+        GetPage(name: '/SelectClinic', page: () => const SelectClinic()),
         GetPage(
-            name: '/SelectClinic',
-            page: () =>  const SelectClinic()),
-        GetPage(
-            name: '/Selectspecialist',
-            page: () =>  const Selectspecialist()),
-        GetPage(
-            name: '/SelectHospital',
-            page: () =>  const SelectHospital()),
+            name: '/Selectspecialist', page: () => const Selectspecialist()),
+        GetPage(name: '/SelectHospital', page: () => const SelectHospital()),
       ],
     );
   }

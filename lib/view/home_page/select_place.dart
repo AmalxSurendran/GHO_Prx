@@ -22,7 +22,7 @@ class _SelectPlaceState extends State<SelectPlace> {
     'Palakkad',
     'Malappuram',
     'Kozhikkod',
-    'Vayanad',
+    'Wayanad',
     'Kannur',
     'Kasarkkod',
   ];

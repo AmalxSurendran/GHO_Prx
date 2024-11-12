@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "768584390944",
+    "project_id": "patient-journey-manageme-9579e",
+    "storage_bucket": "patient-journey-manageme-9579e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768584390944:android:dff54a2ba4478c2feadf45",
+        "android_client_info": {
+          "package_name": "com.example.patient_journey_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768584390944-j00ocq1pm8n77eimsnr849fdvmkii1f6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.patient_journey_management",
+            "certificate_hash": "edd9891ad3b4105a579f0a43d751092580d4459a"
+          }
+        },
+        {
+          "client_id": "768584390944-psc67h91npl0sfnjc6phq1r8niv21dh9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_y1o59_0JJiz9JIe_oaKQBcRFEo1pS0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768584390944-psc67h91npl0sfnjc6phq1r8niv21dh9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "768584390944-i2eogaeui0m6r0tp4vgql7i0aarnnu36.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.patientJourneyManagement"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

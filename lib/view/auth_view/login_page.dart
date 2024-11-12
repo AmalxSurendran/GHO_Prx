@@ -1,29 +1,30 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:patient_journey_management/constants/colors.dart';
-import 'package:patient_journey_management/controller/auth_controller/auth_controller.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/bg_img.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/button.dart';
 import 'package:patient_journey_management/view/auth_view/register_page.dart';
-import 'package:url_launcher/url_launcher.dart';
+import '../../controller/auth_controller/authController.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
-
-  final TextEditingController emailController = TextEditingController();
-
-  final TextEditingController passwordController = TextEditingController();
+  LoginPage({super.key}) {
+    Get.put(AuthController());
+  }
 
   final _formKey = GlobalKey<FormState>();
+  final AuthController authController = Get.find();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final RxBool isPasswordHidden = true.obs;
+  final RxBool isLoading = false.obs;
 
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode passwordFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
-    final AuthController authController = Get.put(AuthController());
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -31,8 +32,6 @@ class LoginPage extends StatelessWidget {
         body: Stack(
           children: [
             BgImg(),
-            // Login elements
-
             Positioned.fill(
               child: SingleChildScrollView(
                 child: Form(
@@ -62,15 +61,13 @@ class LoginPage extends StatelessWidget {
                             Text(
                               "Enter your email and password to log in ",
                               style: TextStyle(
-                                  color: AppColors.grey10,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12),
+                                color: AppColors.grey10,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 12,
+                              ),
                               textAlign: TextAlign.center,
                             ),
-
-                            const SizedBox(
-                              height: 20,
-                            ),
+                            const SizedBox(height: 20),
                             // Email input
                             CustomWidgets().textFormField(
                               hinttext: 'Enter Your Email',
@@ -93,34 +90,30 @@ class LoginPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 5),
                             // Password input
-                            Obx(
-                              () => CustomWidgets().textFormField(
-                                hinttext: 'Enter Password',
-                                focusNode: passwordFocusNode,
-                                suffixIcon: IconButton(
-                                  onPressed: () {
-                                    authController.togglePasswordVisibility();
-                                  },
-                                  icon: Icon(
-                                    authController.isPasswordVisible.value
-                                        ? Icons.visibility_off
-                                        : Icons.visibility,
-                                    color: AppColors.grey,
+                            Obx(() => CustomWidgets().textFormField(
+                                  hinttext: 'Enter Password',
+                                  focusNode: passwordFocusNode,
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      isPasswordHidden.value =
+                                          !isPasswordHidden.value;
+                                    },
+                                    icon: Icon(
+                                      isPasswordHidden.value
+                                          ? Icons.visibility_off
+                                          : Icons.visibility,
+                                      color: AppColors.grey,
+                                    ),
                                   ),
-                                ),
-                                txtController: passwordController,
-                                obsecuretext:
-                                    !authController.isPasswordVisible.value,
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'This field is Required';
-                                  }
-
-                                  return null;
-                                },
-                              ),
-                            ),
-
+                                  txtController: passwordController,
+                                  obsecuretext: isPasswordHidden.value,
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'This field is Required';
+                                    }
+                                    return null;
+                                  },
+                                )),
                             const SizedBox(height: 10),
                             // Forget password link
                             Align(
@@ -129,28 +122,31 @@ class LoginPage extends StatelessWidget {
                                 onTap: () {
                                   Get.toNamed('/Forgetpasswordemail');
                                 },
-                                child: RichText(
-                                  text: TextSpan(
-                                    text: 'Forget Password?',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: AppColors.blue,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                child: Text(
+                                  'Forget Password?',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: AppColors.blue,
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
                               ),
                             ),
                             const SizedBox(height: 25),
                             // Login button
-                            Obx(
-                              () => GestureDetector(
-                                  onTap: () {
+                            Obx(() => GestureDetector(
+                                  onTap: () async {
                                     if (_formKey.currentState!.validate()) {
-                                      authController.login();
+                                      isLoading.value =
+                                          true; // Show loading indicator
+                                      await authController.signIn(
+                                          emailController.text.trim(),
+                                          passwordController.text.trim());
+                                      isLoading.value =
+                                          false; // Hide loading indicator
                                     }
                                   },
-                                  child: authController.isLoading.value
+                                  child: isLoading.value
                                       ? Center(
                                           child: CircularProgressIndicator(
                                             color: AppColors.blue,
@@ -159,8 +155,8 @@ class LoginPage extends StatelessWidget {
                                       : const ButtonCustom(
                                           name: 'Log In',
                                           height: 48,
-                                        )),
-                            ),
+                                        ),
+                                )),
                             const SizedBox(height: 20),
                             // Social sign-up options
                             Row(
@@ -174,9 +170,10 @@ class LoginPage extends StatelessWidget {
                                 Text(
                                   'Or login with',
                                   style: TextStyle(
-                                      color: AppColors.grey10,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500),
+                                    color: AppColors.grey10,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                                 Container(
                                   height: 2,
@@ -185,52 +182,71 @@ class LoginPage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
+                            const SizedBox(height: 10),
+                            // Social icons
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const SizedBox(
-                                  width: 20,
-                                ),
+                                const SizedBox(width: 20),
                                 GestureDetector(
-                                   
-                                    
+                                    onTap: () async {
+                                      // Add Google login logic
+                                      User? user = await authController
+                                          .signInWithGoogle();
+                                      if (user != null) {
+                                        // Navigate to home or another page after successful sign-in
+                                        Navigator.pushReplacementNamed(
+                                            context, '/homepage');
+                                      }
+                                    },
                                     child: SvgPicture.asset(
                                         'assets/icons/googleicon.svg')),
-                                SvgPicture.asset('assets/icons/appleicon.svg'),
-                                SvgPicture.asset('assets/icons/metaicon.svg'),
-                                SvgPicture.asset(
-                                    'assets/icons/windowsicon.svg'),
-                                const SizedBox(
-                                  width: 20,
-                                ),
+                                GestureDetector(
+                                    onTap: () {
+                                      // Add Apple login logic
+                                    },
+                                    child: SvgPicture.asset(
+                                        'assets/icons/appleicon.svg')),
+                                GestureDetector(
+                                    onTap: () {
+                                      // Add Meta (Facebook) login logic
+                                    },
+                                    child: SvgPicture.asset(
+                                        'assets/icons/metaicon.svg')),
+                                GestureDetector(
+                                    onTap: () {
+                                      // Add Windows login logic
+                                    },
+                                    child: SvgPicture.asset(
+                                        'assets/icons/windowsicon.svg')),
+                                const SizedBox(width: 20),
                               ],
                             ),
                             const SizedBox(height: 10),
+                            // Sign up option
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                   "Don't have an account    ",
                                   style: TextStyle(
-                                      color: AppColors.grey10,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w300),
+                                    color: AppColors.grey10,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w300,
+                                  ),
                                   textAlign: TextAlign.center,
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    // Navigate to sign-up page
                                     Get.toNamed('/RegisterPage');
                                   },
                                   child: Text(
                                     "Sign Up",
                                     style: TextStyle(
-                                        color: AppColors.blue,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
+                                      color: AppColors.blue,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                     textAlign: TextAlign.center,
                                   ),
                                 ),

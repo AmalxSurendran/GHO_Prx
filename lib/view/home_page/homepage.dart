@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:patient_journey_management/constants/colors.dart';
+import 'package:patient_journey_management/controller/auth_controller/authController.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/button.dart';
 import 'package:patient_journey_management/view/home_page/select_place.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,6 +14,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AuthController authController=Get.put(AuthController());
     const String locationUrl =
         'https://www.google.com/maps/search/?api=1&query=37.7749,-122.4194'; // Replace with your latitude and longitude
 
@@ -56,14 +58,17 @@ class HomePage extends StatelessWidget {
                       SizedBox(
                         height: 32,
                         width: 32,
-                        child: CircleAvatar(
-                          backgroundColor: AppColors.white1,
-                          radius: 20,
-                          child: Center(
-                            child: Icon(
-                              Icons.add,
-                              color: AppColors.blue2,
-                              size: 10,
+                        child: GestureDetector(
+                          onTap: () =>authController.signOut() ,
+                          child: CircleAvatar(
+                            backgroundColor: AppColors.white1,
+                            radius: 20,
+                            child: Center(
+                              child: Icon(
+                                Icons.add,
+                                color: AppColors.blue2,
+                                size: 10,
+                              ),
                             ),
                           ),
                         ),
@@ -101,11 +106,11 @@ class HomePage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 25),
                   child: TextFormField(
-                    cursorColor: AppColors.grey2,
+                    cursorColor: AppColors.blue,
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(vertical: 25),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: AppColors.offwhite),
+                        borderSide: BorderSide(color: AppColors.blue50),
                       ),
                       border: const OutlineInputBorder(),
                       hintText:
@@ -376,7 +381,7 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 25,
                     ),
                     Center(
                         child: GestureDetector(

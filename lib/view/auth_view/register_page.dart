@@ -1,27 +1,30 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:patient_journey_management/constants/colors.dart';
-import 'package:patient_journey_management/controller/auth_controller/auth_controller.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/bg_img.dart';
 
+import '../../controller/auth_controller/authController.dart';
+
 class RegisterPage extends StatelessWidget {
-  RegisterPage({super.key});
-
-  final TextEditingController firstnamecontroller = TextEditingController();
-
-  final TextEditingController lastnamecontroller = TextEditingController();
-
-  final TextEditingController emailcontroller = TextEditingController();
-
-  final TextEditingController passwordcontroller = TextEditingController();
-
-  final TextEditingController confirmcontroller = TextEditingController();
-
-  final TextEditingController phonecontroller = TextEditingController();
+  RegisterPage({super.key}) {
+    Get.put(AuthController());
+  }
+  final AuthController authController = Get.find();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  final RxBool isPasswordHidden =
+      true.obs; // Observable for password visibility toggle
+  final RxBool isConfirmPasswordHidden =
+      true.obs; // Observable for confirm password visibility toggle
+  final RxBool isChecked = false.obs; // Checkbox observable
+  final RxBool isLoading = false.obs;
 
   final _formKey = GlobalKey<FormState>();
   final FocusNode firstNameFocusNode = FocusNode();
@@ -34,8 +37,8 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AuthController authController = Get.put(AuthController());
     // final Size size = MediaQuery.of(context).size;
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -85,21 +88,21 @@ class RegisterPage extends StatelessWidget {
                               height: 5,
                             ),
 
-                            passwordField(authController, context),
+                            passwordField(context),
                             const SizedBox(
                               height: 5,
                             ),
-                            confirmPassField(authController, context),
+                            confirmPassField(context),
 
                             const SizedBox(
                               height: 5,
                             ),
-                            chechBoxField(authController),
+                            chechBoxField(),
                             const SizedBox(
                               height: 5,
                             ),
                             // register button
-                            registerButton(authController),
+                            registerButton(),
                             const SizedBox(
                               height: 10,
                             )
@@ -155,10 +158,10 @@ class RegisterPage extends StatelessWidget {
 
   Widget lastNameField(BuildContext context) => CustomWidgets().textFormField(
         hinttext: 'Enter your last name',
-        txtController: lastnamecontroller,
+        txtController: lastNameController,
         focusNode: lastNameFocusNode,
         onFieldSubmitted: (value) {
-          FocusScope.of(context).requestFocus(phonenumberFocusNode);
+          FocusScope.of(context).requestFocus(firstNameFocusNode);
         },
         validator: (value) {
           if (value!.isEmpty) {
@@ -171,10 +174,10 @@ class RegisterPage extends StatelessWidget {
 
   Widget firstNameField(BuildContext context) => CustomWidgets().textFormField(
         hinttext: 'Enter your first name',
-        txtController: firstnamecontroller,
+        txtController: firstNameController,
         focusNode: firstNameFocusNode,
         onFieldSubmitted: (value) {
-          FocusScope.of(context).requestFocus(lastNameFocusNode);
+          FocusScope.of(context).requestFocus(phonenumberFocusNode);
         },
         validator: (value) {
           if (value!.isEmpty) {
@@ -187,7 +190,7 @@ class RegisterPage extends StatelessWidget {
 
   Widget phonenumberTxtfield(BuildContext context) {
     return IntlPhoneField(
-      controller: phonecontroller,
+      controller: phoneController,
       focusNode: phonenumberFocusNode,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onSubmitted: (value) {
@@ -239,7 +242,7 @@ class RegisterPage extends StatelessWidget {
 
   Widget emailField(BuildContext context) => CustomWidgets().textFormField(
         hinttext: 'Enter your email',
-        txtController: emailcontroller,
+        txtController: emailController,
         focusNode: emailFocusNode,
         onFieldSubmitted: (value) {
           FocusScope.of(context).requestFocus(passwordFocusNode);
@@ -255,10 +258,9 @@ class RegisterPage extends StatelessWidget {
           return null;
         },
       );
-  Widget passwordField(AuthController authController, BuildContext context) =>
-      Obx(
+  Widget passwordField(BuildContext context) => Obx(
         () => CustomWidgets().textFormField(
-          txtController: passwordcontroller,
+          txtController: passwordController,
           focusNode: passwordFocusNode,
           onFieldSubmitted: (value) {
             FocusScope.of(context).requestFocus(confirmPassFocusNode);
@@ -266,16 +268,14 @@ class RegisterPage extends StatelessWidget {
           hinttext: 'Enter Password',
           suffixIcon: IconButton(
             onPressed: () {
-              authController.togglePasswordVisibility();
+              isPasswordHidden.value = !isPasswordHidden.value;
             },
             icon: Icon(
-              !authController.isPasswordVisible.value
-                  ? Icons.visibility_off
-                  : Icons.visibility,
+              isPasswordHidden.value ? Icons.visibility_off : Icons.visibility,
               color: AppColors.grey,
             ),
           ),
-          obsecuretext: !authController.isPasswordVisible.value,
+          obsecuretext: isPasswordHidden.value,
           validator: (value) {
             if (value!.isEmpty) {
               return 'This field is Required';
@@ -286,11 +286,9 @@ class RegisterPage extends StatelessWidget {
         ),
       );
 
-  Widget confirmPassField(
-          AuthController authController, BuildContext context) =>
-      Obx(
+  Widget confirmPassField(BuildContext context) => Obx(
         () => CustomWidgets().textFormField(
-          txtController: confirmcontroller,
+          txtController: confirmPasswordController,
           focusNode: confirmPassFocusNode,
           onFieldSubmitted: (value) {
             FocusScope.of(context).requestFocus(checkboxFocusNode);
@@ -298,21 +296,22 @@ class RegisterPage extends StatelessWidget {
           hinttext: 'Confirm Password',
           suffixIcon: IconButton(
             onPressed: () {
-              authController.toggleConfirmPasswordVisibility();
+              isConfirmPasswordHidden.value =
+                  !isConfirmPasswordHidden.value; // Toggle visibility
             },
             icon: Icon(
-              !authController.isConfirmPasswordVisible.value
+              isConfirmPasswordHidden.value
                   ? Icons.visibility_off
                   : Icons.visibility,
               color: AppColors.grey,
             ),
           ),
-          obsecuretext: !authController.isConfirmPasswordVisible.value,
+          obsecuretext: isConfirmPasswordHidden.value,
           validator: (value) {
             if (value!.isEmpty) {
               return 'This field is Required';
             }
-            if (value != passwordcontroller.text) {
+            if (value != passwordController.text) {
               return 'Passwords do not match';
             }
             return null;
@@ -320,14 +319,14 @@ class RegisterPage extends StatelessWidget {
         ),
       );
 
-  Widget chechBoxField(AuthController authController) => Row(
+  Widget chechBoxField() => Row(
         children: [
           Obx(
             () => Checkbox(
-              value: authController.isChecked.value,
+              value: isChecked.value,
               focusNode: checkboxFocusNode,
               onChanged: (value) {
-                authController.isCheckedvisibility();
+                isChecked.value = value!;
               },
               activeColor: AppColors.blue,
               checkColor: AppColors.white,
@@ -371,15 +370,22 @@ class RegisterPage extends StatelessWidget {
         ],
       );
 
-  Widget registerButton(AuthController authController) => Obx(
+  Widget registerButton() => Obx(
         () => GestureDetector(
-            onTap: () {
-              if (_formKey.currentState!.validate() &&
-                  authController.isChecked.value) {
-                authController.register();
+            onTap: () async {
+              if (_formKey.currentState!.validate() && isChecked.value) {
+                isLoading.value = true;
+                await authController.signUp(
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
+                  firstName: firstNameController.text.trim(),
+                  lastName: lastNameController.text.trim(),
+                  phoneNumber: phoneController.text.trim(),
+                );
+                isLoading.value = false;
               }
             },
-            child: authController.isLoading.value
+            child: isLoading.value
                 ? Center(
                     child: CircularProgressIndicator(
                       color: AppColors.blue,
@@ -393,7 +399,7 @@ class RegisterPage extends StatelessWidget {
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: authController.isChecked.value
+                        colors: isChecked.value
                             ? [
                                 const Color(0xFF065FD5),
                                 const Color(0xFF064DAB),

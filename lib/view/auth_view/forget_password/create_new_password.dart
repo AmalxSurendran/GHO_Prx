@@ -5,38 +5,21 @@ import 'package:patient_journey_management/constants/colors.dart';
 import 'package:patient_journey_management/utilities/custom_widgets/bg_img.dart';
 import 'package:patient_journey_management/view/auth_view/register_page.dart';
 
-import '../../../controller/auth_controller/auth_controller.dart';
+import '../../../controller/auth_controller/authController.dart';
 
-class CreateNewPassword extends StatefulWidget {
-  CreateNewPassword({Key? key}) : super(key: key);
-
-  @override
-  State<CreateNewPassword> createState() => _CreateNewPasswordState();
-}
-
-class _CreateNewPasswordState extends State<CreateNewPassword> {
+class CreateNewPassword extends StatelessWidget {
+  CreateNewPassword({super.key});
+  final AuthController authController = Get.find();
   final TextEditingController newpasscontroller = TextEditingController();
   final TextEditingController confirmpasscontroller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
   final FocusNode newPassFocusNode = FocusNode();
   final FocusNode confirmPassFocusNode = FocusNode();
-
-  bool isLoading = false;
-
-  String? validateField(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'This field cannot be empty';
-    }
-    if (value != newpasscontroller.text) {
-      return 'Passwords do not match';
-    }
-    return null;
-  }
+  final RxBool isLoading = false.obs;
+  final RxBool isPasswordHidden = true.obs;
 
   @override
   Widget build(BuildContext context) {
-    final AuthController authController = Get.put(AuthController());
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -44,18 +27,13 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
         body: Stack(
           children: [
             const BgImg(),
-
-            // confirm password elements
-
             Positioned.fill(
               child: SingleChildScrollView(
                 child: Form(
                   key: _formKey,
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 300,
-                      ),
+                      const SizedBox(height: 300),
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 25),
                         padding: const EdgeInsets.symmetric(
@@ -77,22 +55,19 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                             Text(
                               'Create new password',
                               style: TextStyle(
-                                  color: AppColors.blue6,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 28),
+                                color: AppColors.blue6,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 28,
+                              ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
+                            const SizedBox(height: 10),
                             Text(
                               "Your new password must be different from previously used password",
                               style: TextStyle(
                                   color: AppColors.grey2, fontSize: 14),
                               textAlign: TextAlign.center,
                             ),
-                            const SizedBox(
-                              height: 25,
-                            ),
+                            const SizedBox(height: 25),
                             Obx(
                               () => CustomWidgets().textFormField(
                                 hinttext: 'Create New Password',
@@ -102,14 +77,14 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                   FocusScope.of(context)
                                       .requestFocus(confirmPassFocusNode);
                                 },
-                                obsecuretext:
-                                    !authController.isPasswordVisible.value,
+                                obsecuretext: isPasswordHidden.value,
                                 suffixIcon: IconButton(
                                   onPressed: () {
-                                    authController.togglePasswordVisibility();
+                                    isPasswordHidden.value =
+                                        !isPasswordHidden.value;
                                   },
                                   icon: Icon(
-                                    !authController.isPasswordVisible.value
+                                    isPasswordHidden.value
                                         ? Icons.visibility_off
                                         : Icons.visibility,
                                     color: AppColors.grey,
@@ -117,19 +92,16 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'This field is Required';
+                                    return 'This field is required';
                                   }
                                   if (value.length < 6) {
                                     return 'Password must be at least 6 characters long';
                                   }
-
                                   return null;
                                 },
                               ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
+                            const SizedBox(height: 10),
                             CustomWidgets().textFormField(
                               hinttext: 'Confirm Password',
                               txtController: confirmpasscontroller,
@@ -137,7 +109,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                               obsecuretext: true,
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return 'This field is Required';
+                                  return 'This field is required';
                                 }
                                 if (value != newpasscontroller.text) {
                                   return 'Passwords do not match';
@@ -150,20 +122,19 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                               onTap: () async {
                                 try {
                                   if (_formKey.currentState!.validate()) {
-                                    setState(() {
-                                      isLoading = true;
-                                    });
-                                    // Simulate loading
+                                    isLoading.value = true; // Show loading
+                                    // Simulate a delay for password reset process
                                     await Future.delayed(
                                         const Duration(seconds: 2));
-                                    setState(() {
-                                      isLoading = false;
-                                    });
-                                    Get.offNamed('/LoginPage');
+                                    isLoading.value = false; // Hide loading
+
+                                    // Implement actual password reset logic here (e.g., Firebase)
+                                    Get.offNamed(
+                                        '/LoginPage'); // Navigate to login page
                                   }
                                 } catch (e) {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text('$e'.toString())));
+                                      SnackBar(content: Text('Error: $e')));
                                 }
                               },
                               child: Container(
@@ -180,25 +151,26 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                     ],
                                   ),
                                 ),
-                                child: Center(
-                                  child: isLoading
-                                      ? LoadingAnimationWidget.fourRotatingDots(
-                                          color: AppColors.white,
-                                          size: 24,
-                                        )
-                                      : Text(
-                                          'Reset Password',
-                                          style: TextStyle(
+                                child: Obx(
+                                  () => Center(
+                                    child: isLoading.value
+                                        ? LoadingAnimationWidget
+                                            .fourRotatingDots(
                                             color: AppColors.white,
-                                            fontSize: 14,
+                                            size: 24,
+                                          )
+                                        : Text(
+                                            'Reset Password',
+                                            style: TextStyle(
+                                              color: AppColors.white,
+                                              fontSize: 14,
+                                            ),
                                           ),
-                                        ),
+                                  ),
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            )
+                            const SizedBox(height: 10)
                           ],
                         ),
                       ),

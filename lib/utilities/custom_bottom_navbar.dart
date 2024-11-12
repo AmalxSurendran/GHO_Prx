@@ -17,9 +17,9 @@ class CustomBottomNavigationBar extends StatefulWidget {
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _currentindex = 0;
   List<Widget> pages = [
-     HomePage(),
+    HomePage(),
     const NotificationPage(),
-     const AppointmentPage(),
+    const AppointmentPage(),
     const Profilepage(),
   ];
 
@@ -29,7 +29,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       body: pages[_currentindex],
       bottomNavigationBar: Container(
         height: 70,
-        color:AppColors.white, // Bottom Navigation Bar Background
+        color: AppColors.white, // Bottom Navigation Bar Background
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -44,16 +44,25 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   alignment: Alignment.center,
                   children: [
                     // Circle background behind the selected icon
-                    if (_currentindex == i)
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors
-                              .iconbackground, // Change the color as needed
-                        ),
-                      ),
+                    _currentindex == i
+                        ? Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors
+                                  .iconbackground, // Change the color as needed
+                            ),
+                          )
+                        : Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors
+                                  .white, // Change the color as needed
+                            ),
+                          ),
                     // Icon
                     Column(
                       mainAxisSize: MainAxisSize.min,
